@@ -1,0 +1,124 @@
+//
+// //LOG TO THE CONSOLE
+// function(err, result){
+//   if (err) {
+//     console.log(err);
+//   } else {
+//       console.log('Row inserted with values: ' + result.rows[0].fname+' '+result.rows[0].lname+' '+result.rows[0].empnum);
+//   }
+//
+
+// //PULL DATA OUT.
+// client.query("SELECT fname, lname, empnum FROM users", function (err, result, fields){
+//
+//   if (err) throw err;
+//   console.log(result);
+//});
+
+//
+// //how to add only data that has values from the html form.
+// console.log(variety1+' '+style1+' '+size1+' '+pounds1);
+// if (variety1 =='-' && style1 =='-' && size1 ==0 && pounds1 ==0) {
+//   console.log('No values inside');
+// } else {
+//   console.log('value inside: '+ variety1+' '+style1+' '+size1+' '+pounds1);
+//   //look into user table and get id to insert into userid in orders table.
+//   client.query("SELECT id FROM users where fname=$1 and lname=$2 and empnum=$3", [firstname, lastname, employeenumber], function (err, result, fields){
+//       //Test
+//      console.log(result)
+//       var num = result.rows[0];
+//       var getId = num.id;
+//       console.log(getId);
+//       client.query("INSERT INTO orders(userid, saledate, varity, style, size, pounds) \
+//           VALUES($1, $2, $3, $4, $5, $6)", [getId, saledate, variety1, style1, size1, pounds1]);
+//       console.log('Item added: ');
+//  });
+//  }
+//
+
+//Add values to the user table from the html form. EXTRA
+//client.query("INSERT INTO users(fname, lname, empnum) \
+   //VALUES($1, $2, $3) RETURNING fname, lname, empnum", [firstname, lastname, employeenumber])
+//
+//       client.query("INSERT INTO items(itemid, varity, style, size, pounds) \
+//       VALUES(1, $1, $2, $3, $4)", [variety1, style1, size1, pounds1]);
+//       client.query("INSERT INTO items(itemid, varity, style, size, pounds) \
+//       VALUES(2, $1, $2, $3, $4)", [variety2, style2, size2, pounds2]);
+
+//
+// //I have values into array. Dont need this anymore.
+// var variety1 = req.body.variety1;
+// var style1 = req.body.style1;
+// var size1 = req.body.size1;
+// var pounds1 = req.body.pounds1;
+//
+// var variety2 = req.body.variety2;
+// var style2 = req.body.style2;
+// var size2 = req.body.size2;
+// var pounds2 = req.body.pounds2;
+//
+// var variety3 = req.body.variety3;
+// var style3 = req.body.style3;
+// var size3 = req.body.size3;
+// var pounds3 = req.body.pounds3;
+//
+// var variety4 = req.body.variety4;
+// var style4 = req.body.style4;
+// var size4 = req.body.size4;
+// var pounds4 = req.body.pounds4;
+//
+// var variety5 = req.body.variety5;
+// var style5 = req.body.style5;
+// var size5 = req.body.size5;
+// var pounds5 = req.body.pounds5;
+//
+// var variety6 = req.body.variety6;
+// var style6 = req.body.style6;
+// var size6 = req.body.size6;
+// var pounds6 = req.body.pounds6;
+//
+// var variety7 = req.body.variety7;
+// var style7 = req.body.style7;
+// var size7 = req.body.size7;
+// var pounds7 = req.body.pounds7;
+//
+// var variety8 = req.body.variety8;
+// var style8 = req.body.style8;
+// var size8 = req.body.size8;
+// var pounds8 = req.body.pounds8;
+//
+// var variety9 = req.body.variety9;
+// var style9 = req.body.style9;
+// var size9 = req.body.size9;
+// var pounds9 = req.body.pounds9;
+//
+// var variety10 = req.body.variety10;
+// var style10 = req.body.style10;
+// var size10 = req.body.size10;
+// var pounds10 = req.body.pounds10;
+//
+// var variety11 = req.body.variety11;
+// var style11 = req.body.style11;
+// var size11 = req.body.size11;
+// var pounds11 = req.body.pounds11;
+//
+// var variety12 = req.body.variety12;
+// var style12 = req.body.style12;
+// var size12 = req.body.size12;
+// var pounds12 = req.body.pounds12;
+//
+// var variety13 = req.body.variety13;
+// var style13 = req.body.style13;
+// var size13 = req.body.size13;
+// var pounds13 = req.body.pounds13;
+//
+// var variety14 = req.body.variety14;
+// var style14 = req.body.style14;
+// var size14 = req.body.size14;
+// var pounds14 = req.body.pounds14;
+//
+// var variety15 = req.body.variety15;
+// var style15 = req.body.style15;
+// var size15 = req.body.size15;
+// var pounds15 = req.body.pounds15;
+//

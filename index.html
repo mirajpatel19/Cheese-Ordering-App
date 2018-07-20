@@ -16,26 +16,21 @@
       <legend>
         <h3><i>Personal Information</i></h3></legend>
 
+<!-- TODO: Make the filds required. -->
       <lable><strong>First Name</strong><span class="required">*</span></label><br>
-        <input type="text" id="firstname" name="firstname" placeholder="Miraj"><br>
+        <input type="text" id="firstname" name="firstname" required placeholder="Miraj"><br>
       <lable><strong>Last Name</strong><span class="required">*</span></label><br>
-        <input type="text" id="lastname" name="lastname" placeholder="Patel"><br>
+        <input type="text" id="lastname" name="lastname" required placeholder="Patel"><br>
       <lable><strong>Employee Number</strong><span class="required">*</span></label><br>
-        <input type="number" id="employeenumber" name="employeenumber" placeholder="144196"><br>
+        <input type="number" id="employeenumber" name="employeenumber" required placeholder="143197"><br>
       <lable><strong>Cheese Sale Date</strong><span class="required">*</span></label><br>
-        <input type="date" id="saledate" name="saledate" min="formatDate"><br>
-      <lable><strong>Email</strong></label><br>
-        <input type="email" id="email" name="email" placeholder="Patel@josephfarms.com"><br>
-      <p id="date"></p>
-      <script>
-          var todaydate = new Date();
-          var day = todaydate.getDate();
-          var month = todaydate.getMonth() + 1;
-          var year = todaydate.getFullYear();
-          var formatDate = day + "/" + month + "/" + year;
-          console.log(year);
-          document.getElementById("date").innerHTML = todaydate;
-      </script>
+        <input type="date" id="saledate" name="saledate" required min=''><br>
+
+        <lable><strong>Today's Date</strong></lable><br>
+          <input type="text" id='date' onclick="checkDate()"><br>
+        <lable><strong>Email</strong> (to receive confirmation)</label><br>
+          <input type="email" id="email" name="email" placeholder="Patel1@josephfarms.com"><br>
+
     </fieldset>
 
 
@@ -62,6 +57,7 @@
             </select>
 
           </td>
+          <!-- TODO: load the list with a loop. -->
           <td>
             <select id="style1" name="style1" required>
               <option value="-" selected>Select</option>
@@ -78,9 +74,9 @@
           <td>
             <select id="size1" name="size1" required>
               <option value="0" selected>0</option>
-              <option value="1lb">1 lb</option>
-              <option value="2.5lb">2.5 lb</option>
-              <option value="5lb">5 lb</option>
+              <option value="1 lb">1 lb</option>
+              <option value="2.5 lb">2.5 lb</option>
+              <option value="5 lb">5 lb</option>
             </select>
           </td>
           <td>
@@ -130,9 +126,9 @@
           <td>
             <select id="size2" name="size2">
                 <option value="0" selected>0</option>
-                <option value="1lb">1 lb</option>
-                <option value="2.5lb">2.5 lb</option>
-                <option value="5lb">5 lb</option>
+                <option value="1 lb">1 lb</option>
+                <option value="2.5 lb">2.5 lb</option>
+                <option value="5 lb">5 lb</option>
               </select>
           </td>
           <td>
@@ -182,9 +178,9 @@
           <td>
             <select id="size3" name="size3">
                   <option value="0" selected>0</option>
-                  <option value="1lb">1 lb</option>
-                  <option value="2.5lb">2.5 lb</option>
-                  <option value="5lb">5 lb</option>
+                  <option value="1 lb">1 lb</option>
+                  <option value="2.5 lb">2.5 lb</option>
+                  <option value="5 lb">5 lb</option>
                 </select>
           </td>
           <td>
@@ -234,9 +230,9 @@
           <td>
             <select id="size4" name="size4">
                   <option value="0" selected>0</option>
-                  <option value="1lb">1 lb</option>
-                  <option value="2.5lb">2.5 lb</option>
-                  <option value="5lb">5 lb</option>
+                  <option value="1 lb">1 lb</option>
+                  <option value="2.5 lb">2.5 lb</option>
+                  <option value="5 lb">5 lb</option>
                 </select>
           </td>
           <td>
@@ -286,9 +282,9 @@
           <td>
             <select id="size5" name="size5">
                   <option value="0" selected>0</option>
-                  <option value="1lb">1 lb</option>
-                  <option value="2.5lb">2.5 lb</option>
-                  <option value="5lb">5 lb</option>
+                  <option value="1 lb">1 lb</option>
+                  <option value="2.5 lb">2.5 lb</option>
+                  <option value="5 lb">5 lb</option>
                 </select>
           </td>
           <td>
@@ -338,9 +334,9 @@
           <td>
             <select id="size6" name="size6">
                   <option value="0" selected>0</option>
-                  <option value="1lb">1 lb</option>
-                  <option value="2.5lb">2.5 lb</option>
-                  <option value="5lb">5 lb</option>
+                  <option value="1 lb">1 lb</option>
+                  <option value="2.5 lb">2.5 lb</option>
+                  <option value="5 lb">5 lb</option>
                 </select>
           </td>
           <td>
@@ -390,9 +386,9 @@
           <td>
             <select id="size7" name="size7">
                   <option value="0" selected>0</option>
-                  <option value="1lb">1 lb</option>
-                  <option value="2.5lb">2.5 lb</option>
-                  <option value="5lb">5 lb</option>
+                  <option value="1 lb">1 lb</option>
+                  <option value="2.5 lb">2.5 lb</option>
+                  <option value="5 lb">5 lb</option>
                 </select>
           </td>
           <td>
@@ -442,9 +438,9 @@
           <td>
             <select id="size8" name="size8">
                   <option value="0" selected>0</option>
-                  <option value="1lb">1 lb</option>
-                  <option value="2.5lb">2.5 lb</option>
-                  <option value="5lb">5 lb</option>
+                  <option value="1 lb">1 lb</option>
+                  <option value="2.5 lb">2.5 lb</option>
+                  <option value="5 lb">5 lb</option>
                 </select>
           </td>
           <td>
@@ -494,9 +490,9 @@
           <td>
             <select id="size9" name="size9">
                   <option value="0" selected>0</option>
-                  <option value="1lb">1 lb</option>
-                  <option value="2.5lb">2.5 lb</option>
-                  <option value="5lb">5 lb</option>
+                  <option value="1 lb">1 lb</option>
+                  <option value="2.5 lb">2.5 lb</option>
+                  <option value="5 lb">5 lb</option>
                 </select>
           </td>
           <td>
@@ -546,9 +542,9 @@
           <td>
             <select id="size10" name="size10">
                   <option value="0" selected>0</option>
-                  <option value="1lb">1 lb</option>
-                  <option value="2.5lb">2.5 lb</option>
-                  <option value="5lb">5 lb</option>
+                  <option value="1 lb">1 lb</option>
+                  <option value="2.5 lb">2.5 lb</option>
+                  <option value="5 lb">5 lb</option>
                 </select>
           </td>
           <td>
@@ -598,9 +594,9 @@
           <td>
             <select id="size11" name="size11">
                   <option value="0" selected>0</option>
-                  <option value="1lb">1 lb</option>
-                  <option value="2.5lb">2.5 lb</option>
-                  <option value="5lb">5 lb</option>
+                  <option value="1 lb">1 lb</option>
+                  <option value="2.5 lb">2.5 lb</option>
+                  <option value="5 lb">5 lb</option>
                 </select>
           </td>
           <td>
@@ -650,9 +646,9 @@
           <td>
             <select id="size12" name="size12">
                   <option value="0" selected>0</option>
-                  <option value="1lb">1 lb</option>
-                  <option value="2.5lb">2.5 lb</option>
-                  <option value="5lb">5 lb</option>
+                  <option value="1 lb">1 lb</option>
+                  <option value="2.5 lb">2.5 lb</option>
+                  <option value="5 lb">5 lb</option>
                 </select>
           </td>
           <td>
@@ -702,9 +698,9 @@
           <td>
             <select id="size13" name="size13">
                   <option value="0" selected>0</option>
-                  <option value="1lb">1 lb</option>
-                  <option value="2.5lb">2.5 lb</option>
-                  <option value="5lb">5 lb</option>
+                  <option value="1 lb">1 lb</option>
+                  <option value="2.5 lb">2.5 lb</option>
+                  <option value="5 lb">5 lb</option>
                 </select>
           </td>
           <td>
@@ -754,9 +750,9 @@
           <td>
             <select id="size14" name="size14">
                   <option value="0" selected>0</option>
-                  <option value="1lb">1 lb</option>
-                  <option value="2.5lb">2.5 lb</option>
-                  <option value="5lb">5 lb</option>
+                  <option value="1 lb">1 lb</option>
+                  <option value="2.5 lb">2.5 lb</option>
+                  <option value="5 lb">5 lb</option>
                 </select>
           </td>
           <td>
@@ -806,9 +802,9 @@
           <td>
             <select id="size15" name="size15">
                   <option value="0" selected>0</option>
-                  <option value="1lb">1 lb</option>
-                  <option value="2.5lb">2.5 lb</option>
-                  <option value="5lb">5 lb</option>
+                  <option value="1 lb">1 lb</option>
+                  <option value="2.5 lb">2.5 lb</option>
+                  <option value="5 lb">5 lb</option>
                 </select>
           </td>
           <td>
@@ -848,26 +844,56 @@
       <label for="comments"><strong>Comment: </strong></label><br />
       <textarea id="comments" name="comments" placeholder="Special order request..."></textarea><br><br />
 
-      <p id="cost"><strong>Your estimated cost will be: </strong>$00.00</p>
+      <!-- <p id="cost"><strong>Your estimated cost will be: </strong>$00.00</p> -->
 
       <button id="reset" type="reset" onclick="myReset()"><strong>Reset</strong></button>
-      <button id="submit" type="submit" onclick="" ng-click="testFunc()"><strong>Submit</strong></button>
+      <button id="submit" type="submit" onclick=""><strong>Submit</strong></button>
+      <!-- <a id='submit' href="ordercheese.html">Submit</a> -->
+      <!-- <button type="button" onclick="myConfor()">Home</button> -->
     </fieldset>
   </form>
   <!-- <img src="./images/bg-footer-top.jpg" alt="Joseph Gallo Farms Image"> -->
 
+<!--
   <script>
     function myMessageSummary() {
-      window.open("about.html");
+      href="index.html";
     }
   </script>
+
+  <script>
+    function myConfor() {
+      window.location.href = 'http://www.google.com/';
+    }
+  </script> -->
 
   <!-- Code to reset total box with reset button. -->
   <script>
     function myReset() {
       document.getElementById("total").innerHTML = "";
+      document.getElementById("date").value = displayToday;
+      document.getElementById("date").readOnly = true;
     }
   </script>
+  <!--
+  <script>
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+      dd = '0' + dd
+    }
+    if (mm < 10) {
+      mm = '0' + mm
+    }
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("saledate").setAttribute("min", today);
+    displayToday = mm + '/' + dd + '/' + yyyy;
+    document.getElementById("date").value = displayToday;
+    document.getElementById("date").readOnly = true;
+  </script>
+ -->
   <script>
     function myCalTotal() {
       var calPounds1 = document.getElementById("pounds1").value;
@@ -894,11 +920,20 @@
         alert("Employee’s are allowed a maximum of 15 pounds for Monthly Cheese Orders.");
         // document.getElementById("total").innerHTML = calTotal;
         document.getElementById("submit").disabled = true;
-
-
       } else {
         document.getElementById("total").innerHTML = calTotal;
         document.getElementById("submit").disabled = false;
       }
     }
   </script>
+  <!-- <script>
+      //if cheese sale date is less then current date do not let him hit submit button.
+      function checkDate() {
+        if (saledate != displayToday){
+          document.getElementById("submit").disabled = true;
+        } else {
+          document.getElementById("submit").disabled = false;
+        }
+      }
+  </script> -->
+  <!-- TEST TEST

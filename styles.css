@@ -8,7 +8,7 @@ img {
   margin-right: auto;
 }
 
-#firstname, #lastname, #employeenumber, #saledate, #email {
+#firstname, #lastname, #employeenumber, #saledate, #email, #date {
   margin: 8px 0;
   box-sizing: border-box;
 }
