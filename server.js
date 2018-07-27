@@ -7,6 +7,7 @@ var dateFormat = require('dateformat');
 const pg = require('pg');
 var app = express();
 
+
 // DB connect String
 //
  var connectionString = "postgres://postgres:1114@localhost:5432/cheeseordersdb";
@@ -27,127 +28,175 @@ app.use(bodyParser.urlencoded({
   extended: true
 }))
 
-app.post('/ordercheese', function(req, res) {
+//
+// app.get('/ordercheese', function(req, res){
+//   res.redirect('/ordercheese.html');
+// });
+//
+
+app.get('/ordercheese', function(req, res, next) {
       //res.send(200);
+      //res.send({'test': 'response'})
+    //  res.redirect('/ordercheese.html')
+    console.log("Request...", req.query.firstname);
+    console.log("Request...", req.query.lastname);
+    console.log("Request...", req.query.employeenumber);
+    console.log("Request...", req.query.saledate);
 
-      res.redirect('/ordercheese.html')
+      var firstname = req.query.firstname;
+      var lastname = req.query.lastname;
+      var employeenumber = req.query.employeenumber;
+      var saledate = req.query.saledate;
 
-      var firstname = req.body.firstname;
-      var lastname = req.body.lastname;
-      var employeenumber = req.body.employeenumber;
-      var date = req.body.saledate;
+       var cheeseSaleDate = new Date(saledate);
+       var day = cheeseSaleDate.getDate() + 1
+       var month = cheeseSaleDate.getMonth() + 1;
+       var year = cheeseSaleDate.getFullYear();
 
-      var todaysDate = req.body.date;
-      console.log("Today is: " + JSON.stringify(todaysDate));
-//res.send(firstname);
+       if (day < 10) {
+         day = '0' + day
+       }
+       if (month < 10) {
+         month = '0' + month
+       }
+      var cheeseSaleDate = month + '/' + day + '/' + year;
 
-      // TODO: fix the data in the database. One day back.
-      var mydate = date;
-      var saledate = dateFormat(mydate, "mm/dd/yyyy");
-      //console.log(saledate);
+      console.log(" ");
+      console.log("Sale date: " + cheeseSaleDate);
+      console.log(" ");
 
-      var email = req.body.email;
+      var dateNow = new Date();
+      console.log("Today is: " + dateNow);
+
+      var dd = dateNow.getDate();
+      var mm = dateNow.getMonth() + 1; //January is 0
+      var yyyy = dateNow.getFullYear();
+      var min = dateNow.getMinutes();
+      var hour = dateNow.getHours();
+      var sec = dateNow.getSeconds();
+
+      if (dd < 10) {
+        dd = '0' + dd
+      }
+      if (mm < 10) {
+        mm = '0' + mm
+      }
+      if (hour < 10) {
+        hour = '0' + hour
+      }
+      if (min < 10) {
+        min = '0' + min
+      }
+      if (sec < 10) {
+        sec = '0' + sec
+      }
+      //dateNow = yyyy + '-' + mm + '-' + dd;
+      dateNow = mm + '/' + dd + '/' + yyyy + " " + hour + ":" + min + ":" + sec;
+      console.log("Formated date: " + dateNow);
+
+      var email = req.query.email;
       //console.log(email);
       var mainEmail = "mpatel@josephfarms.com";
       //console.log(mainEmail);
-      console.log(req.body.variety1,);
-      console.log(req.body.style1);
-      console.log(req.body.size1);
-      console.log(req.body.pounds1);
+      console.log(req.query.variety1,);
+      console.log(req.query.style1);
+      console.log(req.query.size1);
+      console.log(req.query.pounds1);
 
+// console.log("saledate is before array " + saledate);
  var array = new Array(15);
  array[0] = {
-   'variety': req.body.variety1,
-   'style': req.body.style1,
-   'size': req.body.size1,
-   'pounds': req.body.pounds1
+   'variety': req.query.variety1,
+   'style': req.query.style1,
+   'size': req.query.size1,
+   'pounds': req.query.pounds1
  }
  array[1] = {
-   'variety': req.body.variety2,
-   'style': req.body.style2,
-   'size': req.body.size2,
-   'pounds': req.body.pounds2
+   'variety': req.query.variety2,
+   'style': req.query.style2,
+   'size': req.query.size2,
+   'pounds': req.query.pounds2
  }
  array[2] = {
-   'variety': req.body.variety3,
-   'style': req.body.style3,
-   'size': req.body.size3,
-   'pounds': req.body.pounds3
+   'variety': req.query.variety3,
+   'style': req.query.style3,
+   'size': req.query.size3,
+   'pounds': req.query.pounds3
  }
  array[3] = {
-   'variety': req.body.variety4,
-   'style': req.body.style4,
-   'size': req.body.size4,
-   'pounds': req.body.pounds4
+   'variety': req.query.variety4,
+   'style': req.query.style4,
+   'size': req.query.size4,
+   'pounds': req.query.pounds4
  }
  array[4] = {
-   'variety': req.body.variety5,
-   'style': req.body.style5,
-   'size': req.body.size5,
-   'pounds': req.body.pounds5
+   'variety': req.query.variety5,
+   'style': req.query.style5,
+   'size': req.query.size5,
+   'pounds': req.query.pounds5
  }
  array[5] = {
-   'variety': req.body.variety6,
-   'style': req.body.style6,
-   'size': req.body.size6,
-   'pounds': req.body.pounds6
+   'variety': req.query.variety6,
+   'style': req.query.style6,
+   'size': req.query.size6,
+   'pounds': req.query.pounds6
  }
  array[6] = {
-   'variety': req.body.variety7,
-   'style': req.body.style7,
-   'size': req.body.size7,
-   'pounds': req.body.pounds7
+   'variety': req.query.variety7,
+   'style': req.query.style7,
+   'size': req.query.size7,
+   'pounds': req.query.pounds7
  }
  array[7] = {
-   'variety': req.body.variety8,
-   'style': req.body.style8,
-   'size': req.body.size8,
-   'pounds': req.body.pounds8
+   'variety': req.query.variety8,
+   'style': req.query.style8,
+   'size': req.query.size8,
+   'pounds': req.query.pounds8
  }
  array[8] = {
-   'variety': req.body.variety9,
-   'style': req.body.style9,
-   'size': req.body.size9,
-   'pounds': req.body.pounds9
+   'variety': req.query.variety9,
+   'style': req.query.style9,
+   'size': req.query.size9,
+   'pounds': req.query.pounds9
  }
  array[9] = {
-   'variety': req.body.variety10,
-   'style': req.body.style10,
-   'size': req.body.size10,
-   'pounds': req.body.pounds10
+   'variety': req.query.variety10,
+   'style': req.query.style10,
+   'size': req.query.size10,
+   'pounds': req.query.pounds10
  }
  array[10] = {
-   'variety': req.body.variety11,
-   'style': req.body.style11,
-   'size': req.body.size11,
-   'pounds': req.body.pounds11
+   'variety': req.query.variety11,
+   'style': req.query.style11,
+   'size': req.query.size11,
+   'pounds': req.query.pounds11
  }
  array[11] = {
-   'variety': req.body.variety12,
-   'style': req.body.style12,
-   'size': req.body.size12,
-   'pounds': req.body.pounds12
+   'variety': req.query.variety12,
+   'style': req.query.style12,
+   'size': req.query.size12,
+   'pounds': req.query.pounds12
  }
  array[12] = {
-   'variety': req.body.variety13,
-   'style': req.body.style13,
-   'size': req.body.size13,
-   'pounds': req.body.pounds13
+   'variety': req.query.variety13,
+   'style': req.query.style13,
+   'size': req.query.size13,
+   'pounds': req.query.pounds13
  }
  array[13] = {
-   'variety': req.body.variety14,
-   'style': req.body.style14,
-   'size': req.body.size14,
-   'pounds': req.body.pounds14
+   'variety': req.query.variety14,
+   'style': req.query.style14,
+   'size': req.query.size14,
+   'pounds': req.query.pounds14
  }
  array[14] = {
-   'variety': req.body.variety15,
-   'style': req.body.style15,
-   'size': req.body.size15,
-   'pounds': req.body.pounds15
+   'variety': req.query.variety15,
+   'style': req.query.style15,
+   'size': req.query.size15,
+   'pounds': req.query.pounds15
  }
-    var comments = req.body.comments;
-
+    var comments = req.query.comments;
+// console.log("saledate is before entering database " + saledate);
       //SQL DATABASE
       //
   client.connect(function(err) {
@@ -155,11 +204,17 @@ app.post('/ordercheese', function(req, res) {
     //   throw err;
     // }
     console.log("Database connected!");
+    // console.log("saledate entering database " + saledate);
+
     //Checks if user exists into database.
     client.query("SELECT distinct fname FROM users where fname=$1 and lname=$2 and empnum=$3", [firstname, lastname, employeenumber], function(err, result, fields) {
     if (err) {
       throw err;
     }
+    var counter = 1;
+    counter = 1 + counter;
+    console.log("Here is what counter looks like: " + counter);
+
       //Insert user bc it does not exists.
     if (result.rowCount == 0) {
        console.log("Not Match!");
@@ -169,6 +224,7 @@ app.post('/ordercheese', function(req, res) {
           throw err
         }
         console.log('New User row was inserted MP');
+        // console.log("saledate is before foreach loop " + cheeseSaleDate);
 
         //LOOP TO CHECK ALL THE array items.
         array.forEach(function(item, i, arr) {
@@ -186,8 +242,8 @@ app.post('/ordercheese', function(req, res) {
                 var num = result.rows[0];
                 var getId = num.id;
                 console.log("Found user data at index: "+ getId);
-                client.query("INSERT INTO orders(userid, saledate, varity, style, size, pounds) \
-                  VALUES($1, $2, $3, $4, $5, $6)", [getId, saledate, array[i].variety, array[i].style, array[i].size, array[i].pounds], function(err, resu) {
+                client.query("INSERT INTO orders(userid, saledate, variety, style, size, pounds, orderDate) \
+                  VALUES($1, $2, $3, $4, $5, $6, $7)", [getId, cheeseSaleDate, array[i].variety, array[i].style, array[i].size, array[i].pounds, dateNow], function(err, resu) {
                 if (err) {
                   throw err
                 }
@@ -210,6 +266,7 @@ app.post('/ordercheese', function(req, res) {
           } else {
             console.log('There are values inside MR.: ' + array[i].variety + ' ' + array[i].style + ' ' + array[i].size + ' ' + array[i].pounds);
             //search for userid into user table and insert it into orders table.
+
             client.query("SELECT id FROM users where fname=$1 and lname=$2 and empnum=$3", [firstname, lastname, employeenumber], function(err, result) {
               if (err) {
                 throw err;
@@ -217,12 +274,16 @@ app.post('/ordercheese', function(req, res) {
                 var num = result.rows[0];
                 var getId = num.id;
                 console.log("Found data user at index: "+ getId);
-                client.query("INSERT INTO orders(userid, saledate, varity, style, size, pounds) \
-                  VALUES($1, $2, $3, $4, $5, $6)", [getId, saledate, array[i].variety, array[i].style, array[i].size, array[i].pounds], function(err, resu) {
+                console.log("saledate is before insert into database " + cheeseSaleDate);
+
+                client.query("INSERT INTO orders(userid, saledate, variety, style, size, pounds, orderDate) \
+                  VALUES($1, $2, $3, $4, $5, $6, $7)", [getId, cheeseSaleDate, array[i].variety, array[i].style, array[i].size, array[i].pounds, dateNow], function(err, resu) {
                   if (err) {
                     throw err
                   }
                   console.log('Item added: ');
+                  // console.log("saledate is after insert " + saledate);
+
                 });
           });
         }
@@ -236,29 +297,29 @@ app.post('/ordercheese', function(req, res) {
            //client.query("INSERT INTO users(fname, lname, empnum) \
                //VALUES($1, $2, $3) RETURNING fname, lname, empnum", [firstname, lastname, employeenumber])
       //
-      //       client.query("INSERT INTO items(itemid, varity, style, size, pounds) \
+      //       client.query("INSERT INTO items(itemid, variety, style, size, pounds) \
       //       VALUES(1, $1, $2, $3, $4)", [variety1, style1, size1, pounds1]);
-      //       client.query("INSERT INTO items(itemid, varity, style, size, pounds) \
+      //       client.query("INSERT INTO items(itemid, variety, style, size, pounds) \
       //       VALUES(2, $1, $2, $3, $4)", [variety2, style2, size2, pounds2]);
 
       //
 
         //console.log(JSON.stringify(firstname) + '' + JSON.stringify(lastname) + '' + JSON.stringify(employeenumber)); console.log(JSON.stringify(saledate) + '' + JSON.stringify(variety1) + '' + JSON.stringify(size1));
-        var pounds1 = req.body.pounds1;
-        var pounds2 = req.body.pounds2;
-        var pounds3 = req.body.pounds3;
-        var pounds4 = req.body.pounds4;
-        var pounds5 = req.body.pounds5;
-        var pounds6 = req.body.pounds6;
-        var pounds7 = req.body.pounds7;
-        var pounds8 = req.body.pounds8;
-        var pounds9 = req.body.pounds9;
-        var pounds10 = req.body.pounds10;
-        var pounds11 = req.body.pounds11;
-        var pounds12 = req.body.pounds12;
-        var pounds13 = req.body.pounds13;
-        var pounds14 = req.body.pounds14;
-        var pounds15 = req.body.pounds15;
+        var pounds1 = req.query.pounds1;
+        var pounds2 = req.query.pounds2;
+        var pounds3 = req.query.pounds3;
+        var pounds4 = req.query.pounds4;
+        var pounds5 = req.query.pounds5;
+        var pounds6 = req.query.pounds6;
+        var pounds7 = req.query.pounds7;
+        var pounds8 = req.query.pounds8;
+        var pounds9 = req.query.pounds9;
+        var pounds10 = req.query.pounds10;
+        var pounds11 = req.query.pounds11;
+        var pounds12 = req.query.pounds12;
+        var pounds13 = req.query.pounds13;
+        var pounds14 = req.query.pounds14;
+        var pounds15 = req.query.pounds15;
 
         var calTotal = parseInt(pounds1) + parseInt(pounds2) + parseInt(pounds3) + parseInt(pounds4) + parseInt(pounds5) + parseInt(pounds6) + parseInt(pounds7) + parseInt(pounds8) + parseInt(pounds9) + parseInt(pounds10) + parseInt(pounds11) + parseInt(pounds12) + parseInt(pounds13) + parseInt(pounds14) + parseInt(pounds15);
         //var calTotal = array[0].pounds + array[1].pounds + array[2].pounds + array[3].pounds + array[4].pounds + array[5].pounds + array[6].pounds + array[7].pounds + array[8].pounds + array[9].pounds + array[10].pounds + array[11].pounds + array[12].pounds + array[13].pounds + array[14].pounds;
@@ -280,9 +341,9 @@ app.post('/ordercheese', function(req, res) {
         let mailOptions = {
           from: '"New Order - " <notifications@josephfarms.com>', // sender address
           to: mainEmail, // list of receivers
-          subject: 'New Cheese Order Received - ' + saledate, // Subject line
+          subject: 'New Cheese Order Received - ' + cheeseSaleDate, // Subject line
           cc: email,
-          html: '<strong>First Name: </strong>' + firstname + '<br/><strong>Last Name: </strong>' + lastname + '<br/><strong>Employee Number: </strong>' + employeenumber + '<br/><strong>Cheese Sale Date: </strong>' + saledate + '<br/><br/>\
+          html: '<strong>First Name: </strong>' + firstname + '<br/><strong>Last Name: </strong>' + lastname + '<br/><strong>Employee Number: </strong>' + employeenumber + '<br/><strong>Cheese Sale Date: </strong>' + cheeseSaleDate + '<br/><br/>\
     <table style="text-align: center; border:2px solid black; width:400px">\
     <tr><th style="border-bottom:2px solid black;">Number</th><th style="border-bottom:2px solid black;">Variety</th><th style="border-bottom:2px solid black;">Style</th><th style="border-bottom:2px solid black;">Size(Lb)</th><th style="border-bottom:2px solid black;">Pounds</th><th style="border-bottom:2px solid black;"></th></tr>\
     <tr><td style="border-bottom:1px solid black;">1</td><td style="border-bottom:1px solid black;">' + array[0].variety + '</td><td style="border-bottom:1px solid black;">' + array[0].style + '</td><td style="border-bottom:1px solid black;">' + array[0].size + '</td><td style="border-bottom:1px solid black;">' + array[0].pounds + '</td><td style="border-bottom:1px solid black;"></td></tr>\
@@ -315,4 +376,13 @@ app.post('/ordercheese', function(req, res) {
           // Preview only available when sending through an Ethereal account
           console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
         });
+
+        //res.location('confirmation.html');
+        res.redirect('confirmation.html');
+        //res.send(array);
+        //res.redirect('/ordercheese.html');
+        next()
+       }, function (req, res, next) {
+         //res.redirect('/confirmation.html');
+         res.end();
       });

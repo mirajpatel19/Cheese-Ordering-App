@@ -13,6 +13,69 @@ img {
   box-sizing: border-box;
 }
 
+#firstname, #lastname, #employeenumber, #saledate, #email, #date {
+border-width: .50px;
+border-color: gray;
+  border-radius: 13px;
+  border-style: solid;
+  padding-left: 10px;
+  width: 200px;
+  height: 30px;
+}
+
+select{
+  border-radius: 5px;
+  //border-style: groove;
+//  padding-left: 10px;
+//  width: 100px;
+  height: 23px;
+}
+
+::placeholder {
+  color: #A9A9A9;
+  opacity: 1;
+}
+
+#main {
+  background-image: url(./images/photo-1523741543316-beb7fc7023d8.jpeg);
+  //background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+ #confirmation{
+   background-color: white;
+ }
+
+ form{
+   //background-color: red;
+   margin: 0 auto;
+   width: 1400px;
+   height: 790px;
+ }
+
+ #fieldSetPersonal{
+   position: relative;
+   right:250px;
+   top:195px;
+ }
+
+ #fieldSetCheese{
+   position: relative;
+   left:242px;
+   bottom:348px;
+ }
+
+#fieldSetPersonal, #fieldSetCheese{
+  background-color: rgb(255,255,255,0.65);
+  filter: alpha(opacity=100);
+  /* width: 500px; */
+  align-items: center; */
+  border: 1px solid black;
+  width: 400px;
+  margin:auto;
+}
+
 .myNewOrder {
   text-align: center;
 }
@@ -37,10 +100,10 @@ img {
   border-bottom: 2px solid #4f6267;
   /* padding:		10px 20px !important; */
   font-size: 14px !important;
-  background-color: #c4f1fe;
+  background-color: #98FB98;
   font-weight: bold;
-  color: #2d525d;
-  width: 130px;
+  color: #376037;
+  width: 145px;
   height: 30px;
   position: relative;
   left: 83px;
@@ -50,8 +113,9 @@ img {
     color:red;
   }
 #comments {
+  border-radius: 5px;
   height: 80px;
-  width: 340px;
+  width: 370px;
 }
 
 #cost {
