@@ -109,6 +109,9 @@ select{
   left: 83px;
 }
 
+#filter {
+  width: 100%
+}
 .required{
     color:red;
   }

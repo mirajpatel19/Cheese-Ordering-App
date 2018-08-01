@@ -6,7 +6,7 @@ const nodemailer = require('nodemailer');
 var dateFormat = require('dateformat');
 const pg = require('pg');
 var app = express();
-
+var http = require('http');
 
 // DB connect String
 //
@@ -27,12 +27,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }))
-
-//
-// app.get('/ordercheese', function(req, res){
-//   res.redirect('/ordercheese.html');
-// });
-//
 
 app.get('/ordercheese', function(req, res, next) {
       //res.send(200);
@@ -105,6 +99,7 @@ app.get('/ordercheese', function(req, res, next) {
 
 // console.log("saledate is before array " + saledate);
  var array = new Array(15);
+ var test;
  array[0] = {
    'variety': req.query.variety1,
    'style': req.query.style1,
@@ -196,26 +191,19 @@ app.get('/ordercheese', function(req, res, next) {
    'pounds': req.query.pounds15
  }
     var comments = req.query.comments;
-// console.log("saledate is before entering database " + saledate);
-      //SQL DATABASE
-      //
+
+  //SQL DATABASE
   client.connect(function(err) {
     // if (err) {
     //   throw err;
     // }
     console.log("Database connected!");
-    // console.log("saledate entering database " + saledate);
-
     //Checks if user exists into database.
     client.query("SELECT distinct fname FROM users where fname=$1 and lname=$2 and empnum=$3", [firstname, lastname, employeenumber], function(err, result, fields) {
     if (err) {
       throw err;
     }
-    var counter = 1;
-    counter = 1 + counter;
-    console.log("Here is what counter looks like: " + counter);
-
-      //Insert user bc it does not exists.
+    //Insert user bc it does not exists.
     if (result.rowCount == 0) {
        console.log("Not Match!");
         client.query("INSERT INTO users(fname, lname, empnum) \
@@ -224,7 +212,6 @@ app.get('/ordercheese', function(req, res, next) {
           throw err
         }
         console.log('New User row was inserted MP');
-        // console.log("saledate is before foreach loop " + cheeseSaleDate);
 
         //LOOP TO CHECK ALL THE array items.
         array.forEach(function(item, i, arr) {
@@ -253,7 +240,7 @@ app.get('/ordercheese', function(req, res, next) {
           }
         });
       });
-      //Do Not insert user bc it does exist into the database.
+    //Do Not insert user bc it does exist into the database.
     } else {
         console.log("Match");
         console.log(array[0].variety + ' ' + array[0].style + ' ' + array[0].size + ' ' + array[0].pounds);
@@ -266,7 +253,6 @@ app.get('/ordercheese', function(req, res, next) {
           } else {
             console.log('There are values inside MR.: ' + array[i].variety + ' ' + array[i].style + ' ' + array[i].size + ' ' + array[i].pounds);
             //search for userid into user table and insert it into orders table.
-
             client.query("SELECT id FROM users where fname=$1 and lname=$2 and empnum=$3", [firstname, lastname, employeenumber], function(err, result) {
               if (err) {
                 throw err;
@@ -282,27 +268,24 @@ app.get('/ordercheese', function(req, res, next) {
                     throw err
                   }
                   console.log('Item added: ');
-                  // console.log("saledate is after insert " + saledate);
-
                 });
           });
         }
       });
     }
     });
+// //TEST TEST TEST TEST
+//     //client.query("SELECT distinct fname FROM users where fname=$1 and lname=$2 and empnum=$3", [firstname, lastname, employeenumber], function(err, result, fields) {
+//     client.query("SELECT * FROM orders where userid = 3", function(err, result) {
+//       if (err) {
+//         throw err;
+//       }
+//       console.log("MY TEST");
+//       //console.log(result);
+//       test = result;
+//       console.log(test);
+//     });
   });
-
-
-            //Add values to the user table from the html form. EXTRA
-           //client.query("INSERT INTO users(fname, lname, empnum) \
-               //VALUES($1, $2, $3) RETURNING fname, lname, empnum", [firstname, lastname, employeenumber])
-      //
-      //       client.query("INSERT INTO items(itemid, variety, style, size, pounds) \
-      //       VALUES(1, $1, $2, $3, $4)", [variety1, style1, size1, pounds1]);
-      //       client.query("INSERT INTO items(itemid, variety, style, size, pounds) \
-      //       VALUES(2, $1, $2, $3, $4)", [variety2, style2, size2, pounds2]);
-
-      //
 
         //console.log(JSON.stringify(firstname) + '' + JSON.stringify(lastname) + '' + JSON.stringify(employeenumber)); console.log(JSON.stringify(saledate) + '' + JSON.stringify(variety1) + '' + JSON.stringify(size1));
         var pounds1 = req.query.pounds1;
@@ -364,9 +347,7 @@ app.get('/ordercheese', function(req, res, next) {
     <tr><td></td><td></td><td></td><td><strong>Total:</strong></td><td><strong>' + calTotal + '</strong></td><td></td></tr>\
     </table>\
     <br><strong>Comments: </strong>' + comments + '<br/>'
-
         };
-
         // send mail with defined transport object
         transporter.sendMail(mailOptions, (error, info) => {
           if (error) {
@@ -376,13 +357,28 @@ app.get('/ordercheese', function(req, res, next) {
           // Preview only available when sending through an Ethereal account
           console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
         });
-
-        //res.location('confirmation.html');
         res.redirect('confirmation.html');
-        //res.send(array);
-        //res.redirect('/ordercheese.html');
         next()
        }, function (req, res, next) {
-         //res.redirect('/confirmation.html');
+         //res.redirect('/confirmation');
          res.end();
+       });
+
+      app.get('/picklist', function(req, res, next) {
+        //SQL DATABASE
+        client.connect(function(err) {
+          // if (err) {
+          //   throw err;
+          // }
+          console.log("Database connected for picklist!");
+          //Checks if user exists into database.
+          client.query("select users.empnum, users.fname, users.lname, orders.saledate, orders.variety, orders.style, orders.size, orders.pounds, orders.orderdate from users inner join orders on users.id = orders.userid", function(err, result, fields) {
+            //select users.empnum, users.fname, users.lname, orders.saledate, orders.variety, orders.style, orders.size, orders.pounds, orders.orderdate from users inner join orders on users.id = orders.userid;
+          if (err) {
+            throw err;
+          }
+          //console.log(result.rows);
+          res.send(result.rows);
+          });
+        });
       });

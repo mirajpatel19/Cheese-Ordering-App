@@ -17,7 +17,7 @@ var query = client.query(
   'CREATE TABLE orders( \
       id serial, \
       userid int, \
-      saledate date, \
+      saledate varchar(255), \
       variety varchar(255), \
       style varchar(255), \
       size varchar(255), \
@@ -37,7 +37,7 @@ var query = client.query(
 
 //INNER JOIN. Based on all the orders recived. It will get user information.
 //
-// select users.empnum, users.fname, users.lname, orders.saledate, orders.variety, orders.style, orders.size, orders.pounds from users inner join orders on users.id = orders.userid and orders.saledate = '2018-07-20';
+// select users.empnum, users.fname, users.lname, orders.saledate, orders.variety, orders.style, orders.size, orders.pounds, orders.orderdate from users inner join orders on users.id = orders.userid;
 //
 
 //CREATING A VIEW.

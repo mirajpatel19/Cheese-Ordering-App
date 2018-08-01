@@ -26,16 +26,6 @@
       var calTotal = parseInt(calPounds1) + parseInt(calPounds2) + parseInt(calPounds3) + parseInt(calPounds4) + parseInt(calPounds5) + parseInt(calPounds6) + parseInt(calPounds7) + parseInt(calPounds8) + parseInt(calPounds9) + parseInt(calPounds10) +
         parseInt(calPounds11) + parseInt(calPounds12) + parseInt(calPounds13) + parseInt(calPounds14) + parseInt(calPounds15);
 
-      // // Alert message!
-      // if (parseInt(calTotal) > 15) {
-      //   alert("Employee’s are allowed a maximum of 15 pounds for Monthly Cheese Orders. To submit the form, please lower the pounds");
-      //   document.getElementById("total").innerHTML = calTotal;
-      //   document.getElementById("submit").disabled = true;
-      // } else {
-      //   document.getElementById("total").innerHTML = calTotal;
-      //   document.getElementById("submit").disabled = false;
-      // }
-
     // Alert Message!
     if (parseInt(calTotal) <= 15) {
       document.getElementById("total").innerHTML = calTotal;
@@ -47,6 +37,7 @@
       }
     }
   </script>
+
 </head>
 
 <body id="main">
@@ -91,14 +82,6 @@
           <th>Pounds</th>
         </tr>
 
-
-
-        <!-- <h3 id='hello'> Hello World</h3>
-        <script>
-        var sam = "I am Sam";
-        document.getElementById('variety1').option[0] = 'sam';
-        </script> -->
-
         <tr>
           <td>1<span class="required">*</span></td>
           <td>
@@ -118,7 +101,7 @@
               </optgroup>
               <optgroup label="Mozzarella">
                 <option value="Chunk">Chunk</option>
-                <option value="Pasta Filata">Pasta Filata</option>
+                <option value="Pasta Filta">Pasta Filta</option>
               </optgroup>
               <optgroup label="Other Flavors">
                 <option value="Gouda">Gouda</option>
@@ -134,30 +117,11 @@
           <td>
             <select id="style1" name="style1" required>
               <option value="" selected>Select</option>
-              <!-- <option value="-" selected>Select</option> -->
-              <!-- <option value="Ball">Ball</option>
-              <option value="Bar">Bar</option>
-              <option value="Block">Block</option>
-              <option value="Chunk">Chunk</option>
-              <option value="Horn">Horn</option>
-              <option value="Loaf">Loaf</option>
-              <option value="Shred">Shred</option>
-              <option value="Sliced">Sliced</option>
-              <option value="Sticks">Sticks</option>
-              <option value="String">String</option> -->
-              </option>
             </select>
           </td>
           <td>
             <select id="size1" name="size1" required>
               <option value="" selected>0</option>
-              <!-- <option value="0" selected>0</option> -->
-              <!-- <option value="8 oz">8 oz</option>
-              <option value="1 lb">1 lb</option>
-              <option value="2 lb">2 lb</option>
-              <option value="4 lb">4 lb</option>
-              <option value="5 lb">5 lb</option>
-              <option value="10 lb">10 lb</option> -->
             </select>
           </td>
           <td>
@@ -183,19 +147,6 @@
           </td>
         </tr>
 
-        <!-- <script>
-        document.getElementById("style1").option[1].text = 'MIRAJ';
-          // opt.value = 'box';
-          // opt.text = 'box 1';
-        document.getElementByTagName("option").value = '40';
-        document.getElementByTagName("option").value = '30';
-        document.getElementByTagName("option").value = '10';
-        document.getElementByTagName("option").value = '60';
-
-            // function loadSector() {
-            //   document.getElementById("pounds1").value = '50';
-            // }
-        </script> -->
         <tr>
           <td>2</td>
           <td>
@@ -214,7 +165,7 @@
                 </optgroup>
                 <optgroup label="Mozzarella">
                   <option value="Chunk">Chunk</option>
-                  <option value="Pasta Filata">Pasta Filata</option>
+                  <option value="Pasta Filta">Pasta Filta</option>
                 </optgroup>
                 <optgroup label="Other Flavors">
                   <option value="Gouda">Gouda</option>
@@ -227,27 +178,11 @@
           <td>
             <select id="style2" name="style2">
                 <option value="-" selected>Select</option>
-                <!-- <option value="Ball">Ball</option>
-                <option value="Bar">Bar</option>
-                <option value="Block">Block</option>
-                <option value="Chunk">Chunk</option>
-                <option value="Horn">Horn</option>
-                <option value="Loaf">Loaf</option>
-                <option value="Shred">Shred</option>
-                <option value="Sliced">Sliced</option>
-                <option value="Sticks">Sticks</option>
-                <option value="String">String</option> -->
               </select>
           </td>
           <td>
             <select id="size2" name="size2">
                 <option value="0" selected>0</option>
-                <!-- <option value="8 oz">8 oz</option>
-                <option value="1 lb">1 lb</option>
-                <option value="2 lb">2 lb</option>
-                <option value="4 lb">4 lb</option>
-                <option value="5 lb">5 lb</option>
-                <option value="10 lb">10 lb</option> -->
               </select>
           </td>
           <td>
@@ -289,7 +224,7 @@
                   </optgroup>
                   <optgroup label="Mozzarella">
                     <option value="Chunk">Chunk</option>
-                    <option value="Pasta Filata">Pasta Filata</option>
+                    <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
                     <option value="Gouda">Gouda</option>
@@ -302,27 +237,11 @@
           <td>
             <select id="style3" name="style3">
               <option value="-" selected>Select</option>
-              <!-- <option value="Ball">Ball</option>
-              <option value="Bar">Bar</option>
-              <option value="Block">Block</option>
-              <option value="Chunk">Chunk</option>
-              <option value="Horn">Horn</option>
-              <option value="Loaf">Loaf</option>
-              <option value="Shred">Shred</option>
-              <option value="Sliced">Sliced</option>
-              <option value="Sticks">Sticks</option>
-              <option value="String">String</option> -->
                 </select>
           </td>
           <td>
             <select id="size3" name="size3">
                   <option value="0" selected>0</option>
-                  <!-- <option value="8 oz">8 oz</option>
-                  <option value="1 lb">1 lb</option>
-                  <option value="2 lb">2 lb</option>
-                  <option value="4 lb">4 lb</option>
-                  <option value="5 lb">5 lb</option>
-                  <option value="10 lb">10 lb</option> -->
                 </select>
           </td>
           <td>
@@ -364,7 +283,7 @@
                   </optgroup>
                   <optgroup label="Mozzarella">
                     <option value="Chunk">Chunk</option>
-                    <option value="Pasta Filata">Pasta Filata</option>
+                    <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
                     <option value="Gouda">Gouda</option>
@@ -377,27 +296,11 @@
           <td>
             <select id="style4" name="style4">
                   <option value="-" selected>Select</option>
-                  <!-- <option value="Ball">Ball</option>
-                  <option value="Bar">Bar</option>
-                  <option value="Block">Block</option>
-                  <option value="Chunk">Chunk</option>
-                  <option value="Horn">Horn</option>
-                  <option value="Loaf">Loaf</option>
-                  <option value="Shred">Shred</option>
-                  <option value="Sliced">Sliced</option>
-                  <option value="Sticks">Sticks</option>
-                  <option value="String">String</option> -->
                 </select>
           </td>
           <td>
             <select id="size4" name="size4">
                   <option value="0" selected>0</option>
-                  <!-- <option value="8 oz">8 oz</option>
-                  <option value="1 lb">1 lb</option>
-                  <option value="2 lb">2 lb</option>
-                  <option value="4 lb">4 lb</option>
-                  <option value="5 lb">5 lb</option>
-                  <option value="10 lb">10 lb</option> -->
                 </select>
           </td>
           <td>
@@ -439,7 +342,7 @@
                   </optgroup>
                   <optgroup label="Mozzarella">
                     <option value="Chunk">Chunk</option>
-                    <option value="Pasta Filata">Pasta Filata</option>
+                    <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
                     <option value="Gouda">Gouda</option>
@@ -452,27 +355,11 @@
           <td>
             <select id="style5" name="style5">
                   <option value="-" selected>Select</option>
-                  <!-- <option value="Ball">Ball</option>
-                  <option value="Bar">Bar</option>
-                  <option value="Block">Block</option>
-                  <option value="Chunk">Chunk</option>
-                  <option value="Horn">Horn</option>
-                  <option value="Loaf">Loaf</option>
-                  <option value="Shred">Shred</option>
-                  <option value="Sliced">Sliced</option>
-                  <option value="Sticks">Sticks</option>
-                  <option value="String">String</option> -->
                 </select>
           </td>
           <td>
             <select id="size5" name="size5">
                   <option value="0" selected>0</option>
-                  <!-- <option value="8 oz">8 oz</option>
-                  <option value="1 lb">1 lb</option>
-                  <option value="2 lb">2 lb</option>
-                  <option value="4 lb">4 lb</option>
-                  <option value="5 lb">5 lb</option>
-                  <option value="10 lb">10 lb</option> -->
                 </select>
           </td>
           <td>
@@ -514,7 +401,7 @@
                   </optgroup>
                   <optgroup label="Mozzarella">
                     <option value="Chunk">Chunk</option>
-                    <option value="Pasta Filata">Pasta Filata</option>
+                    <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
                     <option value="Gouda">Gouda</option>
@@ -527,27 +414,11 @@
           <td>
             <select id="style6" name="style6">
                   <option value="-" selected>Select</option>
-                  <!-- <option value="Ball">Ball</option>
-                  <option value="Bar">Bar</option>
-                  <option value="Block">Block</option>
-                  <option value="Chunk">Chunk</option>
-                  <option value="Horn">Horn</option>
-                  <option value="Loaf">Loaf</option>
-                  <option value="Shred">Shred</option>
-                  <option value="Sliced">Sliced</option>
-                  <option value="Sticks">Sticks</option>
-                  <option value="String">String</option> -->
                 </select>
           </td>
           <td>
             <select id="size6" name="size6">
                   <option value="0" selected>0</option>
-                  <!-- <option value="8 oz">8 oz</option>
-                  <option value="1 lb">1 lb</option>
-                  <option value="2 lb">2 lb</option>
-                  <option value="4 lb">4 lb</option>
-                  <option value="5 lb">5 lb</option>
-                  <option value="10 lb">10 lb</option> -->
                 </select>
           </td>
           <td>
@@ -589,7 +460,7 @@
                   </optgroup>
                   <optgroup label="Mozzarella">
                     <option value="Chunk">Chunk</option>
-                    <option value="Pasta Filata">Pasta Filata</option>
+                    <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
                     <option value="Gouda">Gouda</option>
@@ -602,27 +473,11 @@
           <td>
             <select id="style7" name="style7">
                   <option value="-" selected>Select</option>
-                  <!-- <option value="Ball">Ball</option>
-                  <option value="Bar">Bar</option>
-                  <option value="Block">Block</option>
-                  <option value="Chunk">Chunk</option>
-                  <option value="Horn">Horn</option>
-                  <option value="Loaf">Loaf</option>
-                  <option value="Shred">Shred</option>
-                  <option value="Sliced">Sliced</option>
-                  <option value="Sticks">Sticks</option>
-                  <option value="String">String</option> -->
                 </select>
           </td>
           <td>
             <select id="size7" name="size7">
                   <option value="0" selected>0</option>
-                  <!-- <option value="8 oz">8 oz</option>
-                  <option value="1 lb">1 lb</option>
-                  <option value="2 lb">2 lb</option>
-                  <option value="4 lb">4 lb</option>
-                  <option value="5 lb">5 lb</option>
-                  <option value="10 lb">10 lb</option> -->
                 </select>
           </td>
           <td>
@@ -664,7 +519,7 @@
                   </optgroup>
                   <optgroup label="Mozzarella">
                     <option value="Chunk">Chunk</option>
-                    <option value="Pasta Filata">Pasta Filata</option>
+                    <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
                     <option value="Gouda">Gouda</option>
@@ -677,27 +532,11 @@
           <td>
             <select id="style8" name="style8">
                   <option value="-" selected>Select</option>
-                  <!-- <option value="Ball">Ball</option>
-                  <option value="Bar">Bar</option>
-                  <option value="Block">Block</option>
-                  <option value="Chunk">Chunk</option>
-                  <option value="Horn">Horn</option>
-                  <option value="Loaf">Loaf</option>
-                  <option value="Shred">Shred</option>
-                  <option value="Sliced">Sliced</option>
-                  <option value="Sticks">Sticks</option>
-                  <option value="String">String</option> -->
                 </select>
           </td>
           <td>
             <select id="size8" name="size8">
                   <option value="0" selected>0</option>
-                  <!-- <option value="8 oz">8 oz</option>
-                  <option value="1 lb">1 lb</option>
-                  <option value="2 lb">2 lb</option>
-                  <option value="4 lb">4 lb</option>
-                  <option value="5 lb">5 lb</option>
-                  <option value="10 lb">10 lb</option> -->
                 </select>
           </td>
           <td>
@@ -739,7 +578,7 @@
                   </optgroup>
                   <optgroup label="Mozzarella">
                     <option value="Chunk">Chunk</option>
-                    <option value="Pasta Filata">Pasta Filata</option>
+                    <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
                     <option value="Gouda">Gouda</option>
@@ -752,27 +591,11 @@
           <td>
             <select id="style9" name="style9">
                   <option value="-" selected>Select</option>
-                  <!-- <option value="Ball">Ball</option>
-                  <option value="Bar">Bar</option>
-                  <option value="Block">Block</option>
-                  <option value="Chunk">Chunk</option>
-                  <option value="Horn">Horn</option>
-                  <option value="Loaf">Loaf</option>
-                  <option value="Shred">Shred</option>
-                  <option value="Sliced">Sliced</option>
-                  <option value="Sticks">Sticks</option>
-                  <option value="String">String</option> -->
                 </select>
           </td>
           <td>
             <select id="size9" name="size9">
                   <option value="0" selected>0</option>
-                  <!-- <option value="8 oz">8 oz</option>
-                  <option value="1 lb">1 lb</option>
-                  <option value="2 lb">2 lb</option>
-                  <option value="4 lb">4 lb</option>
-                  <option value="5 lb">5 lb</option>
-                  <option value="10 lb">10 lb</option> -->
                 </select>
           </td>
           <td>
@@ -814,7 +637,7 @@
                   </optgroup>
                   <optgroup label="Mozzarella">
                     <option value="Chunk">Chunk</option>
-                    <option value="Pasta Filata">Pasta Filata</option>
+                    <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
                     <option value="Gouda">Gouda</option>
@@ -827,27 +650,11 @@
           <td>
             <select id="style10" name="style10">
                   <option value="-" selected>Select</option>
-                  <!-- <option value="Ball">Ball</option>
-                  <option value="Bar">Bar</option>
-                  <option value="Block">Block</option>
-                  <option value="Chunk">Chunk</option>
-                  <option value="Horn">Horn</option>
-                  <option value="Loaf">Loaf</option>
-                  <option value="Shred">Shred</option>
-                  <option value="Sliced">Sliced</option>
-                  <option value="Sticks">Sticks</option>
-                  <option value="String">String</option> -->
                 </select>
           </td>
           <td>
             <select id="size10" name="size10">
                   <option value="0" selected>0</option>
-                  <!-- <option value="8 oz">8 oz</option>
-                  <option value="1 lb">1 lb</option>
-                  <option value="2 lb">2 lb</option>
-                  <option value="4 lb">4 lb</option>
-                  <option value="5 lb">5 lb</option>
-                  <option value="10 lb">10 lb</option> -->
                 </select>
           </td>
           <td>
@@ -889,7 +696,7 @@
                   </optgroup>
                   <optgroup label="Mozzarella">
                     <option value="Chunk">Chunk</option>
-                    <option value="Pasta Filata">Pasta Filata</option>
+                    <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
                     <option value="Gouda">Gouda</option>
@@ -902,27 +709,11 @@
           <td>
             <select id="style11" name="style11">
                   <option value="-" selected>Select</option>
-                  <!-- <option value="Ball">Ball</option>
-                  <option value="Bar">Bar</option>
-                  <option value="Block">Block</option>
-                  <option value="Chunk">Chunk</option>
-                  <option value="Horn">Horn</option>
-                  <option value="Loaf">Loaf</option>
-                  <option value="Shred">Shred</option>
-                  <option value="Sliced">Sliced</option>
-                  <option value="Sticks">Sticks</option>
-                  <option value="String">String</option> -->
                 </select>
           </td>
           <td>
             <select id="size11" name="size11">
                   <option value="0" selected>0</option>
-                  <!-- <option value="8 oz">8 oz</option>
-                  <option value="1 lb">1 lb</option>
-                  <option value="2 lb">2 lb</option>
-                  <option value="4 lb">4 lb</option>
-                  <option value="5 lb">5 lb</option>
-                  <option value="10 lb">10 lb</option> -->
                 </select>
           </td>
           <td>
@@ -964,7 +755,7 @@
                   </optgroup>
                   <optgroup label="Mozzarella">
                     <option value="Chunk">Chunk</option>
-                    <option value="Pasta Filata">Pasta Filata</option>
+                    <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
                     <option value="Gouda">Gouda</option>
@@ -977,27 +768,11 @@
           <td>
             <select id="style12" name="style12">
                   <option value="-" selected>Select</option>
-                  <!-- <option value="Ball">Ball</option>
-                  <option value="Bar">Bar</option>
-                  <option value="Block">Block</option>
-                  <option value="Chunk">Chunk</option>
-                  <option value="Horn">Horn</option>
-                  <option value="Loaf">Loaf</option>
-                  <option value="Shred">Shred</option>
-                  <option value="Sliced">Sliced</option>
-                  <option value="Sticks">Sticks</option>
-                  <option value="String">String</option> -->
                 </select>
           </td>
           <td>
             <select id="size12" name="size12">
                   <option value="0" selected>0</option>
-                  <!-- <option value="8 oz">8 oz</option>
-                  <option value="1 lb">1 lb</option>
-                  <option value="2 lb">2 lb</option>
-                  <option value="4 lb">4 lb</option>
-                  <option value="5 lb">5 lb</option>
-                  <option value="10 lb">10 lb</option> -->
                 </select>
           </td>
           <td>
@@ -1039,7 +814,7 @@
                   </optgroup>
                   <optgroup label="Mozzarella">
                     <option value="Chunk">Chunk</option>
-                    <option value="Pasta Filata">Pasta Filata</option>
+                    <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
                     <option value="Gouda">Gouda</option>
@@ -1052,27 +827,11 @@
           <td>
             <select id="style13" name="style13">
                   <option value="-" selected>Select</option>
-                  <!-- <option value="Ball">Ball</option>
-                  <option value="Bar">Bar</option>
-                  <option value="Block">Block</option>
-                  <option value="Chunk">Chunk</option>
-                  <option value="Horn">Horn</option>
-                  <option value="Loaf">Loaf</option>
-                  <option value="Shred">Shred</option>
-                  <option value="Sliced">Sliced</option>
-                  <option value="Sticks">Sticks</option>
-                  <option value="String">String</option> -->
                 </select>
           </td>
           <td>
             <select id="size13" name="size13">
                   <option value="0" selected>0</option>
-                  <!-- <option value="8 oz">8 oz</option>
-                  <option value="1 lb">1 lb</option>
-                  <option value="2 lb">2 lb</option>
-                  <option value="4 lb">4 lb</option>
-                  <option value="5 lb">5 lb</option>
-                  <option value="10 lb">10 lb</option> -->
                 </select>
           </td>
           <td>
@@ -1114,7 +873,7 @@
                   </optgroup>
                   <optgroup label="Mozzarella">
                     <option value="Chunk">Chunk</option>
-                    <option value="Pasta Filata">Pasta Filata</option>
+                    <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
                     <option value="Gouda">Gouda</option>
@@ -1126,28 +885,12 @@
           </td>
           <td>
             <select id="style14" name="style14">
-                  <option value="-" selected>Select</option>
-                  <!-- <option value="Ball">Ball</option>
-                  <option value="Bar">Bar</option>
-                  <option value="Block">Block</option>
-                  <option value="Chunk">Chunk</option>
-                  <option value="Horn">Horn</option>
-                  <option value="Loaf">Loaf</option>
-                  <option value="Shred">Shred</option>
-                  <option value="Sliced">Sliced</option>
-                  <option value="Sticks">Sticks</option>
-                  <option value="String">String</option> -->
+                  <option value="-" selected>Select</option
                 </select>
           </td>
           <td>
             <select id="size14" name="size14">
-                  <option value="0" selected>0</option>
-                  <!-- <option value="8 oz">8 oz</option>
-                  <option value="1 lb">1 lb</option>
-                  <option value="2 lb">2 lb</option>
-                  <option value="4 lb">4 lb</option>
-                  <option value="5 lb">5 lb</option>
-                  <option value="10 lb">10 lb</option> -->
+                  <option value="0" selected>0</option
                 </select>
           </td>
           <td>
@@ -1172,106 +915,21 @@
           </td>
         </tr>
 
-<!-- TEST TEST TEST TEST -->
-<script>
-  function populateStyle(vari,sty) {
-    var vari = document.getElementById(vari);
-    var sty = document.getElementById(sty);
-    sty.innerHTML = "";
-    // if(vari.value) == "select") {
-    //   var optionArray = ["select|Select"];
-    // }
-    if(vari.value == "Monterey Jack" | vari.value == "Mild Cheddar" | vari.value == "Chunk") {
-        var optionArray = ["select|Select","Sliced|Sliced","Chunk|Chunk","Shred|Shred","Block|Block","Loaf|Loaf"];
-     }else if(vari.value == "Marble Jack" | vari.value == "Pepper Jack" | vari.value == "Medium Cheddar" | vari.value == "Gouda") {
-         var optionArray = ["select|Select","Sliced|Sliced","Chunk|Chunk","Block|Block","Loaf|Loaf"];
-     } else if(vari.value == "Sharp Cheddar") {
-         var optionArray = ["select|Select","Chunk|Chunk","Shred|Shred","Loaf|Loaf"];
-     } else if(vari.value == "Marbled Cheddar") {
-         var optionArray = ["select|Select","Sliced|Sliced","Chunk|Chunk","Shred|Shred","Loaf|Loaf"];
-     } else if(vari.value == "Pasta Filata") {
-         var optionArray = ["select|Select","Chunk|Chunk","Sticks|Sticks","Balls|Balls","Loaf|Loaf"];
-     } else if(vari.value == "Muenster" | vari.value == "Swiss") {
-         var optionArray = ["select|Select","Sliced|Sliced","Chunk|Chunk","Loaf|Loaf"];
-     } else if(vari.value == "Provolone") {
-         var optionArray = ["select|Select","Sliced|Sliced","Loaf|Loaf"];
-     }
-    for(var option in optionArray) {
-      var pair = optionArray[option].split("|");
-      var newOption = document.createElement("option");
-      newOption.value = pair[0];
-      newOption.innerHTML = pair[1];
-      sty.options.add(newOption);
-    }
-  }
+        <script>
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', "/ordercheese.html", true);
+          xhr.send();
 
-  function populateSize(vari,siz) {
-    var vari = document.getElementById(vari);
-    var siz = document.getElementById(siz);
-    siz.innerHTML = "";
-    // if(vari.value) == "select") {
-    //   var optionArray = ["select|Select"];
-    // }
-    if(vari.value == "Monterey Jack" | vari.value == "Mild Cheddar" | vari.value == "Medium Cheddar") {
-        var optionArray = ["0|0","8 oz|8 oz","1 lb|1 lb","2 lb|2 lb","4 lb|4 lb","5 lb|5 lb","10 lb|10 lb"];
-     }else if(vari.value == "Marble Jack" | vari.value == "Sharp Cheddar" | vari.value == "Chunk") {
-         var optionArray = ["0|0","8 oz|8 oz","1 lb|1 lb","2 lb|2 lb","4 lb|4 lb","5 lb|5 lb"];
-     } else if(vari.value == "Pepper Jack" | vari.value == "Marbled Cheddar") {
-         var optionArray = ["0|0","8 oz|8 oz","1 lb|1 lb","2 lb|2 lb","5 lb|5 lb"];
-     } else if(vari.value == "Pasta Filata") {
-         var optionArray = ["0|0","12 oz|12 oz","1 lb|1 lb","6 lb|6 lb"];
-     } else if(vari.value == "Gouda") {
-         var optionArray = ["0|0","1 lb|1 lb","5 lb|5 lb"];
-     } else if(vari.value == "Muenster") {
-         var optionArray = ["0|0","8 oz|8 oz", "12 oz|12 oz","1 lb|1 lb","5 lb|5 lb"];
-     } else if(vari.value == "Provolone") {
-         var optionArray = ["0|0","8 oz|8 oz", "12 oz|12 oz","6 lb|6 lb"];
-     } else if(vari.value == "Swiss") {
-         var optionArray = ["0|0","8 oz|8 oz", "1 lb|1 lb","4 lb|4 lb"];
-     }
-    for(var option in optionArray) {
-      var pair = optionArray[option].split("|");
-      var newOption = document.createElement("option");
-      newOption.value = pair[0];
-      newOption.innerHTML = pair[1];
-      siz.options.add(newOption);
-    }
-  }
+          xhr.addEventListener("readystatechange", processRequest, false);
 
-  // function populatePounds(vari,siz) {
-  //   var vari = document.getElementById(vari);
-  //   var siz = document.getElementById(siz);
-  //   siz.innerHTML = "";
-  //   // if(vari.value) == "select") {
-  //   //   var optionArray = ["select|Select"];
-  //   // }
-  //   if(vari.value == "Monterey Jack" | vari.value == "Mild Cheddar" | vari.value == "Medium Cheddar") {
-  //       var optionArray = ["-|0","8 oz|8 oz","1 lb|1 lb","2 lb|2 lb","4 lb|4 lb","5 lb|5 lb","10 lb|10 lb"];
-  //    }else if(vari.value == "Marble Jack" | vari.value == "Sharp Cheddar" | vari.value == "Chunk") {
-  //        var optionArray = ["-|0","8 oz|8 oz","1 lb|1 lb","2 lb|2 lb","4 lb|4 lb","5 lb|5 lb"];
-  //    } else if(vari.value == "Pepper Jack" | vari.value == "Marbled Cheddar") {
-  //        var optionArray = ["-|0","8 oz|8 oz","1 lb|1 lb","2 lb|2 lb","5 lb|5 lb"];
-  //    } else if(vari.value == "Pasta Filata") {
-  //        var optionArray = ["-|0","12 oz|12 oz","1 lb|1 lb","6 lb|6 lb"];
-  //    } else if(vari.value == "Gouda") {
-  //        var optionArray = ["-|0","1 lb|1 lb","5 lb|5 lb"];
-  //    } else if(vari.value == "Muenster") {
-  //        var optionArray = ["-|0","8 oz|8 oz", "12 oz|12 oz","1 lb|1 lb","5 lb|5 lb"];
-  //    } else if(vari.value == "Provolone") {
-  //        var optionArray = ["-|0","8 oz|8 oz", "12 oz|12 oz","6 lb|6 lb"];
-  //    } else if(vari.value == "Swiss") {
-  //        var optionArray = ["-|0","8 oz|8 oz", "1 lb|1 lb","4 lb|4 lb"];
-  //    }
-  //   for(var option in optionArray) {
-  //     var pair = optionArray[option].split("|");
-  //     var newOption = document.createElement("option");
-  //     newOption.value = pair[0];
-  //     newOption.innerHTML = pair[1];
-  //     siz.options.add(newOption);
-  //   }
-  // }
+          function processRequest(e) {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              var response = JSON.parse(xhr.responseText);
+              alert(response);
+            }
+          }
 
-</script>
+        </script>
 
         <tr>
           <td>15</td>
@@ -1304,27 +962,11 @@
           <td>
             <select id="style15" name="style15">
                   <option value="-" selected>Select</option>
-                  <!-- <option value="Ball">Ball</option>
-                  <option value="Bar">Bar</option>
-                  <option value="Block">Block</option>
-                  <option value="Chunk">Chunk</option>
-                  <option value="Horn">Horn</option>
-                  <option value="Loaf">Loaf</option>
-                  <option value="Shred">Shred</option>
-                  <option value="Sliced">Sliced</option>
-                  <option value="Sticks">Sticks</option>
-                  <option value="String">String</option> -->
                 </select>
           </td>
           <td>
             <select id="size15" name="size15">
                   <option value="0" selected>0</option>
-                  <!-- <option value="8 oz">8 oz</option>
-                  <option value="1 lb">1 lb</option>
-                  <option value="2 lb">2 lb</option>
-                  <option value="4 lb">4 lb</option>
-                  <option value="5 lb">5 lb</option>
-                  <option value="10 lb">10 lb</option>  -->
             </select>
           </td>
           <td>
@@ -1363,35 +1005,107 @@
       <label for="comments"><strong>Comment: </strong></label><br />
       <textarea id="comments" name="comments" placeholder="Special order request..."></textarea><br><br />
 
-      <!-- <p id="cost"><strong>Your estimated cost will be: </strong>$00.00</p> -->
-
       <button id="reset" type="reset" onclick="myReset()";><strong>Reset</strong></button>
       <button id="submit" type="submit"><strong>Submit</strong></button>
-      <!-- <a id='submit' href="ordercheese.html">Submit</a> -->
-      <!-- <button type="button" onclick="myConfor()">Home</button> -->
     </fieldset>
   </form>
-  <!-- <img src="./images/bg-footer-top.jpg" alt="Joseph Gallo Farms Image"> -->
 
+  <!-- TEST TEST TEST TEST -->
   <script>
-  function redirect() {
-    location = 'confirmation.html';
-    console.log("Im in redirect function!");
-  }
-</script>
-
-<!--
-  <script>
-    function myMessageSummary() {
-      href="index.html";
+    function populateStyle(vari,sty) {
+      var vari = document.getElementById(vari);
+      var sty = document.getElementById(sty);
+      sty.innerHTML = "";
+      if(vari.value == "Monterey Jack" | vari.value == "Mild Cheddar" | vari.value == "Chunk") {
+          var optionArray = ["select|Select","Sliced|Sliced","Chunk|Chunk","Shred|Shred","Block|Block","Loaf|Loaf"];
+       }else if(vari.value == "Marble Jack" | vari.value == "Pepper Jack" | vari.value == "Medium Cheddar" | vari.value == "Gouda") {
+           var optionArray = ["select|Select","Sliced|Sliced","Chunk|Chunk","Block|Block","Loaf|Loaf"];
+       } else if(vari.value == "Sharp Cheddar") {
+           var optionArray = ["select|Select","Chunk|Chunk","Shred|Shred","Loaf|Loaf"];
+       } else if(vari.value == "Marbled Cheddar") {
+           var optionArray = ["select|Select","Sliced|Sliced","Chunk|Chunk","Shred|Shred","Loaf|Loaf"];
+       } else if(vari.value == "Pasta Filta") {
+           var optionArray = ["select|Select","Chunk|Chunk","Sticks|Sticks","Balls|Balls","Loaf|Loaf"];
+       } else if(vari.value == "Muenster" | vari.value == "Swiss") {
+           var optionArray = ["select|Select","Sliced|Sliced","Chunk|Chunk","Loaf|Loaf"];
+       } else if(vari.value == "Provolone") {
+           var optionArray = ["select|Select","Sliced|Sliced","Loaf|Loaf"];
+       }
+      for(var option in optionArray) {
+        var pair = optionArray[option].split("|");
+        var newOption = document.createElement("option");
+        newOption.value = pair[0];
+        newOption.innerHTML = pair[1];
+        sty.options.add(newOption);
+      }
     }
+
+    function populateSize(vari,siz) {
+      var vari = document.getElementById(vari);
+      var siz = document.getElementById(siz);
+      siz.innerHTML = "";
+      // if(vari.value) == "select") {
+      //   var optionArray = ["select|Select"];
+      // }
+      if(vari.value == "Monterey Jack" | vari.value == "Mild Cheddar" | vari.value == "Medium Cheddar") {
+          var optionArray = ["0|0","8 oz|8 oz","1 lb|1 lb","2 lb|2 lb","4 lb|4 lb","5 lb|5 lb","10 lb|10 lb"];
+       }else if(vari.value == "Marble Jack" | vari.value == "Sharp Cheddar" | vari.value == "Chunk") {
+           var optionArray = ["0|0","8 oz|8 oz","1 lb|1 lb","2 lb|2 lb","4 lb|4 lb","5 lb|5 lb"];
+       } else if(vari.value == "Pepper Jack" | vari.value == "Marbled Cheddar") {
+           var optionArray = ["0|0","8 oz|8 oz","1 lb|1 lb","2 lb|2 lb","5 lb|5 lb"];
+       } else if(vari.value == "Pasta Filta") {
+           var optionArray = ["0|0","12 oz|12 oz","1 lb|1 lb","6 lb|6 lb"];
+       } else if(vari.value == "Gouda") {
+           var optionArray = ["0|0","1 lb|1 lb","5 lb|5 lb"];
+       } else if(vari.value == "Muenster") {
+           var optionArray = ["0|0","8 oz|8 oz", "12 oz|12 oz","1 lb|1 lb","5 lb|5 lb"];
+       } else if(vari.value == "Provolone") {
+           var optionArray = ["0|0","8 oz|8 oz", "12 oz|12 oz","6 lb|6 lb"];
+       } else if(vari.value == "Swiss") {
+           var optionArray = ["0|0","8 oz|8 oz", "1 lb|1 lb","4 lb|4 lb"];
+       }
+      for(var option in optionArray) {
+        var pair = optionArray[option].split("|");
+        var newOption = document.createElement("option");
+        newOption.value = pair[0];
+        newOption.innerHTML = pair[1];
+        siz.options.add(newOption);
+      }
+    }
+
+    // function populatePounds(vari,siz) {
+    //   var vari = document.getElementById(vari);
+    //   var siz = document.getElementById(siz);
+    //   siz.innerHTML = "";
+    //   // if(vari.value) == "select") {
+    //   //   var optionArray = ["select|Select"];
+    //   // }
+    //   if(vari.value == "Monterey Jack" | vari.value == "Mild Cheddar" | vari.value == "Medium Cheddar") {
+    //       var optionArray = ["-|0","8 oz|8 oz","1 lb|1 lb","2 lb|2 lb","4 lb|4 lb","5 lb|5 lb","10 lb|10 lb"];
+    //    }else if(vari.value == "Marble Jack" | vari.value == "Sharp Cheddar" | vari.value == "Chunk") {
+    //        var optionArray = ["-|0","8 oz|8 oz","1 lb|1 lb","2 lb|2 lb","4 lb|4 lb","5 lb|5 lb"];
+    //    } else if(vari.value == "Pepper Jack" | vari.value == "Marbled Cheddar") {
+    //        var optionArray = ["-|0","8 oz|8 oz","1 lb|1 lb","2 lb|2 lb","5 lb|5 lb"];
+    //    } else if(vari.value == "Pasta Filata") {
+    //        var optionArray = ["-|0","12 oz|12 oz","1 lb|1 lb","6 lb|6 lb"];
+    //    } else if(vari.value == "Gouda") {
+    //        var optionArray = ["-|0","1 lb|1 lb","5 lb|5 lb"];
+    //    } else if(vari.value == "Muenster") {
+    //        var optionArray = ["-|0","8 oz|8 oz", "12 oz|12 oz","1 lb|1 lb","5 lb|5 lb"];
+    //    } else if(vari.value == "Provolone") {
+    //        var optionArray = ["-|0","8 oz|8 oz", "12 oz|12 oz","6 lb|6 lb"];
+    //    } else if(vari.value == "Swiss") {
+    //        var optionArray = ["-|0","8 oz|8 oz", "1 lb|1 lb","4 lb|4 lb"];
+    //    }
+    //   for(var option in optionArray) {
+    //     var pair = optionArray[option].split("|");
+    //     var newOption = document.createElement("option");
+    //     newOption.value = pair[0];
+    //     newOption.innerHTML = pair[1];
+    //     siz.options.add(newOption);
+    //   }
+    // }
   </script>
-
-  <script>
-    function myConfor() {
-      window.location.href = 'http://www.google.com/';
-    }
-  </script> -->
 
   <!-- Code to reset total box with reset button. -->
   <script>
@@ -1420,16 +1134,3 @@
     document.getElementById("date").value = displayToday;
     document.getElementById("date").readOnly = true;
   </script>
-
-
-  <!-- <script>
-      //if cheese sale date is less then current date do not let him hit submit button.
-      function checkDate() {
-        if (saledate != displayToday){
-          document.getElementById("submit").disabled = true;
-        } else {
-          document.getElementById("submit").disabled = false;
-        }
-      }
-  </script> -->
-  <!-- TEST TEST
