@@ -32,7 +32,14 @@ var query = client.query(
 //
 // insert into users(empnum, fname, lname) values(144196, 'Miraj', 'Patel'),(144197, 'Sam', 'Shai'),(144198, 'Cathline', 'Rameres'), (144199, 'Kobe', 'Brain'),(555, 'Sam', 'Shai');
 //
-// insert into orders(userid, saledate, variety, style, size, pounds) values(3, '07/18/2018', 'Marble Jack', 'Ball', '2.5 lb', 5), (2, '07/19/2018', 'Pepper Jack', 'Sliced', '5 lb', 2), (1, '07/20/2018', 'Monterey Jack', 'Loaf', '1 lb', 8), (3, '07/19/2018', 'Pepper Jack', 'Sliced', '2.5 lb', 1);
+// insert into orders(userid, saledate, variety, style, size, pounds, orderdate) values(3, '07/18/2018', 'Marble Jack', 'Ball', '2.5 lb', 5, 08/08/2018), (4, '07/19/2018', 'Pepper Jack', 'Sliced', '5 lb', 2, 08/10/2018), (1, '07/20/2018', 'Monterey Jack', 'Loaf', '1 lb', 8, 08/18/2018), (3, '07/19/2018', 'Pepper Jack', 'Sliced', '2.5 lb', 1, 08/05/2018), (1, '07/19/2018', 'Pepper Jack', 'Sliced', '2.5 lb', 1, 08/05/2018), (3, '07/20/2018', 'Monterey Jack', 'Loaf', '1 lb', 8, 08/18/2018);
+//insert into orders(userid, saledate, variety, style, size, pounds, orderdate) values(3, '07/18/2018', 'Marble Jack', 'Ball', '2.5 lb', 5, '08/08/2018'), (4, '07/19/2018', 'Pepper Jack', 'Sliced', '5 lb', 2, '08/10/2018'), (1, '07/20/2018', 'Monterey Jack', 'Loaf', '1 lb', 8, '08/18/2018'), (3, '07/19/2018', 'Pepper Jack', 'Sliced', '2.5 lb', 1, '08/05/2018'), (1, '07/19/2018', 'Pepper Jack', 'Sliced', '2.5 lb', 1, '08/05/2018'), (3, '07/20/2018', 'Monterey Jack', 'Loaf', '1 lb', 8, //'08/18/2018'), (3, '07/18/2018', 'Marble Jack', 'Ball', '2.5 lb', 5, '08/08/2018'), (6, '07/18/2018', 'Marble Jack', 'Ball', '2.5 lb', 5, '08/08/2018'), (9, '07/19/2018', 'Pepper Jack', 'Sliced', '5 lb', 2, '08/10/2018'), (1, '07/20/2018', 'Monterey Jack', 'Loaf', '1 lb', 8, '08/18/2018'), (1, '07/20/2018', 'Monterey Jack', 'Loaf', '2 lb', 1, '08/18/2018'), (5, '07/20/2018', 'Monterey Jack', 'Loaf', '2 lb', 1, '08/18/2018'), (5, '07/23/2018', 'Monterey Jack', 'Loaf', '2 lb', 1, '08/18/2018');
+//
+// 'Monterey Jack', 'Loaf', '1 lb', 8	x111
+// 'Marble Jack', 'Ball', '2.5 lb', 5	x111
+// 'Pepper Jack', 'Sliced', '5 lb', 2	x11
+// 'Pepper Jack', 'Sliced', '2.5 lb', 1	x11
+// 'Monterey Jack', 'Loaf', '2 lb', 1	x11
 //
 
 //INNER JOIN. Based on all the orders recived. It will get user information.
@@ -51,6 +58,8 @@ var query = client.query(
 
 //BETTER PICK-LIST
 //select variety, style, count(*) from myView group by style, variety;
+//select saledate, variety, style, size, pounds, count(*) from orders group by style, variety, saledate having saledate='08/31/2018';
+//select saledate, variety, style, size, pounds, count(*) from orders group by variety, style, saledate, size, pounds order by saledate, variety, style, size, pounds;
 //
 
 //

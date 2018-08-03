@@ -28,14 +28,11 @@ app.use(bodyParser.urlencoded({
   extended: true
 }))
 
+//// TODO: Add comments to the database.
 app.get('/ordercheese', function(req, res, next) {
       //res.send(200);
       //res.send({'test': 'response'})
     //  res.redirect('/ordercheese.html')
-    console.log("Request...", req.query.firstname);
-    console.log("Request...", req.query.lastname);
-    console.log("Request...", req.query.employeenumber);
-    console.log("Request...", req.query.saledate);
 
       var firstname = req.query.firstname;
       var lastname = req.query.lastname;
@@ -55,13 +52,8 @@ app.get('/ordercheese', function(req, res, next) {
        }
       var cheeseSaleDate = month + '/' + day + '/' + year;
 
-      console.log(" ");
-      console.log("Sale date: " + cheeseSaleDate);
-      console.log(" ");
-
       var dateNow = new Date();
-      console.log("Today is: " + dateNow);
-
+      //console.log("Today is: " + dateNow);
       var dd = dateNow.getDate();
       var mm = dateNow.getMonth() + 1; //January is 0
       var yyyy = dateNow.getFullYear();
@@ -92,13 +84,9 @@ app.get('/ordercheese', function(req, res, next) {
       //console.log(email);
       var mainEmail = "mpatel@josephfarms.com";
       //console.log(mainEmail);
-      console.log(req.query.variety1,);
-      console.log(req.query.style1);
-      console.log(req.query.size1);
-      console.log(req.query.pounds1);
 
 // console.log("saledate is before array " + saledate);
- var array = new Array(15);
+ var array = new Array(16);
  var test;
  array[0] = {
    'variety': req.query.variety1,
@@ -190,6 +178,12 @@ app.get('/ordercheese', function(req, res, next) {
    'size': req.query.size15,
    'pounds': req.query.pounds15
  }
+ array[15] = {
+   'variety': req.query.variety16,
+   'style': req.query.style16,
+   'size': req.query.size16,
+   'pounds': req.query.pounds16
+ }
     var comments = req.query.comments;
 
   //SQL DATABASE
@@ -216,7 +210,7 @@ app.get('/ordercheese', function(req, res, next) {
         //LOOP TO CHECK ALL THE array items.
         array.forEach(function(item, i, arr) {
           //If array is empty.
-          if (array[i].variety == '-' && array[i].style == '-' && array[i].size == 0 && array[i].pounds == 0) {
+          if ((array[i].variety == '-' && array[i].style == '-' && array[i].size == 0 && array[i].pounds == 0) || (array[i].variety == '' && array[i].style == '' && array[i].size == '' && array[i].pounds == 0)) {
             console.log('No values inside');
           //Else add the vilues into orders table.
           } else {
@@ -247,7 +241,7 @@ app.get('/ordercheese', function(req, res, next) {
         //LOOP TO CHECK ALL THE array items.
         array.forEach(function(item, i, arr) {
           //If array is empty.
-          if (array[i].variety == '-' && array[i].style == '-' && array[i].size == 0 && array[i].pounds == 0) {
+          if ((array[i].variety == '-' && array[i].style == '-' && array[i].size == 0 && array[i].pounds == 0) || (array[i].variety == '' && array[i].style == '' && array[i].size == '' && array[i].pounds == 0)) {
             console.log('No values inside');
           //Else add the vilues into orders table.
           } else {
@@ -303,8 +297,9 @@ app.get('/ordercheese', function(req, res, next) {
         var pounds13 = req.query.pounds13;
         var pounds14 = req.query.pounds14;
         var pounds15 = req.query.pounds15;
+        var pounds16 = req.query.pounds16;
 
-        var calTotal = parseInt(pounds1) + parseInt(pounds2) + parseInt(pounds3) + parseInt(pounds4) + parseInt(pounds5) + parseInt(pounds6) + parseInt(pounds7) + parseInt(pounds8) + parseInt(pounds9) + parseInt(pounds10) + parseInt(pounds11) + parseInt(pounds12) + parseInt(pounds13) + parseInt(pounds14) + parseInt(pounds15);
+        var calTotal = parseInt(pounds1) + parseInt(pounds2) + parseInt(pounds3) + parseInt(pounds4) + parseInt(pounds5) + parseInt(pounds6) + parseInt(pounds7) + parseInt(pounds8) + parseInt(pounds9) + parseInt(pounds10) + parseInt(pounds11) + parseInt(pounds12) + parseInt(pounds13) + parseInt(pounds14) + parseInt(pounds15) + parseInt(pounds16);
         //var calTotal = array[0].pounds + array[1].pounds + array[2].pounds + array[3].pounds + array[4].pounds + array[5].pounds + array[6].pounds + array[7].pounds + array[8].pounds + array[9].pounds + array[10].pounds + array[11].pounds + array[12].pounds + array[13].pounds + array[14].pounds;
         //
         //   var calTotal = 0,
@@ -344,6 +339,7 @@ app.get('/ordercheese', function(req, res, next) {
     <tr><td style="border-bottom:1px solid black;">13</td><td style="border-bottom:1px solid black;">' + array[12].variety + '</td><td style="border-bottom:1px solid black;">' + array[12].style + '</td><td style="border-bottom:1px solid black;">' + array[12].size + '</td><td style="border-bottom:1px solid black;">' + array[12].pounds + '</td><td style="border-bottom:1px solid black;"></td></tr>\
     <tr><td style="border-bottom:1px solid black;">14</td><td style="border-bottom:1px solid black;">' + array[13].variety + '</td><td style="border-bottom:1px solid black;">' + array[13].style + '</td><td style="border-bottom:1px solid black;">' + array[13].size + '</td><td style="border-bottom:1px solid black;">' + array[13].pounds + '</td><td style="border-bottom:1px solid black;"></td></tr>\
     <tr><td style="border-bottom:1px solid black;">15</td><td style="border-bottom:1px solid black;">' + array[14].variety + '</td><td style="border-bottom:1px solid black;">' + array[14].style + '</td><td style="border-bottom:1px solid black;">' + array[14].size + '</td><td style="border-bottom:1px solid black;">' + array[14].pounds + '</td><td style="border-bottom:1px solid black;"></td></tr>\
+    <tr><td style="border-bottom:1px solid black;">16</td><td style="border-bottom:1px solid black;">' + array[15].variety + '</td><td style="border-bottom:1px solid black;">' + array[15].style + '</td><td style="border-bottom:1px solid black;">' + array[15].size + '</td><td style="border-bottom:1px solid black;">' + array[15].pounds + '</td><td style="border-bottom:1px solid black;"></td></tr>\
     <tr><td></td><td></td><td></td><td><strong>Total:</strong></td><td><strong>' + calTotal + '</strong></td><td></td></tr>\
     </table>\
     <br><strong>Comments: </strong>' + comments + '<br/>'
@@ -364,13 +360,13 @@ app.get('/ordercheese', function(req, res, next) {
          res.end();
        });
 
-      app.get('/picklist', function(req, res, next) {
+      app.get('/orderList', function(req, res, next) {
         //SQL DATABASE
         client.connect(function(err) {
           // if (err) {
           //   throw err;
           // }
-          console.log("Database connected for picklist!");
+          console.log("Database connected for order list!");
           //Checks if user exists into database.
           client.query("select users.empnum, users.fname, users.lname, orders.saledate, orders.variety, orders.style, orders.size, orders.pounds, orders.orderdate from users inner join orders on users.id = orders.userid", function(err, result, fields) {
             //select users.empnum, users.fname, users.lname, orders.saledate, orders.variety, orders.style, orders.size, orders.pounds, orders.orderdate from users inner join orders on users.id = orders.userid;
@@ -382,3 +378,42 @@ app.get('/ordercheese', function(req, res, next) {
           });
         });
       });
+
+      app.get('/picklist', function(req, res, next) {
+        //SQL DATABASE
+        client.connect(function(err) {
+          // if (err) {
+          //   throw err;
+          // }
+          console.log("Database connected for pick list!");
+          //Checks if user exists into database.
+          client.query("select saledate, variety, style, size, pounds, count(*) from orders group by variety, style, saledate, size, pounds order by saledate, variety, style, size, pounds", function(err, result, fields) {
+            //select saledate, variety, style, size, pounds, count(*) from orders group by variety, style, saledate, size, pounds;
+          if (err) {
+            throw err;
+          }
+          //console.log(result.rows);
+          res.send(result.rows);
+          });
+        });
+      });
+
+      // app.get('/orderlist', function(req, res, next) {
+      //   //SQL DATABASE
+      //   client.connect(function(err) {
+      //     // if (err) {
+      //     //   throw err;
+      //     // }
+      //     console.log("Database connected for date option!");
+      //     //Checks if user exists into database.
+      //     client.query("select distinct saledate from orders order by saledate desc", function(err, result, fields) {
+      //       //select saledate, variety, style, size, pounds, count(*) from orders group by variety, style, saledate, size, pounds;
+      //     if (err) {
+      //       throw err;
+      //     }
+      //     console.log("dates ------------------")
+      //     console.log(result.rows);
+      //     res.send(result.rows);
+      //     });
+      //   });
+      // });

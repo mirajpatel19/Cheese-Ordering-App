@@ -23,8 +23,9 @@
       var calPounds13 = document.getElementById("pounds13").value;
       var calPounds14 = document.getElementById("pounds14").value;
       var calPounds15 = document.getElementById("pounds15").value;
+      var calPounds16 = document.getElementById("pounds16").value;
       var calTotal = parseInt(calPounds1) + parseInt(calPounds2) + parseInt(calPounds3) + parseInt(calPounds4) + parseInt(calPounds5) + parseInt(calPounds6) + parseInt(calPounds7) + parseInt(calPounds8) + parseInt(calPounds9) + parseInt(calPounds10) +
-        parseInt(calPounds11) + parseInt(calPounds12) + parseInt(calPounds13) + parseInt(calPounds14) + parseInt(calPounds15);
+        parseInt(calPounds11) + parseInt(calPounds12) + parseInt(calPounds13) + parseInt(calPounds14) + parseInt(calPounds15) + parseInt(calPounds16);
 
     // Alert Message!
     if (parseInt(calTotal) <= 15) {
@@ -37,7 +38,6 @@
       }
     }
   </script>
-
 </head>
 
 <body id="main">
@@ -50,6 +50,7 @@
       <legend>
         <h3><i>Personal Information</i></h3></legend>
 
+
 <!-- TODO: Make the fields required. -->
       <lable><strong>First Name</strong><span class="required">*</span></label><br>
         <input type="text" id="firstname" name="firstname" placeholder="Miraj" required ><br>
@@ -58,7 +59,15 @@
       <lable><strong>Employee Number</strong><span class="required">*</span></label><br>
         <input type="number" id="employeenumber" name="employeenumber" placeholder="15874" required ><br>
       <lable><strong>Cheese Sale Date</strong><span class="required">*</span></label><br>
-        <input type="date" id="saledate" name="saledate" placeholder="Cheese Sale Date" required min=''><br>
+        <input type="date" id="saledate" name="saledate" placeholder="Cheese Sale Date" required min='' onclick= warn(); >
+      <lable id ="demo"></lable><br />
+
+        <script >
+      function warn() {
+        var myName = "Third Friday of every month!";
+         document.getElementById('demo').innerHTML= myName;
+      }
+      </script>
 
         <!-- <lable><strong>Today's Date</strong></lable><br>
           <input type="text" id='date' onclick="checkDate()"><br> -->
@@ -104,10 +113,11 @@
                 <option value="Pasta Filta">Pasta Filta</option>
               </optgroup>
               <optgroup label="Other Flavors">
-                <option value="Gouda">Gouda</option>
+                <option value="Cream Cheese">Cream Cheese</option>
                 <option value="Muenster">Muenster</option>
                 <option value="Provolone">Provolone</option>
                 <option value="Swiss">Swiss</option>
+                <option value="Variety Pack">Variety Pack</option>
               </optgroup>
             </select>
 
@@ -168,10 +178,11 @@
                   <option value="Pasta Filta">Pasta Filta</option>
                 </optgroup>
                 <optgroup label="Other Flavors">
-                  <option value="Gouda">Gouda</option>
+                  <option value="Cream Cheese">Cream Cheese</option>
                   <option value="Muenster">Muenster</option>
                   <option value="Provolone">Provolone</option>
                   <option value="Swiss">Swiss</option>
+                  <option value="Variety Pack">Variety Pack</option>
                 </optgroup>
               </select>
           </td>
@@ -227,10 +238,11 @@
                     <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
-                    <option value="Gouda">Gouda</option>
+                    <option value="Cream Cheese">Cream Cheese</option>
                     <option value="Muenster">Muenster</option>
                     <option value="Provolone">Provolone</option>
                     <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
                   </optgroup>
                 </select>
           </td>
@@ -286,10 +298,11 @@
                     <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
-                    <option value="Gouda">Gouda</option>
+                    <option value="Cream Cheese">Cream Cheese</option>
                     <option value="Muenster">Muenster</option>
                     <option value="Provolone">Provolone</option>
                     <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
                   </optgroup>
                 </select>
           </td>
@@ -345,10 +358,11 @@
                     <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
-                    <option value="Gouda">Gouda</option>
+                    <option value="Cream Cheese">Cream Cheese</option>
                     <option value="Muenster">Muenster</option>
                     <option value="Provolone">Provolone</option>
                     <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
                   </optgroup>
                 </select>
           </td>
@@ -404,10 +418,11 @@
                     <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
-                    <option value="Gouda">Gouda</option>
+                    <option value="Cream Cheese">Cream Cheese</option>
                     <option value="Muenster">Muenster</option>
                     <option value="Provolone">Provolone</option>
                     <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
                   </optgroup>
                 </select>
           </td>
@@ -463,10 +478,11 @@
                     <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
-                    <option value="Gouda">Gouda</option>
+                    <option value="Cream Cheese">Cream Cheese</option>
                     <option value="Muenster">Muenster</option>
                     <option value="Provolone">Provolone</option>
                     <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
                   </optgroup>
                 </select>
           </td>
@@ -522,10 +538,11 @@
                     <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
-                    <option value="Gouda">Gouda</option>
+                    <option value="Cream Cheese">Cream Cheese</option>
                     <option value="Muenster">Muenster</option>
                     <option value="Provolone">Provolone</option>
                     <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
                   </optgroup>
                 </select>
           </td>
@@ -581,10 +598,11 @@
                     <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
-                    <option value="Gouda">Gouda</option>
+                    <option value="Cream Cheese">Cream Cheese</option>
                     <option value="Muenster">Muenster</option>
                     <option value="Provolone">Provolone</option>
                     <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
                   </optgroup>
                 </select>
           </td>
@@ -640,10 +658,11 @@
                     <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
-                    <option value="Gouda">Gouda</option>
+                    <option value="Cream Cheese">Cream Cheese</option>
                     <option value="Muenster">Muenster</option>
                     <option value="Provolone">Provolone</option>
                     <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
                   </optgroup>
                 </select>
           </td>
@@ -699,10 +718,11 @@
                     <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
-                    <option value="Gouda">Gouda</option>
+                    <option value="Cream Cheese">Cream Cheese</option>
                     <option value="Muenster">Muenster</option>
                     <option value="Provolone">Provolone</option>
                     <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
                   </optgroup>
                 </select>
           </td>
@@ -758,10 +778,11 @@
                     <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
-                    <option value="Gouda">Gouda</option>
+                    <option value="Cream Cheese">Cream Cheese</option>
                     <option value="Muenster">Muenster</option>
                     <option value="Provolone">Provolone</option>
                     <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
                   </optgroup>
                 </select>
           </td>
@@ -817,10 +838,11 @@
                     <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
-                    <option value="Gouda">Gouda</option>
+                    <option value="Cream Cheese">Cream Cheese</option>
                     <option value="Muenster">Muenster</option>
                     <option value="Provolone">Provolone</option>
                     <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
                   </optgroup>
                 </select>
           </td>
@@ -876,10 +898,11 @@
                     <option value="Pasta Filta">Pasta Filta</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
-                    <option value="Gouda">Gouda</option>
+                    <option value="Cream Cheese">Cream Cheese</option>
                     <option value="Muenster">Muenster</option>
                     <option value="Provolone">Provolone</option>
                     <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
                   </optgroup>
                 </select>
           </td>
@@ -915,20 +938,6 @@
           </td>
         </tr>
 
-        <script>
-          var xhr = new XMLHttpRequest();
-          xhr.open('GET', "/ordercheese.html", true);
-          xhr.send();
-
-          xhr.addEventListener("readystatechange", processRequest, false);
-
-          function processRequest(e) {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-              var response = JSON.parse(xhr.responseText);
-              alert(response);
-            }
-          }
-
         </script>
 
         <tr>
@@ -952,10 +961,11 @@
                     <option value="Pasta Filata">Pasta Filata</option>
                   </optgroup>
                   <optgroup label="Other Flavors">
-                    <option value="Gouda">Gouda</option>
+                    <option value="Cream Cheese">Cream Cheese</option>
                     <option value="Muenster">Muenster</option>
                     <option value="Provolone">Provolone</option>
                     <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
                   </optgroup>
                 </select>
           </td>
@@ -971,6 +981,32 @@
           </td>
           <td>
             <select id="pounds15" name="pounds15" onchange="myCalTotal()">
+                  <option value="0" selected>0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                </select>
+          </td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td><input id="variety16" type="text" name="variety16" placeholder="Select"><br></td>
+          <td><input id="style16" type="text" name="style16" placeholder="Select"><br></td>
+          <td><input id="size16" type="text" name="size16" placeholder="0"><br></td>
+          <td>
+            <select id="pounds16" name="pounds16" onchange="myCalTotal()">
                   <option value="0" selected>0</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -1017,19 +1053,21 @@
       var sty = document.getElementById(sty);
       sty.innerHTML = "";
       if(vari.value == "Monterey Jack" | vari.value == "Mild Cheddar" | vari.value == "Chunk") {
-          var optionArray = ["select|Select","Sliced|Sliced","Chunk|Chunk","Shred|Shred","Block|Block","Loaf|Loaf"];
-       }else if(vari.value == "Marble Jack" | vari.value == "Pepper Jack" | vari.value == "Medium Cheddar" | vari.value == "Gouda") {
-           var optionArray = ["select|Select","Sliced|Sliced","Chunk|Chunk","Block|Block","Loaf|Loaf"];
+          var optionArray = ["select|Select","Sliced|Sliced","Chunk|Chunk","Shred|Shred"];
+       }else if(vari.value == "Marble Jack" | vari.value == "Pepper Jack" | vari.value == "Medium Cheddar" | vari.value == "Cream Cheese") {
+           var optionArray = ["select|Select","Sliced|Sliced","Chunk|Chunk"];
        } else if(vari.value == "Sharp Cheddar") {
-           var optionArray = ["select|Select","Chunk|Chunk","Shred|Shred","Loaf|Loaf"];
+           var optionArray = ["select|Select","Chunk|Chunk","Shred|Shred"];
        } else if(vari.value == "Marbled Cheddar") {
-           var optionArray = ["select|Select","Sliced|Sliced","Chunk|Chunk","Shred|Shred","Loaf|Loaf"];
+           var optionArray = ["select|Select","Sliced|Sliced","Chunk|Chunk","Shred|Shred"];
        } else if(vari.value == "Pasta Filta") {
-           var optionArray = ["select|Select","Chunk|Chunk","Sticks|Sticks","Balls|Balls","Loaf|Loaf"];
+           var optionArray = ["select|Select","Chunk|Chunk","Sticks|Sticks","Ball|Ball"];
        } else if(vari.value == "Muenster" | vari.value == "Swiss") {
-           var optionArray = ["select|Select","Sliced|Sliced","Chunk|Chunk","Loaf|Loaf"];
+           var optionArray = ["select|Select","Sliced|Sliced","Chunk|Chunk"];
        } else if(vari.value == "Provolone") {
-           var optionArray = ["select|Select","Sliced|Sliced","Loaf|Loaf"];
+           var optionArray = ["select|Select","Sliced|Sliced"];
+       } else if(vari.value == "Variety Pack") {
+           var optionArray = ["select|Select","Sliced|Sliced"];
        }
       for(var option in optionArray) {
         var pair = optionArray[option].split("|");
@@ -1048,21 +1086,23 @@
       //   var optionArray = ["select|Select"];
       // }
       if(vari.value == "Monterey Jack" | vari.value == "Mild Cheddar" | vari.value == "Medium Cheddar") {
-          var optionArray = ["0|0","8 oz|8 oz","1 lb|1 lb","2 lb|2 lb","4 lb|4 lb","5 lb|5 lb","10 lb|10 lb"];
+          var optionArray = ["0|0","8 oz|8 oz","1 lb|1 lb","2 lb|2 lb","4 lb|4 lb"];
        }else if(vari.value == "Marble Jack" | vari.value == "Sharp Cheddar" | vari.value == "Chunk") {
-           var optionArray = ["0|0","8 oz|8 oz","1 lb|1 lb","2 lb|2 lb","4 lb|4 lb","5 lb|5 lb"];
+           var optionArray = ["0|0","8 oz|8 oz","1 lb|1 lb","2 lb|2 lb","4 lb|4 lb"];
        } else if(vari.value == "Pepper Jack" | vari.value == "Marbled Cheddar") {
-           var optionArray = ["0|0","8 oz|8 oz","1 lb|1 lb","2 lb|2 lb","5 lb|5 lb"];
+           var optionArray = ["0|0","8 oz|8 oz","1 lb|1 lb","2 lb|2 lb"];
        } else if(vari.value == "Pasta Filta") {
            var optionArray = ["0|0","12 oz|12 oz","1 lb|1 lb","6 lb|6 lb"];
-       } else if(vari.value == "Gouda") {
-           var optionArray = ["0|0","1 lb|1 lb","5 lb|5 lb"];
+       } else if(vari.value == "Cream Cheese") {
+           var optionArray = ["0|0","1 lb|1 lb"];
        } else if(vari.value == "Muenster") {
-           var optionArray = ["0|0","8 oz|8 oz", "12 oz|12 oz","1 lb|1 lb","5 lb|5 lb"];
+           var optionArray = ["0|0","8 oz|8 oz", "12 oz|12 oz","1 lb|1 lb"];
        } else if(vari.value == "Provolone") {
            var optionArray = ["0|0","8 oz|8 oz", "12 oz|12 oz","6 lb|6 lb"];
        } else if(vari.value == "Swiss") {
            var optionArray = ["0|0","8 oz|8 oz", "1 lb|1 lb","4 lb|4 lb"];
+       } else if(vari.value == "Variety Pack") {
+           var optionArray = ["0|0","2 lb|2 lb"];
        }
       for(var option in optionArray) {
         var pair = optionArray[option].split("|");
@@ -1088,7 +1128,7 @@
     //        var optionArray = ["-|0","8 oz|8 oz","1 lb|1 lb","2 lb|2 lb","5 lb|5 lb"];
     //    } else if(vari.value == "Pasta Filata") {
     //        var optionArray = ["-|0","12 oz|12 oz","1 lb|1 lb","6 lb|6 lb"];
-    //    } else if(vari.value == "Gouda") {
+    //    } else if(vari.value == "Cream Cheese") {
     //        var optionArray = ["-|0","1 lb|1 lb","5 lb|5 lb"];
     //    } else if(vari.value == "Muenster") {
     //        var optionArray = ["-|0","8 oz|8 oz", "12 oz|12 oz","1 lb|1 lb","5 lb|5 lb"];
@@ -1111,17 +1151,17 @@
   <script>
     function myReset() {
       document.getElementById("total").innerHTML = "";
-      document.getElementById("date").value = displayToday;
       document.getElementById("date").readOnly = true;
     }
   </script>
 
+<!-- Setting the minimun value for cheeseSaleDate. -->
   <script>
     var today = new Date();
     var dd = today.getDate();
     var mm = today.getMonth() + 1; //January is 0
     var yyyy = today.getFullYear();
-    dd = dd + 4;
+    dd = dd + 3;
     if (dd < 10) {
       dd = '0' + dd
     }
@@ -1129,8 +1169,7 @@
       mm = '0' + mm
     }
     today = yyyy + '-' + mm + '-' + dd;
+    console.log("My Today's date is " + today);
+    //var myDate =
     document.getElementById("saledate").setAttribute("min", today);
-    displayToday = mm + '/' + dd + '/' + yyyy;
-    document.getElementById("date").value = displayToday;
-    document.getElementById("date").readOnly = true;
   </script>

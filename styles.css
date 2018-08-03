@@ -31,6 +31,30 @@ select{
   height: 23px;
 }
 
+#variety16 {
+  padding-left: 3px;
+  border-radius: 5px;
+  width: 136px;
+  height: 18px;
+  border-style: groove;
+}
+#style16 {
+  padding-left: 3px;
+  border-radius: 5px;
+  width: 56px;
+  height: 18px;
+  border-style: groove;
+}
+#size16 {
+  padding-left: 3px;
+  border-radius: 5px;
+  width: 44px;
+  height: 18px;
+  border-style: groove;
+}
+#size1, #size2, #size3, #size4, #size5, #size6, #size7, #size8, #size9, #size10, #size11, #size12, #size13, #size14,#size15 {
+  width: 50px;
+}
 ::placeholder {
   color: #A9A9A9;
   opacity: 1;
@@ -123,4 +147,22 @@ select{
 
 #cost {
   text-indent: 108px;
+}
+
+#sortTable {
+  width: 100%;
+}
+
+#sortData {
+  text-align: center;
+}
+
+#navigateLink {
+  color: red;
+  //text-decoration:none;
+  //border: 2px solid red;
+}
+
+#heading {
+  color: green;
 }

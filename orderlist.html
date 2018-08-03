@@ -7,42 +7,52 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
   <link rel="stylesheet" href="styles.css">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Pick List</title>
+  <title>Order List</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body id="pickList">
+<body id="orderList">
   <img src="./images/joseph-farms-cheese-header.jpg" alt="Joseph Gallo Farms Image">
-  <h1 id='title'>Pick List</h1>
+  <h1 id='title'>Cheese Orders</h1>
 
   <lable><strong>Cheese Sale Date</strong><span class="required">*</span></label>
     <input type="date" name="saledate";><br />
     <br />
     <br />
 
-  <div ng-app="myApp" ng-controller="pickCtrl">
-    <!-- {{orders}} -->
+  <!-- <div ng-app="myApp" ng-controller="dateCtrl"> -->
+      <!-- <option ng-repeat="date in dates" value="{{date.dates}}">{{date.dates}}</option> -->
+    <!-- <h1> You selected: {{date}}</h1> -->
+  <!-- </div> -->
+
+  <div ng-app="myApp" ng-controller="myCtrl">
+
     <b>Filter:</b><input ng-model="query" type="text"/>
-    <!-- <button ng-click="clicked()">Go to Order List</button> -->
-    <a id="navigateLink" href="/orderlist.html">Go to Order List</a>
+    <!-- <button ng-click="clicked()">Go to Pick List</button> -->
+    <a id="navigateLink" href="/picklist.html">Go to Pick List</a>
 
     <table id="sortTable">
-
+      <tr>
+        <th><a id="heading" href="" ng-click="sortField = 'empnum'; reverse = !reverse">Employee Number</th>
+        <th><a id="heading" href="" ng-click="sortField = 'fname'; reverse = !reverse">First Name</th>
+        <th><a id="heading" href="" ng-click="sortField = 'lname'; reverse = !reverse">Last Name</th>
         <th><a id="heading" href="" ng-click="sortField = 'saledate'; reverse = !reverse">Sale Date</th>
         <th><a id="heading" href="" ng-click="sortField = 'variety'; reverse = !reverse">Variety</th>
         <th><a id="heading" href="" ng-click="sortField = 'style'; reverse = !reverse">Style</th>
         <th><a id="heading" href="" ng-click="sortField = 'size'; reverse = !reverse">Size</th>
         <th><a id="heading" href="" ng-click="sortField = 'pounds'; reverse = !reverse">Pounds</th>
-        <th><a id="heading" href="" ng-click="sortField = 'count'; reverse = !reverse">Count</th>
-
+        <th><a id="heading" href="" ng-click="sortField = 'orderdate'; reverse = !reverse">Order Date</th>
       </tr>
       <tr id="sortData" ng-repeat="order in orders | filter:query | orderBy:sortField:reverse">
+        <td>{{order.empnum}}</td>
+        <td>{{order.fname}}</td>
+        <td>{{order.lname}}</td>
         <td>{{order.saledate}}</td>
         <td>{{order.variety}}</td>
         <td>{{order.style}}</td>
         <td>{{order.size}}</td>
         <td>{{order.pounds}}</td>
-        <td>{{order.count}}</td>
+        <td>{{order.orderdate}}</td>
       </tr>
     </table>
 
@@ -51,19 +61,28 @@
   <!-- TEST ANGULAR Test -->
   <script>
   var app = angular.module('myApp', []);
-  app.controller('pickCtrl', function($scope, $http) {
-    $http.get("/picklist")
+  app.controller('myCtrl', function($scope, $http) {
+    $http.get("/orderlist")
     .then(function(response) {
         $scope.orders = response.data;
         $scope.sortField = 'userid';
         $scope.reverse = true;
-        // console.log("into new function.")
-        // console.log(orders);
+        //console.log("into new function.")
+        //console.log(orders);
     });
   });
   </script>
 
-
+  <!-- <script>
+  var app = angular.module('myApp', []);
+  app.controller('dateCtrl', function($scope, $http) {
+    $http.get("/orderlist")
+    .then(function(response) {
+        $scope.dates = response.data;
+        // console.log(dates);
+    });
+  });
+  </script> -->
 
 </body>
 </html>
