@@ -1,0 +1,52 @@
+<!-- <html ng-app>
+     <head>
+     </head>
+     <body>
+         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+     </body>
+</html>
+ -->
+
+ <html ng-app>
+ <body>
+     <form ng-controller='appController' ng-submit="send()">
+       <!--send() function from the controller is called on form submission -->
+         <input type="date" ng-model='data.date'></input>
+         <pre>{{data.date}}</pre>
+         <input type="submit" ngClick="Submit">
+         <div><pre>{{response.data}}</pre>
+         </div>
+         <ng-form>
+
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js">
+     </script>
+     <script>
+         function appController($scope, $http) {
+             /*$http directive is used to communicate ot the server */
+             $scope.date = {}
+             $scope.response = {}
+
+             $scope.send = function () {
+                 /*executed when submit is clicked*/
+                 console.log("inside click");
+                 console.log($scope.data.date);
+
+                 var posting = $http({
+                     method: 'POST',
+                     /*posting to /post */
+                     url: '/post',
+                     data: $scope.data,
+
+                     processData: false
+                 })
+                 posting.success(function (response) {
+                     /*executed when server responds back*/
+                     console.log(response);
+                     $scope.response.data = response;
+                 });
+             }
+         };
+     </script>
+ </body>
+
+ </html>

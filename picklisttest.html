@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pick List</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body id="pickList">
+
+  <img src="./images/joseph-farms-cheese-header.jpg" alt="Joseph Gallo Farms Image">
+  <h1 id='title'>Pick List Test</h1>
+
+  <lable><strong>Cheese Sale Date</strong><span class="required">*</span></label>
+    <input type="date" ng-model="saledate">
+    <button type="submit"><strong>Search</strong></button><br />
+    <br />
+    <br />
+
+  <div ng-app="myApp" ng-controller="pickCtrl">
+
+    <b>Filter:</b><input ng-model="query" type="text"/>
+    <a id="navigateLink" href="/orderlist.html">Go to Order List</a>
+
+    <table id="sortTable">
+
+        <th><a id="heading" href="" ng-click="sortField = 'saledate'; reverse = !reverse">Sale Date</th>
+        <th><a id="heading" href="" ng-click="sortField = 'variety'; reverse = !reverse">Variety</th>
+        <th><a id="heading" href="" ng-click="sortField = 'style'; reverse = !reverse">Style</th>
+        <th><a id="heading" href="" ng-click="sortField = 'size'; reverse = !reverse">Size</th>
+        <th><a id="heading" href="" ng-click="sortField = 'pounds'; reverse = !reverse">Pounds</th>
+        <th><a id="heading" href="" ng-click="sortField = 'count'; reverse = !reverse">Count</th>
+
+      </tr>
+      <tr id="sortData" ng-repeat="order in orders | filter:query | orderBy:sortField:reverse">
+        <td>{{order.saledate}}</td>
+        <td>{{order.variety}}</td>
+        <td>{{order.style}}</td>
+        <td>{{order.size}}</td>
+        <td>{{order.pounds}}</td>
+        <td>{{order.count}}</td>
+      </tr>
+    </table>
+  </div>
+
+<!-- ------------------------------------------------------------------------------------------------------------- >
+  <!-- TEST TEST TEST TEST TEST TEST TEST  -->
+  <!-- <div ng-app="myApp" ng-controller="pickCtrl">
+
+  </div>
+
+  <script>
+  var app = angular.module('myApp', []);
+  app.controller('pickCtrl', function($scope, $http) {
+    $http.get("/picklist")
+    .then(function(response) {
+        $scope.orders = response.data;
+        $scope.sortField = 'userid';
+        $scope.reverse = true;
+        // console.log("into new function.")
+        // console.log(orders);
+    });
+  });
+  </script> -->
+<!-- ------------------------------------------------------------------------------------------------------------- >
+
+  <!-- TEST ANGULAR Test -->
+  <script>
+  var app = angular.module('myApp', []);
+  app.controller('pickCtrl', function($scope, $http) {
+    $http.get("/picklist")
+    .then(function(response) {
+        $scope.orders = response.data;
+        $scope.sortField = 'userid';
+        $scope.reverse = true;
+        // console.log("into new function.")
+        // console.log(orders);
+    });
+  });
+  </script>
+</body>
+</html>

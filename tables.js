@@ -21,7 +21,7 @@ var query = client.query(
       variety varchar(255), \
       style varchar(255), \
       size varchar(255), \
-      pounds int, \
+      qty int, \
       orderDate varchar(255), \
       PRIMARY KEY (id), \
       FOREIGN KEY (userid) REFERENCES users(id) \
@@ -32,8 +32,8 @@ var query = client.query(
 //
 // insert into users(empnum, fname, lname) values(144196, 'Miraj', 'Patel'),(144197, 'Sam', 'Shai'),(144198, 'Cathline', 'Rameres'), (144199, 'Kobe', 'Brain'),(555, 'Sam', 'Shai');
 //
-// insert into orders(userid, saledate, variety, style, size, pounds, orderdate) values(3, '07/18/2018', 'Marble Jack', 'Ball', '2.5 lb', 5, 08/08/2018), (4, '07/19/2018', 'Pepper Jack', 'Sliced', '5 lb', 2, 08/10/2018), (1, '07/20/2018', 'Monterey Jack', 'Loaf', '1 lb', 8, 08/18/2018), (3, '07/19/2018', 'Pepper Jack', 'Sliced', '2.5 lb', 1, 08/05/2018), (1, '07/19/2018', 'Pepper Jack', 'Sliced', '2.5 lb', 1, 08/05/2018), (3, '07/20/2018', 'Monterey Jack', 'Loaf', '1 lb', 8, 08/18/2018);
-//insert into orders(userid, saledate, variety, style, size, pounds, orderdate) values(3, '07/18/2018', 'Marble Jack', 'Ball', '2.5 lb', 5, '08/08/2018'), (4, '07/19/2018', 'Pepper Jack', 'Sliced', '5 lb', 2, '08/10/2018'), (1, '07/20/2018', 'Monterey Jack', 'Loaf', '1 lb', 8, '08/18/2018'), (3, '07/19/2018', 'Pepper Jack', 'Sliced', '2.5 lb', 1, '08/05/2018'), (1, '07/19/2018', 'Pepper Jack', 'Sliced', '2.5 lb', 1, '08/05/2018'), (3, '07/20/2018', 'Monterey Jack', 'Loaf', '1 lb', 8, //'08/18/2018'), (3, '07/18/2018', 'Marble Jack', 'Ball', '2.5 lb', 5, '08/08/2018'), (6, '07/18/2018', 'Marble Jack', 'Ball', '2.5 lb', 5, '08/08/2018'), (9, '07/19/2018', 'Pepper Jack', 'Sliced', '5 lb', 2, '08/10/2018'), (1, '07/20/2018', 'Monterey Jack', 'Loaf', '1 lb', 8, '08/18/2018'), (1, '07/20/2018', 'Monterey Jack', 'Loaf', '2 lb', 1, '08/18/2018'), (5, '07/20/2018', 'Monterey Jack', 'Loaf', '2 lb', 1, '08/18/2018'), (5, '07/23/2018', 'Monterey Jack', 'Loaf', '2 lb', 1, '08/18/2018');
+// insert into orders(userid, saledate, variety, style, size, qty, orderdate) values(3, '07/18/2018', 'Marble Jack', 'Ball', '2.5 lb', 5, 08/08/2018), (4, '07/19/2018', 'Pepper Jack', 'Sliced', '5 lb', 2, 08/10/2018), (1, '07/20/2018', 'Monterey Jack', 'Loaf', '1 lb', 8, 08/18/2018), (3, '07/19/2018', 'Pepper Jack', 'Sliced', '2.5 lb', 1, 08/05/2018), (1, '07/19/2018', 'Pepper Jack', 'Sliced', '2.5 lb', 1, 08/05/2018), (3, '07/20/2018', 'Monterey Jack', 'Loaf', '1 lb', 8, 08/18/2018);
+//insert into orders(userid, saledate, variety, style, size, qty, orderdate) values(3, '07/18/2018', 'Marble Jack', 'Ball', '2.5 lb', 5, '08/08/2018'), (4, '07/19/2018', 'Pepper Jack', 'Sliced', '5 lb', 2, '08/10/2018'), (1, '07/20/2018', 'Monterey Jack', 'Loaf', '1 lb', 8, '08/18/2018'), (3, '07/19/2018', 'Pepper Jack', 'Sliced', '2.5 lb', 1, '08/05/2018'), (1, '07/19/2018', 'Pepper Jack', 'Sliced', '2.5 lb', 1, '08/05/2018'), (3, '07/20/2018', 'Monterey Jack', 'Loaf', '1 lb', 8, //'08/18/2018'), (3, '07/18/2018', 'Marble Jack', 'Ball', '2.5 lb', 5, '08/08/2018'), (6, '07/18/2018', 'Marble Jack', 'Ball', '2.5 lb', 5, '08/08/2018'), (9, '07/19/2018', 'Pepper Jack', 'Sliced', '5 lb', 2, '08/10/2018'), (1, '07/20/2018', 'Monterey Jack', 'Loaf', '1 lb', 8, '08/18/2018'), (1, '07/20/2018', 'Monterey Jack', 'Loaf', '2 lb', 1, '08/18/2018'), (5, '07/20/2018', 'Monterey Jack', 'Loaf', '2 lb', 1, '08/18/2018'), (5, '07/23/2018', 'Monterey Jack', 'Loaf', '2 lb', 1, '08/18/2018');
 //
 // 'Monterey Jack', 'Loaf', '1 lb', 8	x111
 // 'Marble Jack', 'Ball', '2.5 lb', 5	x111
@@ -44,11 +44,11 @@ var query = client.query(
 
 //INNER JOIN. Based on all the orders recived. It will get user information.
 //
-// select users.empnum, users.fname, users.lname, orders.saledate, orders.variety, orders.style, orders.size, orders.pounds, orders.orderdate from users inner join orders on users.id = orders.userid;
+// select users.empnum, users.fname, users.lname, orders.saledate, orders.variety, orders.style, orders.size, orders.qty, orders.orderdate from users inner join orders on users.id = orders.userid;
 //
 
 //CREATING A VIEW.
-//create view myView as select users.empnum, users.fname, users.lname, orders.saledate, orders.variety, orders.style, orders.size, orders.pounds from users inner join orders on users.id = orders.userid;
+//create view myView as select users.empnum, users.fname, users.lname, orders.saledate, orders.variety, orders.style, orders.size, orders.qty from users inner join orders on users.id = orders.userid;
 //
 
 //
@@ -58,11 +58,15 @@ var query = client.query(
 
 //BETTER PICK-LIST
 //select variety, style, count(*) from myView group by style, variety;
-//select saledate, variety, style, size, pounds, count(*) from orders group by style, variety, saledate having saledate='08/31/2018';
-//select saledate, variety, style, size, pounds, count(*) from orders group by variety, style, saledate, size, pounds order by saledate, variety, style, size, pounds;
+//select saledate, variety, style, size, qty, count(*) from orders group by style, variety, saledate having saledate='08/31/2018';
+//select saledate, variety, style, size, qty, count(*) from orders group by variety, style, saledate, size, qty order by saledate, variety, style, size, qty;
 //
 
 //
+//Pay Roll
+//select users.fname, users.lname, sum(orders.qty) as totalqty from users inner join orders on users.id = orders.userid where orders.saledate='08/17/2018' group by users.fname, users.lname;
+//
+
 // //Old table!!!
 // var query = client.query(
 //   'CREATE TABLE users(\
@@ -80,7 +84,7 @@ var query = client.query(
 //     varity varchar(255), \
 //     style varchar(255), \
 //     size varchar(255), \
-//     pounds int, \
+//     qty int, \
 //     PRIMARY KEY (id), \
 //     FOREIGN KEY (itemid) REFERENCES users(id) \
 //   )');

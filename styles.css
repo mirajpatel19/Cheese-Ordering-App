@@ -14,8 +14,8 @@ img {
 }
 
 #firstname, #lastname, #employeenumber, #saledate, #email, #date {
-border-width: .50px;
-border-color: gray;
+  border-width: .50px;
+  border-color: gray;
   border-radius: 13px;
   border-style: solid;
   padding-left: 10px;
@@ -25,9 +25,9 @@ border-color: gray;
 
 select{
   border-radius: 5px;
-  //border-style: groove;
+  /* //border-style: groove;
 //  padding-left: 10px;
-//  width: 100px;
+//  width: 100px; */
   height: 23px;
 }
 
@@ -41,20 +41,38 @@ select{
 #style16 {
   padding-left: 3px;
   border-radius: 5px;
-  width: 56px;
+  width: 70px;
   height: 18px;
   border-style: groove;
 }
+
+#qty16 {
+  width: 40px;
+}
+
 #size16 {
-  padding-left: 3px;
-  border-radius: 5px;
-  width: 44px;
-  height: 18px;
-  border-style: groove;
+  width: 60px;
 }
-#size1, #size2, #size3, #size4, #size5, #size6, #size7, #size8, #size9, #size10, #size11, #size12, #size13, #size14,#size15 {
-  width: 50px;
+
+#size1, #size2, #size3, #size4, #size5, #size6, #size7, #size8, #size9, #size10, #size11, #size12, #size13, #size14, #size15 {
+  width: 60px;
 }
+
+#qty1, #qty2, #qty3, #qty4, #qty5, #qty6, #qty7, #qty8, #qty9, #qty10, #qty11, #qty12, #qty13, #qty14,#qty15 {
+  width: 40px;
+}
+
+#style1, #style2, #style3, #style4, #style5, #style6, #style7, #style8, #style9, #style10, #style11, #style12, #style13, #style14, #style15 {
+  width: 75px;
+}
+
+/* #totalqty{
+  padding-left: 200px;
+ } */
+
+ #totalPadding {
+   padding-left: 40px;
+ }
 ::placeholder {
   color: #A9A9A9;
   opacity: 1;
@@ -62,7 +80,7 @@ select{
 
 #main {
   background-image: url(./images/photo-1523741543316-beb7fc7023d8.jpeg);
-  //background-size:cover;
+  /* background-size:cover; */
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -71,13 +89,20 @@ select{
    background-color: white;
  }
 
- form{
-   //background-color: red;
+ #indexForm{
+   /* //background-color: red; */
    margin: 0 auto;
    width: 1400px;
-   height: 790px;
+   height: 850px;
  }
 
+#orderListForm, #pickListForm{
+  /* display: inline-block; */
+  /* background-color: red; */
+  /* border-radius: 10px; */
+  width: 338px;
+margin: 0 auto;
+}
  #fieldSetPersonal{
    position: relative;
    right:250px;
@@ -94,7 +119,7 @@ select{
   background-color: rgb(255,255,255,0.65);
   filter: alpha(opacity=100);
   /* width: 500px; */
-  align-items: center; */
+  align-items: center;
   border: 1px solid black;
   width: 400px;
   margin:auto;
@@ -142,7 +167,7 @@ select{
 #comments {
   border-radius: 5px;
   height: 80px;
-  width: 370px;
+  width: 391px;
 }
 
 #cost {

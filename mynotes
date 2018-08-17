@@ -138,3 +138,45 @@
 // var size15 = req.body.size15;
 // var pounds15 = req.body.pounds15;
 //
+app.get('/orderlisttest', function(req, res, next) {
+  //SQL DATABASE
+  //var saledate = req.saledate;
+  // console.log("SaleDate for Cheese Orders: ");
+  // console.log(req.query);
+
+  client.connect(function(err) {
+    // if (err) {
+    //   throw err;
+    // }
+    console.log("Database connected for order list!");
+    //Checks if user exists into database.
+    client.query("select users.empnum, users.fname, users.lname, orders.saledate, orders.variety, orders.style, orders.size, orders.pounds, orders.orderdate from users inner join orders on users.id = orders.userid", function(err, result, fields) {
+      //select users.empnum, users.fname, users.lname, orders.saledate, orders.variety, orders.style, orders.size, orders.pounds, orders.orderdate from users inner join orders on users.id = orders.userid;
+    if (err) {
+      throw err;
+    }
+    //console.log(result.rows);
+    res.send(result.rows);
+    //res.close();
+    });
+  });
+});
+
+app.get('/picklisttest', function(req, res, next) {
+  //SQL DATABASE
+  client.connect(function(err) {
+    // if (err) {
+    //   throw err;
+    // }
+    console.log("Database connected for pick list!");
+    //Checks if user exists into database.
+    client.query("select saledate, variety, style, size, pounds, count(*) from orders group by variety, style, saledate, size, pounds order by saledate, variety, style, size, pounds", function(err, result, fields) {
+      //select saledate, variety, style, size, pounds, count(*) from orders group by variety, style, saledate, size, pounds;
+    if (err) {
+      throw err;
+    }
+    //console.log(result.rows);
+    res.send(result.rows);
+    });
+  });
+});
