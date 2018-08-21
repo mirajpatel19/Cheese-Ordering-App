@@ -51,14 +51,12 @@
       </table>
     </div>
 
-    <div ng-app="myApp" ng-controller="myCtrl">
-      <!-- {{dates}} -->
-    </div>
-
     <script>
     var app = angular.module('myApp', []);
-    app.controller('dateCtrl', function($scope, $http) {
+    app.controller('orderCtrl', function($scope, $http) {
       $scope.date = ' ';
+
+      // $scope.filter = myService.style();
 
       $scope.send = function () {
           console.log("inside send function");

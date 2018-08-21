@@ -21,7 +21,7 @@
       </div>
       <br />
       <br />
-      <b>Filter:</b><input ng-model="query" type="text"/>
+      <b>Filter:</b><input ng-model="query" type="search" placeholder="Search">
       <a id="navigateLink" href="/orders.html">Go to Orders</a>
       <table id="sortTable">
 
@@ -40,19 +40,29 @@
           <td>{{order.style}}</td>
           <td>{{order.size}}</td>
           <td>{{order.qty}}</td>
-          <td><a href="/orders.html"> {{order.count}}</a></td>
+
+          <td><a href="/orders.html" target="_blank" ng-click="getOrder($index)"> {{order.count}}</a></td>
         </tr>
       </table>
 
-    </div>
+      <p>255 time 16 is:</p>
 
-    <div ng-app="myApp" ng-controller="myCtrl">
-      <!-- {{dates}} -->
+      <p>{{num}}</p>
     </div>
 
     <script>
     var app = angular.module('myApp', []);
-    app.controller('dateCtrl', function($scope, $http) {
+
+    //Created service
+    app.service('myService', function() {
+      this.myFunc = function (x) {
+        return x;
+      }
+    })
+    app.controller('pickListCtrl', function($scope, $http, myService) {
+      //calling the service
+      //$scope.num = myService.myFunc(255);
+
       $scope.date = ' ';
 
       $scope.send = function () {
@@ -66,32 +76,20 @@
           }).then(function(response) {
             $scope.orders = response.data;
             console.log($scope.orders);
+
+            $scope.getOrder = function(index) {
+              $scope.fullOrder = $scope.orders[index];
+              console.log($scope.fullOrder);
+              $scope.num = myService.myFunc($scope.fullOrder);
+              //// TODO: send the data to orderlist for filter.
+            };
+
+
             $scope.sortField = 'userid';
             $scope.reverse = true;
           })
         }
     });
-
-//// TODO: look into this!
-    //app.service
-    /*
-    var app = angular.module("myApp", ["ngRoute"]);
-    app.config(function($routeProvider) {
-    $routeProvider
-    .when("/", {
-        templateUrl : "main.htm"
-    })
-    .when("/red", {
-        templateUrl : "red.htm"
-    })
-    .when("/green", {
-        templateUrl : "green.htm"
-    })
-    .when("/blue", {
-        templateUrl : "blue.htm"
-    });
-});
-*/
      </script>
   </body>
 </html>
