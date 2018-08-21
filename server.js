@@ -81,7 +81,8 @@ app.get('/cheeseorderform', function(req, res, next) {
       var mainEmail = "mpatel@josephfarms.com";
 
       //console.log(mainEmail);
-
+console.log('here is qt for item one: ')
+console.log(req.query.countPounds1);
 // console.log("saledate is before array " + saledate);
  var array = new Array(16);
  var test;
@@ -89,97 +90,113 @@ app.get('/cheeseorderform', function(req, res, next) {
    'variety': req.query.variety1,
    'style': req.query.style1,
    'size': req.query.size1,
-   'qty': req.query.qty1
+   'qty': req.query.qty1,
+   'pounds': req.query.countPounds1
  }
  array[1] = {
    'variety': req.query.variety2,
    'style': req.query.style2,
    'size': req.query.size2,
-   'qty': req.query.qty2
+   'qty': req.query.qty2,
+   'pounds': req.query.countPounds2
  }
  array[2] = {
    'variety': req.query.variety3,
    'style': req.query.style3,
    'size': req.query.size3,
-   'qty': req.query.qty3
+   'qty': req.query.qty3,
+   'pounds': req.query.countPounds3
  }
  array[3] = {
    'variety': req.query.variety4,
    'style': req.query.style4,
    'size': req.query.size4,
-   'qty': req.query.qty4
+   'qty': req.query.qty4,
+   'pounds': req.query.countPounds4
  }
  array[4] = {
    'variety': req.query.variety5,
    'style': req.query.style5,
    'size': req.query.size5,
-   'qty': req.query.qty5
+   'qty': req.query.qty5,
+   'pounds': req.query.countPounds5
  }
  array[5] = {
    'variety': req.query.variety6,
    'style': req.query.style6,
    'size': req.query.size6,
-   'qty': req.query.qty6
+   'qty': req.query.qty6,
+   'pounds': req.query.countPounds6
  }
  array[6] = {
    'variety': req.query.variety7,
    'style': req.query.style7,
    'size': req.query.size7,
-   'qty': req.query.qty7
+   'qty': req.query.qty7,
+   'pounds': req.query.countPounds7
  }
  array[7] = {
    'variety': req.query.variety8,
    'style': req.query.style8,
    'size': req.query.size8,
-   'qty': req.query.qty8
+   'qty': req.query.qty8,
+   'pounds': req.query.countPounds8
  }
  array[8] = {
    'variety': req.query.variety9,
    'style': req.query.style9,
    'size': req.query.size9,
-   'qty': req.query.qty9
+   'qty': req.query.qty9,
+   'pounds': req.query.countPounds9
  }
  array[9] = {
    'variety': req.query.variety10,
    'style': req.query.style10,
    'size': req.query.size10,
-   'qty': req.query.qty10
+   'qty': req.query.qty10,
+   'pounds': req.query.countPounds10
  }
  array[10] = {
    'variety': req.query.variety11,
    'style': req.query.style11,
    'size': req.query.size11,
-   'qty': req.query.qty11
+   'qty': req.query.qty11,
+   'pounds': req.query.countPounds11
  }
  array[11] = {
    'variety': req.query.variety12,
    'style': req.query.style12,
    'size': req.query.size12,
-   'qty': req.query.qty12
+   'qty': req.query.qty12,
+   'pounds': req.query.countPounds12
  }
  array[12] = {
    'variety': req.query.variety13,
    'style': req.query.style13,
    'size': req.query.size13,
-   'qty': req.query.qty13
+   'qty': req.query.qty13,
+   'pounds': req.query.countPounds13
  }
  array[13] = {
    'variety': req.query.variety14,
    'style': req.query.style14,
    'size': req.query.size14,
-   'qty': req.query.qty14
+   'qty': req.query.qty14,
+   'pounds': req.query.countPounds14
  }
  array[14] = {
    'variety': req.query.variety15,
    'style': req.query.style15,
    'size': req.query.size15,
-   'qty': req.query.qty15
+   'qty': req.query.qty15,
+   'pounds': req.query.countPounds15
  }
  array[15] = {
    'variety': req.query.variety16,
    'style': req.query.style16,
    'size': req.query.size16,
-   'qty': req.query.qty16
+   'qty': req.query.qty16,
+   'pounds': req.query.countPounds16
  }
     var comments = req.query.comments;
 
@@ -220,8 +237,8 @@ app.get('/cheeseorderform', function(req, res, next) {
                 var num = result.rows[0];
                 var getId = num.id;
                 console.log("Found user data at index MR.: "+ getId);
-                client.query("INSERT INTO orders(userid, saledate, variety, style, size, qty, orderDate) \
-                  VALUES($1, $2, $3, $4, $5, $6, $7)", [getId, cheeseSaleDate, array[i].variety, array[i].style, array[i].size, array[i].qty, dateNow], function(err, resu) {
+                client.query("INSERT INTO orders(userid, saledate, variety, style, size, qty, pounds, orderDate) \
+                  VALUES($1, $2, $3, $4, $5, $6, $7, $8)", [getId, cheeseSaleDate, array[i].variety, array[i].style, array[i].size, array[i].qty, array[i].pounds, dateNow], function(err, resu) {
                 if (err) {
                   throw err
                 }
@@ -252,8 +269,8 @@ app.get('/cheeseorderform', function(req, res, next) {
                 var getId = num.id;
                 console.log("Found data user at index MR.: "+ getId);
 
-                client.query("INSERT INTO orders(userid, saledate, variety, style, size, qty, orderDate) \
-                  VALUES($1, $2, $3, $4, $5, $6, $7)", [getId, cheeseSaleDate, array[i].variety, array[i].style, array[i].size, array[i].qty, dateNow], function(err, resu) {
+                client.query("INSERT INTO orders(userid, saledate, variety, style, size, qty, pounds, orderDate) \
+                  VALUES($1, $2, $3, $4, $5, $6, $7, $8)", [getId, cheeseSaleDate, array[i].variety, array[i].style, array[i].size, array[i].qty, array[i].pounds, dateNow], function(err, resu) {
                   if (err) {
                     throw err
                   }
@@ -348,8 +365,6 @@ app.get('/cheeseorderform', function(req, res, next) {
           calSize16 = 0.5;
         }
 
-        console.log(parseFloat(calSize1));
-
         var calTotal = (parseInt(calQty1) * parseFloat(calSize1)) + (parseInt(calQty2) * parseFloat(calSize2)) + (parseInt(calQty3) * parseFloat(calSize3)) +
                        (parseInt(calQty4) * parseFloat(calSize4)) + (parseInt(calQty5) * parseFloat(calSize5)) + (parseInt(calQty6) * parseFloat(calSize6)) +
                        (parseInt(calQty7) * parseFloat(calSize7)) + (parseInt(calQty8) * parseFloat(calSize8)) + (parseInt(calQty9) * parseFloat(calSize9)) +
@@ -371,24 +386,24 @@ app.get('/cheeseorderform', function(req, res, next) {
           cc: email,
           html: '<strong>First Name: </strong>' + firstname + '<br/><strong>Last Name: </strong>' + lastname + '<br/><strong>Employee Number: </strong>' + employeenumber + '<br/><strong>Cheese Sale Date: </strong>' + cheeseSaleDate + '<br/><br/>\
     <table style="text-align: center; border:2px solid black; width:400px">\
-    <tr><th style="border-bottom:2px solid black;">Number</th><th style="border-bottom:2px solid black;">Variety</th><th style="border-bottom:2px solid black;">Style</th><th style="border-bottom:2px solid black;">Size</th><th style="border-bottom:2px solid black;">Qty</th><th style="border-bottom:2px solid black;"></th></tr>\
-    <tr><td style="border-bottom:1px solid black;">1</td><td style="border-bottom:1px solid black;">' + array[0].variety + '</td><td style="border-bottom:1px solid black;">' + array[0].style + '</td><td style="border-bottom:1px solid black;">' + array[0].size + '</td><td style="border-bottom:1px solid black;">' + array[0].qty + '</td><td style="border-bottom:1px solid black;"></td></tr>\
-    <tr><td style="border-bottom:1px solid black;">2</td><td style="border-bottom:1px solid black;">' + array[1].variety + '</td><td style="border-bottom:1px solid black;">' + array[1].style + '</td><td style="border-bottom:1px solid black;">' + array[1].size + '</td><td style="border-bottom:1px solid black;">' + array[1].qty + '</td><td style="border-bottom:1px solid black;"></td></tr>\
-    <tr><td style="border-bottom:1px solid black;">3</td><td style="border-bottom:1px solid black;">' + array[2].variety + '</td><td style="border-bottom:1px solid black;">' + array[2].style + '</td><td style="border-bottom:1px solid black;">' + array[2].size + '</td><td style="border-bottom:1px solid black;">' + array[2].qty + '</td><td style="border-bottom:1px solid black;"></td></tr>\
-    <tr><td style="border-bottom:1px solid black;">4</td><td style="border-bottom:1px solid black;">' + array[3].variety + '</td><td style="border-bottom:1px solid black;">' + array[3].style + '</td><td style="border-bottom:1px solid black;">' + array[3].size + '</td><td style="border-bottom:1px solid black;">' + array[3].qty + '</td><td style="border-bottom:1px solid black;"></td></tr>\
-    <tr><td style="border-bottom:1px solid black;">5</td><td style="border-bottom:1px solid black;">' + array[4].variety + '</td><td style="border-bottom:1px solid black;">' + array[4].style + '</td><td style="border-bottom:1px solid black;">' + array[4].size + '</td><td style="border-bottom:1px solid black;">' + array[4].qty + '</td><td style="border-bottom:1px solid black;"></td></tr>\
-    <tr><td style="border-bottom:1px solid black;">6</td><td style="border-bottom:1px solid black;">' + array[5].variety + '</td><td style="border-bottom:1px solid black;">' + array[5].style + '</td><td style="border-bottom:1px solid black;">' + array[5].size + '</td><td style="border-bottom:1px solid black;">' + array[5].qty + '</td><td style="border-bottom:1px solid black;"></td></tr>\
-    <tr><td style="border-bottom:1px solid black;">7</td><td style="border-bottom:1px solid black;">' + array[6].variety + '</td><td style="border-bottom:1px solid black;">' + array[6].style + '</td><td style="border-bottom:1px solid black;">' + array[6].size + '</td><td style="border-bottom:1px solid black;">' + array[6].qty + '</td><td style="border-bottom:1px solid black;"></td></tr>\
-    <tr><td style="border-bottom:1px solid black;">8</td><td style="border-bottom:1px solid black;">' + array[7].variety + '</td><td style="border-bottom:1px solid black;">' + array[7].style + '</td><td style="border-bottom:1px solid black;">' + array[7].size + '</td><td style="border-bottom:1px solid black;">' + array[7].qty + '</td><td style="border-bottom:1px solid black;"></td></tr>\
-    <tr><td style="border-bottom:1px solid black;">9</td><td style="border-bottom:1px solid black;">' + array[8].variety + '</td><td style="border-bottom:1px solid black;">' + array[8].style + '</td><td style="border-bottom:1px solid black;">' + array[8].size + '</td><td style="border-bottom:1px solid black;">' + array[8].qty + '</td><td style="border-bottom:1px solid black;"></td></tr>\
-    <tr><td style="border-bottom:1px solid black;">10</td><td style="border-bottom:1px solid black;">' + array[9].variety + '</td><td style="border-bottom:1px solid black;">' + array[9].style + '</td><td style="border-bottom:1px solid black;">' + array[9].size + '</td><td style="border-bottom:1px solid black;">' + array[9].qty + '</td><td style="border-bottom:1px solid black;"></td></tr>\
-    <tr><td style="border-bottom:1px solid black;">11</td><td style="border-bottom:1px solid black;">' + array[10].variety + '</td><td style="border-bottom:1px solid black;">' + array[10].style + '</td><td style="border-bottom:1px solid black;">' + array[10].size + '</td><td style="border-bottom:1px solid black;">' + array[10].qty + '</td><td style="border-bottom:1px solid black;"></td></tr>\
-    <tr><td style="border-bottom:1px solid black;">12</td><td style="border-bottom:1px solid black;">' + array[11].variety + '</td><td style="border-bottom:1px solid black;">' + array[11].style + '</td><td style="border-bottom:1px solid black;">' + array[11].size + '</td><td style="border-bottom:1px solid black;">' + array[11].qty + '</td><td style="border-bottom:1px solid black;"></td></tr>\
-    <tr><td style="border-bottom:1px solid black;">13</td><td style="border-bottom:1px solid black;">' + array[12].variety + '</td><td style="border-bottom:1px solid black;">' + array[12].style + '</td><td style="border-bottom:1px solid black;">' + array[12].size + '</td><td style="border-bottom:1px solid black;">' + array[12].qty + '</td><td style="border-bottom:1px solid black;"></td></tr>\
-    <tr><td style="border-bottom:1px solid black;">14</td><td style="border-bottom:1px solid black;">' + array[13].variety + '</td><td style="border-bottom:1px solid black;">' + array[13].style + '</td><td style="border-bottom:1px solid black;">' + array[13].size + '</td><td style="border-bottom:1px solid black;">' + array[13].qty + '</td><td style="border-bottom:1px solid black;"></td></tr>\
-    <tr><td style="border-bottom:1px solid black;">15</td><td style="border-bottom:1px solid black;">' + array[14].variety + '</td><td style="border-bottom:1px solid black;">' + array[14].style + '</td><td style="border-bottom:1px solid black;">' + array[14].size + '</td><td style="border-bottom:1px solid black;">' + array[14].qty + '</td><td style="border-bottom:1px solid black;"></td></tr>\
-    <tr><td style="border-bottom:1px solid black;">16</td><td style="border-bottom:1px solid black;">' + array[15].variety + '</td><td style="border-bottom:1px solid black;">' + array[15].style + '</td><td style="border-bottom:1px solid black;">' + array[15].size + '</td><td style="border-bottom:1px solid black;">' + array[15].qty + '</td><td style="border-bottom:1px solid black;"></td></tr>\
-    <tr><td></td><td></td><td></td><td><strong>Total Q:</strong></td><td><strong>' + calTotal + '</strong></td><td></td></tr>\
+    <tr><th style="border-bottom:2px solid black;">Number</th><th style="border-bottom:2px solid black;">Variety</th><th style="border-bottom:2px solid black;">Style</th><th style="border-bottom:2px solid black;">Size</th><th style="border-bottom:2px solid black;">Qty</th><th style="border-bottom:2px solid black;">Pounds</th><th style="border-bottom:2px solid black;"></th></tr>\
+    <tr><td style="border-bottom:1px solid black;">1</td><td style="border-bottom:1px solid black;">' + array[0].variety + '</td><td style="border-bottom:1px solid black;">' + array[0].style + '</td><td style="border-bottom:1px solid black;">' + array[0].size + '</td><td style="border-bottom:1px solid black;">' + array[0].qty + '</td><td style="border-bottom:1px solid black;">' + array[0].pounds + '</td><td style="border-bottom:1px solid black;"></td></tr>\
+    <tr><td style="border-bottom:1px solid black;">2</td><td style="border-bottom:1px solid black;">' + array[1].variety + '</td><td style="border-bottom:1px solid black;">' + array[1].style + '</td><td style="border-bottom:1px solid black;">' + array[1].size + '</td><td style="border-bottom:1px solid black;">' + array[1].qty + '</td><td style="border-bottom:1px solid black;">' + array[1].pounds + '</td><td style="border-bottom:1px solid black;"></td></tr>\
+    <tr><td style="border-bottom:1px solid black;">3</td><td style="border-bottom:1px solid black;">' + array[2].variety + '</td><td style="border-bottom:1px solid black;">' + array[2].style + '</td><td style="border-bottom:1px solid black;">' + array[2].size + '</td><td style="border-bottom:1px solid black;">' + array[2].qty + '</td><td style="border-bottom:1px solid black;">' + array[2].pounds + '</td><td style="border-bottom:1px solid black;"></td></tr>\
+    <tr><td style="border-bottom:1px solid black;">4</td><td style="border-bottom:1px solid black;">' + array[3].variety + '</td><td style="border-bottom:1px solid black;">' + array[3].style + '</td><td style="border-bottom:1px solid black;">' + array[3].size + '</td><td style="border-bottom:1px solid black;">' + array[3].qty + '</td><td style="border-bottom:1px solid black;">' + array[3].pounds + '</td><td style="border-bottom:1px solid black;"></td></tr>\
+    <tr><td style="border-bottom:1px solid black;">5</td><td style="border-bottom:1px solid black;">' + array[4].variety + '</td><td style="border-bottom:1px solid black;">' + array[4].style + '</td><td style="border-bottom:1px solid black;">' + array[4].size + '</td><td style="border-bottom:1px solid black;">' + array[4].qty + '</td><td style="border-bottom:1px solid black;">' + array[4].pounds + '</td><td style="border-bottom:1px solid black;"></td></tr>\
+    <tr><td style="border-bottom:1px solid black;">6</td><td style="border-bottom:1px solid black;">' + array[5].variety + '</td><td style="border-bottom:1px solid black;">' + array[5].style + '</td><td style="border-bottom:1px solid black;">' + array[5].size + '</td><td style="border-bottom:1px solid black;">' + array[5].qty + '</td><td style="border-bottom:1px solid black;">' + array[5].pounds + '</td><td style="border-bottom:1px solid black;"></td></tr>\
+    <tr><td style="border-bottom:1px solid black;">7</td><td style="border-bottom:1px solid black;">' + array[6].variety + '</td><td style="border-bottom:1px solid black;">' + array[6].style + '</td><td style="border-bottom:1px solid black;">' + array[6].size + '</td><td style="border-bottom:1px solid black;">' + array[6].qty + '</td><td style="border-bottom:1px solid black;">' + array[6].pounds + '</td><td style="border-bottom:1px solid black;"></td></tr>\
+    <tr><td style="border-bottom:1px solid black;">8</td><td style="border-bottom:1px solid black;">' + array[7].variety + '</td><td style="border-bottom:1px solid black;">' + array[7].style + '</td><td style="border-bottom:1px solid black;">' + array[7].size + '</td><td style="border-bottom:1px solid black;">' + array[7].qty + '</td><td style="border-bottom:1px solid black;">' + array[7].pounds + '</td><td style="border-bottom:1px solid black;"></td></tr>\
+    <tr><td style="border-bottom:1px solid black;">9</td><td style="border-bottom:1px solid black;">' + array[8].variety + '</td><td style="border-bottom:1px solid black;">' + array[8].style + '</td><td style="border-bottom:1px solid black;">' + array[8].size + '</td><td style="border-bottom:1px solid black;">' + array[8].qty + '</td><td style="border-bottom:1px solid black;">' + array[8].pounds + '</td><td style="border-bottom:1px solid black;"></td></tr>\
+    <tr><td style="border-bottom:1px solid black;">10</td><td style="border-bottom:1px solid black;">' + array[9].variety + '</td><td style="border-bottom:1px solid black;">' + array[9].style + '</td><td style="border-bottom:1px solid black;">' + array[9].size + '</td><td style="border-bottom:1px solid black;">' + array[9].qty + '</td><td style="border-bottom:1px solid black;">' + array[9].pounds + '</td><td style="border-bottom:1px solid black;"></td></tr>\
+    <tr><td style="border-bottom:1px solid black;">11</td><td style="border-bottom:1px solid black;">' + array[10].variety + '</td><td style="border-bottom:1px solid black;">' + array[10].style + '</td><td style="border-bottom:1px solid black;">' + array[10].size + '</td><td style="border-bottom:1px solid black;">' + array[10].qty + '</td><td style="border-bottom:1px solid black;">' + array[10].pounds + '</td><td style="border-bottom:1px solid black;"></td></tr>\
+    <tr><td style="border-bottom:1px solid black;">12</td><td style="border-bottom:1px solid black;">' + array[11].variety + '</td><td style="border-bottom:1px solid black;">' + array[11].style + '</td><td style="border-bottom:1px solid black;">' + array[11].size + '</td><td style="border-bottom:1px solid black;">' + array[11].qty + '</td><td style="border-bottom:1px solid black;">' + array[11].pounds + '</td><td style="border-bottom:1px solid black;"></td></tr>\
+    <tr><td style="border-bottom:1px solid black;">13</td><td style="border-bottom:1px solid black;">' + array[12].variety + '</td><td style="border-bottom:1px solid black;">' + array[12].style + '</td><td style="border-bottom:1px solid black;">' + array[12].size + '</td><td style="border-bottom:1px solid black;">' + array[12].qty + '</td><td style="border-bottom:1px solid black;">' + array[12].pounds + '</td><td style="border-bottom:1px solid black;"></td></tr>\
+    <tr><td style="border-bottom:1px solid black;">14</td><td style="border-bottom:1px solid black;">' + array[13].variety + '</td><td style="border-bottom:1px solid black;">' + array[13].style + '</td><td style="border-bottom:1px solid black;">' + array[13].size + '</td><td style="border-bottom:1px solid black;">' + array[13].qty + '</td><td style="border-bottom:1px solid black;">' + array[13].pounds + '</td><td style="border-bottom:1px solid black;"></td></tr>\
+    <tr><td style="border-bottom:1px solid black;">15</td><td style="border-bottom:1px solid black;">' + array[14].variety + '</td><td style="border-bottom:1px solid black;">' + array[14].style + '</td><td style="border-bottom:1px solid black;">' + array[14].size + '</td><td style="border-bottom:1px solid black;">' + array[14].qty + '</td><td style="border-bottom:1px solid black;">' + array[14].pounds + '</td><td style="border-bottom:1px solid black;"></td></tr>\
+    <tr><td style="border-bottom:1px solid black;">16</td><td style="border-bottom:1px solid black;">' + array[15].variety + '</td><td style="border-bottom:1px solid black;">' + array[15].style + '</td><td style="border-bottom:1px solid black;">' + array[15].size + '</td><td style="border-bottom:1px solid black;">' + array[15].qty + '</td><td style="border-bottom:1px solid black;">' + array[15].pounds + '</td><td style="border-bottom:1px solid black;"></td></tr>\
+    <tr><td></td><td></td><td></td><td></td><td><strong>Total Pounds:</strong></td><td><strong>' + calTotal + '</strong></td><td></td></tr>\
     </table>\
     <br><strong>Comments: </strong>' + comments + '<br/>'
         };
@@ -408,6 +423,53 @@ app.get('/cheeseorderform', function(req, res, next) {
          res.end();
        });
 
+       app.post('/payRoll', function (req, res) {
+           /* Handling the AngularJS post request*/
+           console.log("Pulling the date from database for pay roll MR.: ");
+
+            console.log(req.body);
+
+           var date = req.body.date;
+           console.log(date);
+           var dollarValue = req.body.dollarValue;
+           console.log(dollarValue);
+
+           var newDate = new Date(date);
+           var day = newDate.getDate();
+           var month = newDate.getMonth() + 1;
+           var year = newDate.getFullYear();
+
+           if (day < 10) {
+             day = '0' + day
+           }
+           if (month < 10) {
+             month = '0' + month
+           }
+          var newDate = month + '/' + day + '/' + year;
+          console.log("here is my new date: " + newDate);
+
+          //SQL DATABASE
+            client.connect(function(err) {
+              // if (err) {
+              //   throw err;
+              // }
+              console.log("Database connected for pay roll!");
+
+             client.query("select users.empnum, users.fname, users.lname, sum(orders.pounds) as totalpounds from users inner join orders on users.id = orders.userid where orders.saledate=$1 group by users.empnum, users.fname, users.lname;", [newDate], function(err, result, fields) {
+               //select orders.userid, users.empnum, users.fname, users.lname, orders.saledate, orders.variety, orders.style, orders.size, orders.qty, orders.orderdate from users inner join orders on users.id = orders.userid where orders.saledate=$1
+                console.log(result.rows);
+                if (err) {
+                  throw err;
+                }
+                // console.log(typeof result.rows.empnum);
+                //result.rows.totalAmount = 3.56;
+                //console.log(result.rows);
+
+                 res.send(result.rows);
+                 res.end;
+              });
+            });
+       });
 
       app.post('/orders', function (req, res) {
           /* Handling the AngularJS post request*/
@@ -438,13 +500,14 @@ app.get('/cheeseorderform', function(req, res, next) {
              //   throw err;
              // }
              console.log("Database connected for orders!");
-//// TODO: order by userid(box #)
+
             client.query("select orders.userid, users.empnum, users.fname, users.lname, orders.saledate, orders.variety, orders.style, orders.size, orders.qty, orders.orderdate from users inner join orders on users.id = orders.userid where orders.saledate=$1", [newDate], function(err, result, fields) {
 
                console.log(result.rows);
                if (err) {
                  throw err;
                }
+               console.log("hello");
                res.send(result.rows);
                res.end;
              });
@@ -477,7 +540,7 @@ app.get('/cheeseorderform', function(req, res, next) {
              // if (err) {
              //   throw err;
              // }
-             console.log("Database connected for pick list!");
+            console.log("Database connected for pick list!");
 
             client.query("select saledate, variety, style, size, sum(qty) as qty, count(*) from orders where saledate=$1 group by variety, style, size, saledate", [newDate], function(err, result, fields) {
 

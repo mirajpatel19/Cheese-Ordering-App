@@ -22,6 +22,7 @@ var query = client.query(
       style varchar(255), \
       size varchar(255), \
       qty int, \
+      pounds float(8), \
       orderDate varchar(255), \
       PRIMARY KEY (id), \
       FOREIGN KEY (userid) REFERENCES users(id) \
@@ -64,7 +65,8 @@ var query = client.query(
 
 //
 //Pay Roll
-//select users.fname, users.lname, sum(orders.qty) as totalqty from users inner join orders on users.id = orders.userid where orders.saledate='08/17/2018' group by users.fname, users.lname;
+//select users.empnum, users.fname, users.lname, sum(orders.pounds) as totalpounds from users inner join orders on users.id = orders.userid where orders.saledate='08/24/2018' group by users.empnum, users.fname, users.lname;
+//select userid, SUM(pounds) as total_pounds from orders group by userid;
 //
 
 // //Old table!!!

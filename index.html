@@ -91,9 +91,7 @@
             </select>
           </td>
           <td>
-            <!-- <input id="countPounds1" type="text" name="countPounds1"> -->
-            <label></label>
-            <!-- <p id="countPounds1" name="countPounds1"></p> -->
+            <input id="countPounds1" name="countPounds1" type="text" value="0" readonly>
           </td>
         </tr>
         <tr>
@@ -143,8 +141,7 @@
               </select>
           </td>
           <td>
-            <!-- <input id="countPounds" type="" name="countPounds"> -->
-            <p id="countPounds2" name="countPounds2"></p>
+            <input id="countPounds2" name="countPounds2" type="text" value="0" readonly>
           </td>
         </tr>
         <tr>
@@ -194,8 +191,7 @@
                 </select>
           </td>
           <td>
-            <!-- <input id="countPounds" type="" name="countPounds"> -->
-            <p id="countPounds3" name="countPounds3"></p>
+            <input id="countPounds3" name="countPounds3" type="text" value="0" readonly>
           </td>
         </tr>
         <tr>
@@ -245,8 +241,7 @@
                 </select>
           </td>
           <td>
-            <!-- <input id="countPounds" type="" name="countPounds"> -->
-            <p id="countPounds4" name="countPounds4"></p>
+            <input id="countPounds4" name="countPounds4" type="text" value="0" readonly>
           </td>
         </tr>
         <tr>
@@ -296,8 +291,7 @@
                 </select>
           </td>
           <td>
-            <!-- <input id="countPounds" type="" name="countPounds"> -->
-            <p id="countPounds5" name="countPounds5"></p>
+            <input id="countPounds5" name="countPounds5" type="text" value="0" readonly>
           </td>
         </tr>
         <tr>
@@ -347,8 +341,7 @@
                 </select>
           </td>
           <td>
-            <!-- <input id="countPounds" type="" name="countPounds"> -->
-            <p id="countPounds6" name="countPounds6"></p>
+            <input id="countPounds6" name="countPounds6" type="text" value="0" readonly>
           </td>
         </tr>
         <tr>
@@ -398,8 +391,7 @@
                 </select>
           </td>
           <td>
-            <!-- <input id="countPounds" type="" name="countPounds"> -->
-            <p id="countPounds7" name="countPounds7"></p>
+            <input id="countPounds7" name="countPounds7" type="text" value="0" readonly>
           </td>
         </tr>
         <tr>
@@ -449,8 +441,7 @@
                 </select>
           </td>
           <td>
-            <!-- <input id="countPounds" type="" name="countPounds"> -->
-            <p id="countPounds8" name="countPounds8"></p>
+            <input id="countPounds8" name="countPounds8" type="text" value="0" readonly>
           </td>
         </tr>
         <tr>
@@ -500,8 +491,7 @@
                 </select>
           </td>
           <td>
-            <!-- <input id="countPounds" type="" name="countPounds"> -->
-            <p id="countPounds9" name="countPounds9"></p>
+            <input id="countPounds9" name="countPounds9" type="text" value="0" readonly>
           </td>
         </tr>
         <tr>
@@ -551,8 +541,7 @@
                 </select>
           </td>
           <td>
-            <!-- <input id="countPounds" type="" name="countPounds"> -->
-            <p id="countPounds10" name="countPounds10"></p>
+            <input id="countPounds10" name="countPounds10" type="text" value="0" readonly>
           </td>
         </tr>
         <tr>
@@ -602,8 +591,7 @@
                 </select>
           </td>
           <td>
-            <!-- <input id="countPounds" type="" name="countPounds"> -->
-            <p id="countPounds11" name="countPounds11"></p>
+            <input id="countPounds11" name="countPounds11" type="text" value="0" readonly>
           </td>
         </tr>
         <tr>
@@ -653,8 +641,7 @@
                 </select>
           </td>
           <td>
-            <!-- <input id="countPounds" type="" name="countPounds"> -->
-            <p id="countPounds12" name="countPounds12"></p>
+            <input id="countPounds12" name="countPounds12" type="text" value="0" readonly>
           </td>
         </tr>
         <tr>
@@ -704,8 +691,7 @@
                 </select>
           </td>
           <td>
-            <!-- <input id="countPounds" type="" name="countPounds"> -->
-            <p id="countPounds13" name="countPounds13"></p>
+            <input id="countPounds13" name="countPounds13" type="text" value="0" readonly>
           </td>
         </tr>
         <tr>
@@ -755,8 +741,7 @@
                 </select>
           </td>
           <td>
-            <!-- <input id="countPounds" type="" name="countPounds"> -->
-            <p id="countPounds14" name="countPounds14"></p>
+            <input id="countPounds14" name="countPounds14" type="text" value="0" readonly>
           </td>
         </tr>
 
@@ -809,8 +794,7 @@
                 </select>
           </td>
           <td>
-            <!-- <input id="countPounds" type="" name="countPounds"> -->
-            <p id="countPounds15" name="countPounds15"></p>
+            <input id="countPounds15" name="countPounds15" type="text" value="0" readonly>
           </td>
         </tr>
         <tr>
@@ -849,8 +833,7 @@
                 </select>
           </td>
           <td>
-            <!-- <input id="countPounds" type="" name="countPounds"> -->
-            <p id="countPounds16" name="countPounds16"></p>
+            <input id="countPounds16" name="countPounds16" type="text" value="0" readonly>
           </td>
         </tr>
         <tr>
@@ -1119,8 +1102,6 @@
        document.getElementById("total").innerHTML = calTotal;
        document.getElementById("submit").disabled = false;
        }
-      console.log("Here is Total Pounds");
-      console.log(totalPounds);
 
       var countPounds1 = (parseInt(calQty1) * parseFloat(calSize1));
       var countPounds2 = (parseInt(calQty2) * parseFloat(calSize2));
@@ -1139,28 +1120,28 @@
       var countPounds15 = (parseInt(calQty15) * parseFloat(calSize15));
       var countPounds16 = (parseInt(calQty16) * parseFloat(calSize16));
 
-      console.log("total pounds 1: "+countPounds1);
-      console.log("total pounds 2: "+countPounds2);
-      console.log("total pounds 3: "+countPounds3);
-      console.log("total pounds 4: "+countPounds4);
-      console.log("total pounds 5: "+countPounds5);
+      // console.log("total pounds 1: "+countPounds1);
+      // console.log("total pounds 2: "+countPounds2);
+      // console.log("total pounds 3: "+countPounds3);
+      // console.log("total pounds 4: "+countPounds4);
+      // console.log("total pounds 5: "+countPounds5);
 
-      document.getElementById("countPounds1").innerHTML = countPounds1;
-      document.getElementById("countPounds2").innerHTML = countPounds2;
-      document.getElementById("countPounds3").innerHTML = countPounds3;
-      document.getElementById("countPounds4").innerHTML = countPounds4;
-      document.getElementById("countPounds5").innerHTML = countPounds5;
-      document.getElementById("countPounds6").innerHTML = countPounds6;
-      document.getElementById("countPounds7").innerHTML = countPounds7;
-      document.getElementById("countPounds8").innerHTML = countPounds8;
-      document.getElementById("countPounds9").innerHTML = countPounds9;
-      document.getElementById("countPounds10").innerHTML = countPounds10;
-      document.getElementById("countPounds11").innerHTML = countPounds11;
-      document.getElementById("countPounds12").innerHTML = countPounds12;
-      document.getElementById("countPounds13").innerHTML = countPounds13;
-      document.getElementById("countPounds14").innerHTML = countPounds14;
-      document.getElementById("countPounds15").innerHTML = countPounds15;
-      document.getElementById("countPounds16").innerHTML = countPounds16;
+      document.getElementById("countPounds1").value = countPounds1;
+      document.getElementById("countPounds2").value = countPounds2;
+      document.getElementById("countPounds3").value = countPounds3;
+      document.getElementById("countPounds4").value = countPounds4;
+      document.getElementById("countPounds5").value = countPounds5;
+      document.getElementById("countPounds6").value = countPounds6;
+      document.getElementById("countPounds7").value = countPounds7;
+      document.getElementById("countPounds8").value = countPounds8;
+      document.getElementById("countPounds9").value = countPounds9;
+      document.getElementById("countPounds10").value = countPounds10;
+      document.getElementById("countPounds11").value = countPounds11;
+      document.getElementById("countPounds12").value = countPounds12;
+      document.getElementById("countPounds13").value = countPounds13;
+      document.getElementById("countPounds14").value = countPounds14;
+      document.getElementById("countPounds15").value = countPounds15;
+      document.getElementById("countPounds16").value = countPounds16;
 
       var calPounds = parseFloat(countPounds1) + parseFloat(countPounds2) + parseFloat(countPounds3) +
                       parseFloat(countPounds4) + parseFloat(countPounds5) + parseFloat(countPounds6) +
