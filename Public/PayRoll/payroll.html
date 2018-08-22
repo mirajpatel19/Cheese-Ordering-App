@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Pay Roll</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="/../app.js"></script>
+    <script src="payRollCtrl.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+    <link rel="stylesheet" href="/styles.css">
+
+  </head>
+  <body ng-app="myApp">
+    <img src="/../images/joseph-farms-cheese-header.jpg" alt="Joseph Gallo Farms Image">
+    <h1 id='title'>Pay Roll</h1>
+
+    <div ng-controller="payRollCtrl">
+      <div id="payRollForm">
+      <form name="searchDate">
+        <lable><strong>Cheese Sale Date</strong><span class="required">*</span></label>
+          <input type="date" name="date" ng-model="data.date"><br />
+        <lable><strong>Market Pound Value</strong><span class="required">*</span></label>
+          <input type="text" name="dollarValue" min="0.01" step="0.01" ng-model="dollarValue" placeholder="0.00"><br />
+      <button ng-click="send()"><strong>Search</strong></button>
+      </form>
+      </div>
+      <br />
+      <br />
+      <b>Filter:</b><input ng-model="query" type="text"/>
+      <table id="sortTable">
+        <tr>
+          <th><a id="heading" href="" ng-click="sortField = 'empnum'; reverse = !reverse">Employee Number</th>
+          <th><a id="heading" href="" ng-click="sortField = 'fname'; reverse = !reverse">First Name</th>
+          <th><a id="heading" href="" ng-click="sortField = 'lname'; reverse = !reverse">Last Name</th>
+          <th><a id="heading" href="" ng-click="sortField = 'pounds'; reverse = !reverse">Total Pounds</th>
+          <th><a id="heading" href="" ng-click="sortField = 'pounds'; reverse = !reverse">Total Amount</th>
+
+        </tr>
+        <tr id="sortData" ng-repeat="order in orders | filter:query | orderBy:sortField:!reverse">
+          <td>{{order.empnum}}</td>
+          <td>{{order.fname}}</td>
+          <td>{{order.lname}}</td>
+          <td>{{order.totalpounds}}</td>
+          <td>{{'$' + order.totalAmount}}</td>
+
+        </tr>
+      </table>
+    </div>
+
+    <!-- <script>
+    var app = angular.module('myApp', []);
+    app.controller('payRollCtrl', function($scope, $http) {
+      $scope.date = ' ';
+      //$scope.dollarValue = ' ';
+
+      $scope.send = function () {
+          console.log("inside send function");
+          console.log($scope.data.date);
+
+          var posting = $http({
+              method: 'POST',
+              /*posting to /post */
+              url: '/payRoll',
+              data: {
+                      'date': $scope.data.date,
+                      //'dollarValue': $scope.dollarValue
+                    }
+          }).then(function(response) {
+            $scope.orders = response.data;
+            //console.log($scope.orders[0].totalpounds);
+            //console.log($scope.orders.fname[1]);
+
+            console.log("Object from the server for orders: ")
+            console.log($scope.orders[0]);
+            console.log('Dollar value enter: ' + $scope.dollarValue);
+
+            angular.forEach($scope.orders, function(orders) {
+              // console.log(orders);
+              // console.log($scope.dollarValue);
+              // console.log(orders.totalpounds);
+
+              // $scope.myValue = $scope.dollarValue.length;
+              // console.log($scope.myValue);
+
+              if ($scope.dollarValue == undefined) {
+                $scope.dollarValue = 0.00;
+                alert("Dollar Value is not entered! Please enter the dollar value.");
+              }
+              $scope.calPounds = orders.totalpounds * $scope.dollarValue;
+              console.log($scope.calPounds);
+
+              $scope.orders[0].totalAmount = $scope.calPounds;
+              console.log('Object after doing math: ')
+              console.log($scope.orders);
+            })
+
+            $scope.sortField = 'userid';
+            $scope.reverse = true;
+            //console.log(response.data, "Response from post request!")
+            /*
+            [ { key : value}, { key2 :  value2 }  ]
+              '1' == 1 = true
+              '1' === 1 = false
+            */
+          })
+        }
+    });
+     </script> -->
+  </body>
+</html>

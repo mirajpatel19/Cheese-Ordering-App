@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Cheese Sales</title>
+  <link rel="stylesheet" href="/styles.css">
+
+</head>
+
+<body id="main">
+  <img src="/../images/joseph-farms-cheese-header.jpg" alt="Joseph Gallo Farms Image">
+  <h1 id="title">Employee Cheese Sales</h1>
+
+  <form id="indexForm" action="/cheeseorderform" method="get">
+    <fieldset id="fieldSetPersonal">
+      <legend>
+        <h3><i>Personal Information</i></h3></legend>
+
+      <lable><strong>First Name</strong><span class="required">*</span></label><br>
+        <input type="text" id="firstname" name="firstname" placeholder="Miraj" required ><br>
+      <lable><strong>Last Name</strong><span class="required">*</span></label><br>
+        <input type="text" id="lastname" name="lastname" placeholder="Patel" required ><br>
+      <lable><strong>Employee Number</strong><span class="required">*</span></label><br>
+        <input type="number" id="employeenumber" name="employeenumber" placeholder="1234" required ><br>
+      <lable><strong>Cheese Sale Date</strong><span class="required">*</span></label><br>
+        <input type="date" id="saledate" name="saledate" placeholder="Cheese Sale Date" required min='' onclick= warn(); >
+      <lable id ="demo"></lable><br />
+      <lable><strong>Email</strong> (to receive confirmation)</label><br>
+        <input type="email" id="email" name="email" placeholder="mpatel1@josephfarms.com"><br>
+
+    </fieldset>
+    <fieldset id="fieldSetCheese">
+      <legend>
+        <h3><i>Cheese</i></h3></legend>
+      <table>
+        <tr>
+          <th>Number</th>
+          <th>Variety</th>
+          <th>Style</th>
+          <th>Size</th>
+          <th>Qty</th>
+          <th>Pounds</th>
+        </tr>
+
+        <tr>
+          <td>1<span class="required">*</span></td>
+          <td>
+            <select id="variety1" name="variety1" onchange="populateStyle('variety1','style1'), populateSize('variety1', 'size1'), GetNextMonthsThirdFriday()">
+              <option value="-" selected>Select</option>
+              <optgroup label="Jacks">
+                <option value="Marble Jack">Marble Jack</option>
+                <option value="Monterey Jack">Monterey Jack</option>
+                <option value="Pepper Jack">Pepper Jack</option>
+              </optgroup>
+              <optgroup label="Cheddars">
+                <option value="Marbled Cheddar">Marbled Cheddar</option>
+                <option value="Medium Cheddar">Medium Cheddar</option>
+                <option value="Mild Cheddar">Mild Cheddar</option>
+                <option value="Sharp Cheddar">Sharp Cheddar</option>
+              </optgroup>
+              <optgroup label="Mozzarella">
+                <option value="Part Skim Mozz">Part Skim Mozz</option>
+                <option value="Whole Milk Mozz">Whole Milk Mozz</option>
+                <option value="Mozz">Mozz</option>
+                <option value="String">String</option>
+              </optgroup>
+              <optgroup label="Other Flavors">
+                <option value="Cream Cheese">Cream Cheese</option>
+                <option value="Muenster">Muenster</option>
+                <option value="Provolone">Provolone</option>
+                <option value="Swiss">Swiss</option>
+                <option value="Variety Pack">Variety Pack</option>
+              </optgroup>
+            </select>
+          </td>
+
+          <td>
+            <select id="style1" name="style1">
+              <option value="-" selected>Select</option>
+            </select>
+          </td>
+          <td>
+            <select id="size1" name="size1" onchange="populateQty('size1','qty1'), myCalTotal()">
+              <option value="0" selected>0</option>
+            </select>
+          </td>
+          <td>
+            <select id="qty1" name="qty1" onchange="myCalTotal()">
+              <option value="0" selected>0</option>
+            </select>
+          </td>
+          <td>
+            <input id="countPounds1" name="countPounds1" type="text" value="0" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>
+            <select id="variety2" name="variety2" onchange="populateStyle('variety2','style2'), populateSize('variety2', 'size2')">
+                <option value="-" selected>Select</option>
+                <optgroup label="Jacks">
+                  <option value="Marble Jack">Marble Jack</option>
+                  <option value="Monterey Jack">Monterey Jack</option>
+                  <option value="Pepper Jack">Pepper Jack</option>
+                </optgroup>
+                <optgroup label="Cheddars">
+                  <option value="Marbled Cheddar">Marbled Cheddar</option>
+                  <option value="Medium Cheddar">Medium Cheddar</option>
+                  <option value="Mild Cheddar">Mild Cheddar</option>
+                  <option value="Sharp Cheddar">Sharp Cheddar</option>
+                </optgroup>
+                <optgroup label="Mozzarella">
+                  <option value="Part Skim Mozz">Part Skim Mozz</option>
+                  <option value="Whole Milk Mozz">Whole Milk Mozz</option>
+                  <option value="Mozz">Mozz</option>
+                  <option value="String">String</option>
+                </optgroup>
+                <optgroup label="Other Flavors">
+                  <option value="Cream Cheese">Cream Cheese</option>
+                  <option value="Muenster">Muenster</option>
+                  <option value="Provolone">Provolone</option>
+                  <option value="Swiss">Swiss</option>
+                  <option value="Variety Pack">Variety Pack</option>
+                </optgroup>
+              </select>
+          </td>
+          <td>
+            <select id="style2" name="style2">
+                <option value="-" selected>Select</option>
+              </select>
+          </td>
+          <td>
+            <select id="size2" name="size2" onchange="populateQty('size2','qty2'), myCalTotal()">
+                <option value="0" selected>0</option>
+              </select>
+          </td>
+          <td>
+            <select id="qty2" name="qty2" onchange="myCalTotal()">
+                <option value="0" selected>0</option>
+              </select>
+          </td>
+          <td>
+            <input id="countPounds2" name="countPounds2" type="text" value="0" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>
+            <select id="variety3" name="variety3" onchange="populateStyle('variety3','style3'), populateSize('variety3', 'size3')">
+                  <option value="-" selected>Select</option>
+                  <optgroup label="Jacks">
+                    <option value="Marble Jack">Marble Jack</option>
+                    <option value="Monterey Jack">Monterey Jack</option>
+                    <option value="Pepper Jack">Pepper Jack</option>
+                  </optgroup>
+                  <optgroup label="Cheddars">
+                    <option value="Marbled Cheddar">Marbled Cheddar</option>
+                    <option value="Medium Cheddar">Medium Cheddar</option>
+                    <option value="Mild Cheddar">Mild Cheddar</option>
+                    <option value="Sharp Cheddar">Sharp Cheddar</option>
+                  </optgroup>
+                  <optgroup label="Mozzarella">
+                    <option value="Part Skim Mozz">Part Skim Mozz</option>
+                    <option value="Whole Milk Mozz">Whole Milk Mozz</option>
+                    <option value="Mozz">Mozz</option>
+                    <option value="String">String</option>
+                  </optgroup>
+                  <optgroup label="Other Flavors">
+                    <option value="Cream Cheese">Cream Cheese</option>
+                    <option value="Muenster">Muenster</option>
+                    <option value="Provolone">Provolone</option>
+                    <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
+                  </optgroup>
+                </select>
+          </td>
+          <td>
+            <select id="style3" name="style3">
+              <option value="-" selected>Select</option>
+                </select>
+          </td>
+          <td>
+            <select id="size3" name="size3" onchange="populateQty('size3','qty3'), myCalTotal()">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <select id="qty3" name="qty3" onchange="myCalTotal()">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <input id="countPounds3" name="countPounds3" type="text" value="0" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>
+            <select id="variety4" name="variety4" onchange="populateStyle('variety4','style4'), populateSize('variety4', 'size4')">
+                  <option value="-" selected>Select</option>
+                  <optgroup label="Jacks">
+                    <option value="Marble Jack">Marble Jack</option>
+                    <option value="Monterey Jack">Monterey Jack</option>
+                    <option value="Pepper Jack">Pepper Jack</option>
+                  </optgroup>
+                  <optgroup label="Cheddars">
+                    <option value="Marbled Cheddar">Marbled Cheddar</option>
+                    <option value="Medium Cheddar">Medium Cheddar</option>
+                    <option value="Mild Cheddar">Mild Cheddar</option>
+                    <option value="Sharp Cheddar">Sharp Cheddar</option>
+                  </optgroup>
+                  <optgroup label="Mozzarella">
+                    <option value="Part Skim Mozz">Part Skim Mozz</option>
+                    <option value="Whole Milk Mozz">Whole Milk Mozz</option>
+                    <option value="Mozz">Mozz</option>
+                    <option value="String">String</option>
+                  </optgroup>
+                  <optgroup label="Other Flavors">
+                    <option value="Cream Cheese">Cream Cheese</option>
+                    <option value="Muenster">Muenster</option>
+                    <option value="Provolone">Provolone</option>
+                    <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
+                  </optgroup>
+                </select>
+          </td>
+          <td>
+            <select id="style4" name="style4">
+                  <option value="-" selected>Select</option>
+                </select>
+          </td>
+          <td>
+            <select id="size4" name="size4" onchange="populateQty('size4','qty4'), myCalTotal()">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <select id="qty4" name="qty4" onchange="myCalTotal()">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <input id="countPounds4" name="countPounds4" type="text" value="0" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>
+            <select id="variety5" name="variety5" onchange="populateStyle('variety5','style5'), populateSize('variety5', 'size5')">
+                  <option value="-" selected>Select</option>
+                  <optgroup label="Jacks">
+                    <option value="Marble Jack">Marble Jack</option>
+                    <option value="Monterey Jack">Monterey Jack</option>
+                    <option value="Pepper Jack">Pepper Jack</option>
+                  </optgroup>
+                  <optgroup label="Cheddars">
+                    <option value="Marbled Cheddar">Marbled Cheddar</option>
+                    <option value="Medium Cheddar">Medium Cheddar</option>
+                    <option value="Mild Cheddar">Mild Cheddar</option>
+                    <option value="Sharp Cheddar">Sharp Cheddar</option>
+                  </optgroup>
+                  <optgroup label="Mozzarella">
+                    <option value="Part Skim Mozz">Part Skim Mozz</option>
+                    <option value="Whole Milk Mozz">Whole Milk Mozz</option>
+                    <option value="Mozz">Mozz</option>
+                    <option value="String">String</option>
+                  </optgroup>
+                  <optgroup label="Other Flavors">
+                    <option value="Cream Cheese">Cream Cheese</option>
+                    <option value="Muenster">Muenster</option>
+                    <option value="Provolone">Provolone</option>
+                    <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
+                  </optgroup>
+                </select>
+          </td>
+          <td>
+            <select id="style5" name="style5">
+                  <option value="-" selected>Select</option>
+                </select>
+          </td>
+          <td>
+            <select id="size5" name="size5" onchange="populateQty('size5','qty5')">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <select id="qty5" name="qty5" onchange="myCalTotal(), myCalTotal()">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <input id="countPounds5" name="countPounds5" type="text" value="0" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>
+            <select id="variety6" name="variety6" onchange="populateStyle('variety6','style6'), populateSize('variety6', 'size6')">
+                  <option value="-" selected>Select</option>
+                  <optgroup label="Jacks">
+                    <option value="Marble Jack">Marble Jack</option>
+                    <option value="Monterey Jack">Monterey Jack</option>
+                    <option value="Pepper Jack">Pepper Jack</option>
+                  </optgroup>
+                  <optgroup label="Cheddars">
+                    <option value="Marbled Cheddar">Marbled Cheddar</option>
+                    <option value="Medium Cheddar">Medium Cheddar</option>
+                    <option value="Mild Cheddar">Mild Cheddar</option>
+                    <option value="Sharp Cheddar">Sharp Cheddar</option>
+                  </optgroup>
+                  <optgroup label="Mozzarella">
+                    <option value="Part Skim Mozz">Part Skim Mozz</option>
+                    <option value="Whole Milk Mozz">Whole Milk Mozz</option>
+                    <option value="Mozz">Mozz</option>
+                    <option value="String">String</option>
+                  </optgroup>
+                  <optgroup label="Other Flavors">
+                    <option value="Cream Cheese">Cream Cheese</option>
+                    <option value="Muenster">Muenster</option>
+                    <option value="Provolone">Provolone</option>
+                    <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
+                  </optgroup>
+                </select>
+          </td>
+          <td>
+            <select id="style6" name="style6">
+                  <option value="-" selected>Select</option>
+                </select>
+          </td>
+          <td>
+            <select id="size6" name="size6" onchange="populateQty('size6','qty6'), myCalTotal()">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <select id="qty6" name="qty6" onchange="myCalTotal()">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <input id="countPounds6" name="countPounds6" type="text" value="0" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>
+            <select id="variety7" name="variety7" onchange="populateStyle('variety7','style7'), populateSize('variety7', 'size7')">
+                  <option value="-" selected>Select</option>
+                  <optgroup label="Jacks">
+                    <option value="Marble Jack">Marble Jack</option>
+                    <option value="Monterey Jack">Monterey Jack</option>
+                    <option value="Pepper Jack">Pepper Jack</option>
+                  </optgroup>
+                  <optgroup label="Cheddars">
+                    <option value="Marbled Cheddar">Marbled Cheddar</option>
+                    <option value="Medium Cheddar">Medium Cheddar</option>
+                    <option value="Mild Cheddar">Mild Cheddar</option>
+                    <option value="Sharp Cheddar">Sharp Cheddar</option>
+                  </optgroup>
+                  <optgroup label="Mozzarella">
+                    <option value="Part Skim Mozz">Part Skim Mozz</option>
+                    <option value="Whole Milk Mozz">Whole Milk Mozz</option>
+                    <option value="Mozz">Mozz</option>
+                    <option value="String">String</option>
+                  </optgroup>
+                  <optgroup label="Other Flavors">
+                    <option value="Cream Cheese">Cream Cheese</option>
+                    <option value="Muenster">Muenster</option>
+                    <option value="Provolone">Provolone</option>
+                    <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
+                  </optgroup>
+                </select>
+          </td>
+          <td>
+            <select id="style7" name="style7">
+                  <option value="-" selected>Select</option>
+                </select>
+          </td>
+          <td>
+            <select id="size7" name="size7" onchange="populateQty('size7','qty7'), myCalTotal()">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <select id="qty7" name="qty7" onchange="myCalTotal()">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <input id="countPounds7" name="countPounds7" type="text" value="0" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>
+            <select id="variety8" name="variety8" onchange="populateStyle('variety8','style8'), populateSize('variety8', 'size8')">
+                  <option value="-" selected>Select</option>
+                  <optgroup label="Jacks">
+                    <option value="Marble Jack">Marble Jack</option>
+                    <option value="Monterey Jack">Monterey Jack</option>
+                    <option value="Pepper Jack">Pepper Jack</option>
+                  </optgroup>
+                  <optgroup label="Cheddars">
+                    <option value="Marbled Cheddar">Marbled Cheddar</option>
+                    <option value="Medium Cheddar">Medium Cheddar</option>
+                    <option value="Mild Cheddar">Mild Cheddar</option>
+                    <option value="Sharp Cheddar">Sharp Cheddar</option>
+                  </optgroup>
+                  <optgroup label="Mozzarella">
+                    <option value="Part Skim Mozz">Part Skim Mozz</option>
+                    <option value="Whole Milk Mozz">Whole Milk Mozz</option>
+                    <option value="Mozz">Mozz</option>
+                    <option value="String">String</option>
+                  </optgroup>
+                  <optgroup label="Other Flavors">
+                    <option value="Cream Cheese">Cream Cheese</option>
+                    <option value="Muenster">Muenster</option>
+                    <option value="Provolone">Provolone</option>
+                    <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
+                  </optgroup>
+                </select>
+          </td>
+          <td>
+            <select id="style8" name="style8">
+                  <option value="-" selected>Select</option>
+                </select>
+          </td>
+          <td>
+            <select id="size8" name="size8" onchange="populateQty('size8','qty8'), myCalTotal()">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <select id="qty8" name="qty8" onchange="myCalTotal()">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <input id="countPounds8" name="countPounds8" type="text" value="0" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>
+            <select id="variety9" name="variety9" onchange="populateStyle('variety9','style9'), populateSize('variety9', 'size9')">
+                  <option value="-" selected>Select</option>
+                  <optgroup label="Jacks">
+                    <option value="Marble Jack">Marble Jack</option>
+                    <option value="Monterey Jack">Monterey Jack</option>
+                    <option value="Pepper Jack">Pepper Jack</option>
+                  </optgroup>
+                  <optgroup label="Cheddars">
+                    <option value="Marbled Cheddar">Marbled Cheddar</option>
+                    <option value="Medium Cheddar">Medium Cheddar</option>
+                    <option value="Mild Cheddar">Mild Cheddar</option>
+                    <option value="Sharp Cheddar">Sharp Cheddar</option>
+                  </optgroup>
+                  <optgroup label="Mozzarella">
+                    <option value="Part Skim Mozz">Part Skim Mozz</option>
+                    <option value="Whole Milk Mozz">Whole Milk Mozz</option>
+                    <option value="Mozz">Mozz</option>
+                    <option value="String">String</option>
+                  </optgroup>
+                  <optgroup label="Other Flavors">
+                    <option value="Cream Cheese">Cream Cheese</option>
+                    <option value="Muenster">Muenster</option>
+                    <option value="Provolone">Provolone</option>
+                    <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
+                  </optgroup>
+                </select>
+          </td>
+          <td>
+            <select id="style9" name="style9">
+                  <option value="-" selected>Select</option>
+                </select>
+          </td>
+          <td>
+            <select id="size9" name="size9" onchange="populateQty('size9','qty9'), myCalTotal()">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <select id="qty9" name="qty9" onchange="myCalTotal()">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <input id="countPounds9" name="countPounds9" type="text" value="0" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>
+            <select id="variety10" name="variety10" onchange="populateStyle('variety10','style10'), populateSize('variety10', 'size10')">
+                  <option value="-" selected>Select</option>
+                  <optgroup label="Jacks">
+                    <option value="Marble Jack">Marble Jack</option>
+                    <option value="Monterey Jack">Monterey Jack</option>
+                    <option value="Pepper Jack">Pepper Jack</option>
+                  </optgroup>
+                  <optgroup label="Cheddars">
+                    <option value="Marbled Cheddar">Marbled Cheddar</option>
+                    <option value="Medium Cheddar">Medium Cheddar</option>
+                    <option value="Mild Cheddar">Mild Cheddar</option>
+                    <option value="Sharp Cheddar">Sharp Cheddar</option>
+                  </optgroup>
+                  <optgroup label="Mozzarella">
+                    <option value="Part Skim Mozz">Part Skim Mozz</option>
+                    <option value="Whole Milk Mozz">Whole Milk Mozz</option>
+                    <option value="Mozz">Mozz</option>
+                    <option value="String">String</option>
+                  </optgroup>
+                  <optgroup label="Other Flavors">
+                    <option value="Cream Cheese">Cream Cheese</option>
+                    <option value="Muenster">Muenster</option>
+                    <option value="Provolone">Provolone</option>
+                    <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
+                  </optgroup>
+                </select>
+          </td>
+          <td>
+            <select id="style10" name="style10">
+                  <option value="-" selected>Select</option>
+                </select>
+          </td>
+          <td>
+            <select id="size10" name="size10" onchange="populateQty('size10','qty10'), myCalTotal()">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <select id="qty10" name="qty10" onchange="myCalTotal()">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <input id="countPounds10" name="countPounds10" type="text" value="0" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>
+            <select id="variety11" name="variety11" onchange="populateStyle('variety11','style11'), populateSize('variety11', 'size11')">
+                  <option value="-" selected>Select</option>
+                  <optgroup label="Jacks">
+                    <option value="Marble Jack">Marble Jack</option>
+                    <option value="Monterey Jack">Monterey Jack</option>
+                    <option value="Pepper Jack">Pepper Jack</option>
+                  </optgroup>
+                  <optgroup label="Cheddars">
+                    <option value="Marbled Cheddar">Marbled Cheddar</option>
+                    <option value="Medium Cheddar">Medium Cheddar</option>
+                    <option value="Mild Cheddar">Mild Cheddar</option>
+                    <option value="Sharp Cheddar">Sharp Cheddar</option>
+                  </optgroup>
+                  <optgroup label="Mozzarella">
+                    <option value="Part Skim Mozz">Part Skim Mozz</option>
+                    <option value="Whole Milk Mozz">Whole Milk Mozz</option>
+                    <option value="Mozz">Mozz</option>
+                    <option value="String">String</option>
+                  </optgroup>
+                  <optgroup label="Other Flavors">
+                    <option value="Cream Cheese">Cream Cheese</option>
+                    <option value="Muenster">Muenster</option>
+                    <option value="Provolone">Provolone</option>
+                    <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
+                  </optgroup>
+                </select>
+          </td>
+          <td>
+            <select id="style11" name="style11">
+                  <option value="-" selected>Select</option>
+                </select>
+          </td>
+          <td>
+            <select id="size11" name="size11" onchange="populateQty('size11','qty11'), myCalTotal()">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <select id="qty11" name="qty11" onchange="myCalTotal()">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <input id="countPounds11" name="countPounds11" type="text" value="0" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>
+            <select id="variety12" name="variety12" onchange="populateStyle('variety12','style12'), populateSize('variety12', 'size12')">
+                  <option value="-" selected>Select</option>
+                  <optgroup label="Jacks">
+                    <option value="Marble Jack">Marble Jack</option>
+                    <option value="Monterey Jack">Monterey Jack</option>
+                    <option value="Pepper Jack">Pepper Jack</option>
+                  </optgroup>
+                  <optgroup label="Cheddars">
+                    <option value="Marbled Cheddar">Marbled Cheddar</option>
+                    <option value="Medium Cheddar">Medium Cheddar</option>
+                    <option value="Mild Cheddar">Mild Cheddar</option>
+                    <option value="Sharp Cheddar">Sharp Cheddar</option>
+                  </optgroup>
+                  <optgroup label="Mozzarella">
+                    <option value="Part Skim Mozz">Part Skim Mozz</option>
+                    <option value="Whole Milk Mozz">Whole Milk Mozz</option>
+                    <option value="Mozz">Mozz</option>
+                    <option value="String">String</option>
+                  </optgroup>
+                  <optgroup label="Other Flavors">
+                    <option value="Cream Cheese">Cream Cheese</option>
+                    <option value="Muenster">Muenster</option>
+                    <option value="Provolone">Provolone</option>
+                    <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
+                  </optgroup>
+                </select>
+          </td>
+          <td>
+            <select id="style12" name="style12">
+                  <option value="-" selected>Select</option>
+                </select>
+          </td>
+          <td>
+            <select id="size12" name="size12" onchange="populateQty('size12','qty12'), myCalTotal()">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <select id="qty12" name="qty12" onchange="myCalTotal()">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <input id="countPounds12" name="countPounds12" type="text" value="0" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>
+            <select id="variety13" name="variety13" onchange="populateStyle('variety13','style13'), populateSize('variety13', 'size13')">
+                  <option value="-" selected>Select</option>
+                  <optgroup label="Jacks">
+                    <option value="Marble Jack">Marble Jack</option>
+                    <option value="Monterey Jack">Monterey Jack</option>
+                    <option value="Pepper Jack">Pepper Jack</option>
+                  </optgroup>
+                  <optgroup label="Cheddars">
+                    <option value="Marbled Cheddar">Marbled Cheddar</option>
+                    <option value="Medium Cheddar">Medium Cheddar</option>
+                    <option value="Mild Cheddar">Mild Cheddar</option>
+                    <option value="Sharp Cheddar">Sharp Cheddar</option>
+                  </optgroup>
+                  <optgroup label="Mozzarella">
+                    <option value="Part Skim Mozz">Part Skim Mozz</option>
+                    <option value="Whole Milk Mozz">Whole Milk Mozz</option>
+                    <option value="Mozz">Mozz</option>
+                    <option value="String">String</option>
+                  </optgroup>
+                  <optgroup label="Other Flavors">
+                    <option value="Cream Cheese">Cream Cheese</option>
+                    <option value="Muenster">Muenster</option>
+                    <option value="Provolone">Provolone</option>
+                    <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
+                  </optgroup>
+                </select>
+          </td>
+          <td>
+            <select id="style13" name="style13">
+                  <option value="-" selected>Select</option>
+                </select>
+          </td>
+          <td>
+            <select id="size13" name="size13" onchange="populateQty('size13','qty13'), myCalTotal()">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <select id="qty13" name="qty13" onchange="myCalTotal()">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <input id="countPounds13" name="countPounds13" type="text" value="0" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>
+            <select id="variety14" name="variety14" onchange="populateStyle('variety14','style14'), populateSize('variety14', 'size14')">
+                  <option value="-" selected>Select</option>
+                  <optgroup label="Jacks">
+                    <option value="Marble Jack">Marble Jack</option>
+                    <option value="Monterey Jack">Monterey Jack</option>
+                    <option value="Pepper Jack">Pepper Jack</option>
+                  </optgroup>
+                  <optgroup label="Cheddars">
+                    <option value="Marbled Cheddar">Marbled Cheddar</option>
+                    <option value="Medium Cheddar">Medium Cheddar</option>
+                    <option value="Mild Cheddar">Mild Cheddar</option>
+                    <option value="Sharp Cheddar">Sharp Cheddar</option>
+                  </optgroup>
+                  <optgroup label="Mozzarella">
+                    <option value="Part Skim Mozz">Part Skim Mozz</option>
+                    <option value="Whole Milk Mozz">Whole Milk Mozz</option>
+                    <option value="Mozz">Mozz</option>
+                    <option value="String">String</option>
+                  </optgroup>
+                  <optgroup label="Other Flavors">
+                    <option value="Cream Cheese">Cream Cheese</option>
+                    <option value="Muenster">Muenster</option>
+                    <option value="Provolone">Provolone</option>
+                    <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
+                  </optgroup>
+                </select>
+          </td>
+          <td>
+            <select id="style14" name="style14">
+                  <option value="-" selected>Select</option
+                </select>
+          </td>
+          <td>
+            <select id="size14" name="size14" onchange="populateQty('size14','qty14'), myCalTotal()">
+                  <option value="0" selected>0</option
+                </select>
+          </td>
+          <td>
+            <select id="qty14" name="qty14" onchange="myCalTotal()">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <input id="countPounds14" name="countPounds14" type="text" value="0" readonly>
+          </td>
+        </tr>
+
+        </script>
+
+        <tr>
+          <td>15</td>
+          <td>
+            <select id="variety15" name="variety15" onchange="populateStyle('variety15','style15'), populateSize('variety15', 'size15')">
+                  <option value="-" selected>Select</option>
+                  <optgroup label="Jacks">
+                    <option value="Marble Jack">Marble Jack</option>
+                    <option value="Monterey Jack">Monterey Jack</option>
+                    <option value="Pepper Jack">Pepper Jack</option>
+                  </optgroup>
+                  <optgroup label="Cheddars">
+                    <option value="Marbled Cheddar">Marbled Cheddar</option>
+                    <option value="Medium Cheddar">Medium Cheddar</option>
+                    <option value="Mild Cheddar">Mild Cheddar</option>
+                    <option value="Sharp Cheddar">Sharp Cheddar</option>
+                  </optgroup>
+                  <optgroup label="Mozzarella">
+                    <option value="Part Skim Mozz">Part Skim Mozz</option>
+                    <option value="Whole Milk Mozz">Whole Milk Mozz</option>
+                    <option value="Mozz">Mozz</option>
+                    <option value="String">String</option>
+                  </optgroup>
+                  <optgroup label="Other Flavors">
+                    <option value="Cream Cheese">Cream Cheese</option>
+                    <option value="Muenster">Muenster</option>
+                    <option value="Provolone">Provolone</option>
+                    <option value="Swiss">Swiss</option>
+                    <option value="Variety Pack">Variety Pack</option>
+                  </optgroup>
+                </select>
+          </td>
+          <td>
+            <select id="style15" name="style15">
+                  <option value="-" selected>Select</option>
+                </select>
+          </td>
+          <td>
+            <select id="size15" name="size15" onchange="populateQty('size15','qty15'), myCalTotal()">
+                  <option value="0" selected>0</option>
+            </select>
+          </td>
+          <td>
+            <select id="qty15" name="qty15" onchange="myCalTotal()">
+                  <option value="0" selected>0</option>
+                </select>
+          </td>
+          <td>
+            <input id="countPounds15" name="countPounds15" type="text" value="0" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td><input id="variety16" type="text" name="variety16" placeholder="Type"><br></td>
+          <td><input id="style16" type="text" name="style16" placeholder="Type"><br></td>
+          <!-- <td><input id="size16" type="text" name="size16" placeholder="0"><br></td> -->
+          <td>
+            <select id="size16" name="size16" onchange="myCalTotal()">
+                  <option value="0" selected>0</option>
+                  <option value="8 oz">8 oz</option>
+                  <option value="1 lb">1 lb</option>
+                  <option value="2 lb">2 lb</option>
+                  <option value="4 lb">4 lb</option>
+                  <option value="5 lb">5 lb</option>
+                </select>
+          </td>
+          <td>
+            <select id="qty16" name="qty16" onchange="myCalTotal()">
+                  <option value="0" selected>0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                </select>
+          </td>
+          <td>
+            <input id="countPounds16" name="countPounds16" type="text" value="0" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td><h4 id="totalPadding">Total </h4></td>
+          <td>
+            <h4>Pounds: </h4>
+          </td>
+          <td>
+            <p id="total" name="totalPounds"></p>
+          </td>
+        </tr>
+      </table>
+
+      <label for="comments"><strong>Comment: </strong></label><br />
+      <textarea id="comments" name="comments" placeholder="Special order request..."></textarea><br><br />
+
+      <button id="reset" type="reset" onclick="myReset()";><strong>Reset</strong></button>
+      <button id="submit" type="submit"><strong>Submit</strong></button>
+    </fieldset>
+  </form>
+
+<!-- SCRIPT SCRIPT-->
+  <script>
+    function populateStyle(vari,sty) {
+      var vari = document.getElementById(vari);
+      var sty = document.getElementById(sty);
+      sty.innerHTML = "";
+      if(vari.value == "-") {
+        var optionArray = ["select|Select"];
+      }else if(vari.value == "Monterey Jack" | vari.value == "Mild Cheddar" | vari.value == "Chunk") {
+          var optionArray = ["select|Select","Chunk|Chunk","Shred|Shred","Sliced|Sliced",];
+       }else if(vari.value == "Marble Jack") {
+          var optionArray = ["select|Select","Chunk|Chunk"];
+       }else if(vari.value == "Monterey Jack") {
+           var optionArray = ["select|Select","Chunk|Chunk","Shred|Shred","Sliced|Sliced"];
+       }else if(vari.value == "Pepper Jack") {
+           var optionArray = ["select|Select","Chunk|Chunk","Sliced|Sliced"];
+       }else if(vari.value == "Marble Jack" | vari.value == "Pepper Jack" | vari.value == "Medium Cheddar" | vari.value == "Cream Cheese") {
+           var optionArray = ["select|Select","Chunk|Chunk","Sliced|Sliced"];
+       }else if(vari.value == "Cream Cheese") {
+           var optionArray = ["select|Select","Chunk|Chunk"];
+       } else if(vari.value == "Sharp Cheddar") {
+           var optionArray = ["select|Select","Chunk|Chunk","Shred|Shred"];
+       } else if(vari.value == "Marbled Cheddar") {
+           var optionArray = ["select|Select","Chunk|Chunk","Shred|Shred","Sliced|Sliced"];
+       } else if(vari.value == "Pasta Filta") {
+           var optionArray = ["select|Select","Ball|Ball","Chunk|Chunk","Sticks|Sticks"];
+       } else if(vari.value == "Muenster") {
+           var optionArray = ["select|Select","Sliced|Sliced"];
+       } else if(vari.value == "Swiss") {
+           var optionArray = ["select|Select","Chunk|Chunk" ,"Sliced|Sliced"];
+       } else if(vari.value == "Provolone" | vari.value == "Variety Pack") {
+           var optionArray = ["select|Select","Sliced|Sliced"];
+       } else if(vari.value == "Part Skim Mozz" | vari.value == "Whole Milk Mozz") {
+           var optionArray = ["select|Select","Ball|Ball"];
+       } else if(vari.value == "Mozz") {
+           var optionArray = ["select|Select","Chunk|Chunk"];
+       } else if(vari.value == "String") {
+           var optionArray = ["select|Select","String|String"];
+       }
+
+      for(var option in optionArray) {
+        var pair = optionArray[option].split("|");
+        var newOption = document.createElement("option");
+        newOption.value = pair[0];
+        newOption.innerHTML = pair[1];
+        sty.options.add(newOption);
+      }
+    }
+
+    function populateSize(vari,siz) {
+      var vari = document.getElementById(vari);
+      var siz = document.getElementById(siz);
+      siz.innerHTML = "";
+      if(vari.value == "-") {
+        var optionArray = ["select|Select"];
+      }else if(vari.value == "Monterey Jack" | vari.value == "Mild Cheddar" | vari.value == "Medium Cheddar") {
+          var optionArray = ["0|0","8 oz|8 oz","1 lb|1 lb","2 lb|2 lb","4 lb|4 lb"];
+       }else if(vari.value == "Marble Jack" | vari.value == "Sharp Cheddar") {
+           var optionArray = ["0|0","8 oz|8 oz","1 lb|1 lb","2 lb|2 lb","4 lb|4 lb"];
+       }else if(vari.value == "Chunk") {
+           var optionArray = ["0|0","1 lb|1 lb","4 lb|4 lb"];
+       } else if(vari.value == "Pepper Jack" | vari.value == "Marbled Cheddar") {
+           var optionArray = ["0|0","8 oz|8 oz","1 lb|1 lb","2 lb|2 lb"];
+       } else if(vari.value == "Pasta Filta") {
+           var optionArray = ["0|0","12 oz|12 oz","1 lb|1 lb","6 lb|6 lb"];
+       } else if(vari.value == "Cream Cheese") {
+           var optionArray = ["0|0","8 oz|8 oz"];
+       } else if(vari.value == "Muenster") {
+           var optionArray = ["0|0","8 oz|8 oz"];
+       } else if(vari.value == "Provolone") {
+           var optionArray = ["0|0","8 oz|8 oz"];
+       } else if(vari.value == "Swiss") {
+           var optionArray = ["0|0","8 oz|8 oz", "1 lb|1 lb","4 lb|4 lb"];
+       } else if(vari.value == "Variety Pack") {
+           var optionArray = ["0|0","2 lb|2 lb"];
+       } else if(vari.value == "Part Skim Mozz" | vari.value == "Whole Milk Mozz") {
+           var optionArray = ["0|0","1 lb|1 lb","2 lb|2 lb"];
+       } else if(vari.value == "Mozz") {
+         var optionArray = ["0|0","8 oz|8 oz", "1 lb|1 lb","2 lb|2 lb" ,"4 lb|4 lb"];
+       } else if(vari.value == "String") {
+         var optionArray = ["0|0","1 lb|1 lb"];
+       }
+      for(var option in optionArray) {
+        var pair = optionArray[option].split("|");
+        var newOption = document.createElement("option");
+        newOption.value = pair[0];
+        newOption.innerHTML = pair[1];
+        siz.options.add(newOption);
+      }
+    }
+
+  function populateQty(siz,qt) {
+  var siz = document.getElementById(siz);
+  var qt = document.getElementById(qt);
+  qt.innerHTML = "";
+  // if(siz.value) == "select") {
+  //   var optionArray = ["select|Select"];
+  // }
+  if(siz.value == "12 oz") {
+      var optionArray = ["0|0","3|3","6|6","9|9","12|12","15|15"];
+   } else {
+     var optionArray = ["0|0","1|1","2|2","3|3","4|4","5|5","6|6","7|7","8|8","9|9","10|10","11|11","12|12","13|13","14|14","15|15"];
+   }
+
+  for(var option in optionArray) {
+    var pair = optionArray[option].split("|");
+    var newOption = document.createElement("option");
+    newOption.value = pair[0];
+    newOption.innerHTML = pair[1];
+    qt.options.add(newOption);
+  }
+}
+  </script>
+
+  <!-- Code to reset total box with reset button. -->
+  <script>
+    function myReset() {
+      document.getElementById("total").innerHTML = "";
+    }
+  </script>
+
+<!-- Setting the minimun value for cheeseSaleDate. -->
+  <script>
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0
+    var yyyy = today.getFullYear();
+    dd = dd + 3;
+    if (dd < 10) {
+      dd = '0' + dd
+    }
+    if (mm < 10) {
+      mm = '0' + mm
+    }
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("saledate").setAttribute("min", today);
+  </script>
+
+<script>
+  function countPounds() {
+    // var calPounds1 =
+  }
+</script>
+
+  <script>
+    function myCalTotal() {
+      var calQty1 = document.getElementById("qty1").value;
+      var calQty2 = document.getElementById("qty2").value;
+      var calQty3 = document.getElementById("qty3").value;
+      var calQty4 = document.getElementById("qty4").value;
+      var calQty5 = document.getElementById("qty5").value;
+      var calQty6 = document.getElementById("qty6").value;
+      var calQty7 = document.getElementById("qty7").value;
+      var calQty8 = document.getElementById("qty8").value;
+      var calQty9 = document.getElementById("qty9").value;
+      var calQty10 = document.getElementById("qty10").value;
+      var calQty11 = document.getElementById("qty11").value;
+      var calQty12 = document.getElementById("qty12").value;
+      var calQty13 = document.getElementById("qty13").value;
+      var calQty14 = document.getElementById("qty14").value;
+      var calQty15 = document.getElementById("qty15").value;
+      var calQty16 = document.getElementById("qty16").value;
+
+      var calSize1 = document.getElementById("size1").value;
+      var calSize2 = document.getElementById("size2").value;
+      var calSize3 = document.getElementById("size3").value;
+      var calSize4 = document.getElementById("size4").value;
+      var calSize5 = document.getElementById("size5").value;
+      var calSize6 = document.getElementById("size6").value;
+      var calSize7 = document.getElementById("size7").value;
+      var calSize8 = document.getElementById("size8").value;
+      var calSize9 = document.getElementById("size9").value;
+      var calSize10 = document.getElementById("size10").value;
+      var calSize11 = document.getElementById("size11").value;
+      var calSize12 = document.getElementById("size12").value;
+      var calSize13 = document.getElementById("size13").value;
+      var calSize14 = document.getElementById("size14").value;
+      var calSize15 = document.getElementById("size15").value;
+      var calSize16 = document.getElementById("size16").value;
+
+      if (parseInt(calSize1) == 8) {
+        calSize1 = 0.5;
+      }
+      if (parseInt(calSize2) == 8) {
+        calSize2 = 0.5;
+      }
+      if (parseInt(calSize3) == 8) {
+        calSize3 = 0.5;
+      }
+      if (parseInt(calSize4) == 8) {
+        calSize4 = 0.5;
+      }
+      if (parseInt(calSize5) == 8) {
+        calSize5 = 0.5;
+      }
+      if (parseInt(calSize6) == 8) {
+        calSize6 = 0.5;
+      }
+      if (parseInt(calSize7) == 8) {
+        calSize7 = 0.5;
+      }
+      if (parseInt(calSize8) == 8) {
+        calSize8 = 0.5;
+      }
+      if (parseInt(calSize9) == 8) {
+        calSize9 = 0.5;
+      }
+      if (parseInt(calSize10) == 8) {
+        calSize10 = 0.5;
+      }
+      if (parseInt(calSize11) == 8) {
+        calSize11 = 0.5;
+      }
+      if (parseInt(calSize12) == 8) {
+        calSize12 = 0.5;
+      }
+      if (parseInt(calSize13) == 8) {
+        calSize13 = 0.5;
+      }
+      if (parseInt(calSize14) == 8) {
+        calSize14 = 0.5;
+      }
+      if (parseInt(calSize15) == 8) {
+        calSize15 = 0.5;
+      }
+      if (parseInt(calSize16) == 8) {
+        calSize16 = 0.5;
+      }
+
+      var calTotal = (parseInt(calQty1) * parseFloat(calSize1)) + (parseInt(calQty2) * parseFloat(calSize2)) + (parseInt(calQty3) * parseFloat(calSize3)) +
+                     (parseInt(calQty4) * parseFloat(calSize4)) + (parseInt(calQty5) * parseFloat(calSize5)) + (parseInt(calQty6) * parseFloat(calSize6)) +
+                     (parseInt(calQty7) * parseFloat(calSize7)) + (parseInt(calQty8) * parseFloat(calSize8)) + (parseInt(calQty9) * parseFloat(calSize9)) +
+                     (parseInt(calQty10) * parseFloat(calSize10)) + (parseInt(calQty11) * parseFloat(calSize11)) + (parseInt(calQty12) * parseFloat(calSize12)) +
+                     (parseInt(calQty13) * parseFloat(calSize13)) + (parseInt(calQty14) * parseFloat(calSize14)) + (parseInt(calQty15) * parseFloat(calSize15)) +
+                     (parseInt(calQty16) * parseFloat(calQty16))
+
+      // Alert Message!
+      if (parseInt(calTotal) > 15) {
+       alert("Employee’s are allowed a maximum of 15 pounds for Monthly Cheese Orders. To submit the order, please lower the pounds.");
+       document.getElementById("total").innerHTML = calTotal;
+       document.getElementById("submit").disabled = true;
+     } else {
+       document.getElementById("total").innerHTML = calTotal;
+       document.getElementById("submit").disabled = false;
+       }
+
+      var countPounds1 = (parseInt(calQty1) * parseFloat(calSize1));
+      var countPounds2 = (parseInt(calQty2) * parseFloat(calSize2));
+      var countPounds3 = (parseInt(calQty3) * parseFloat(calSize3));
+      var countPounds4 = (parseInt(calQty4) * parseFloat(calSize4));
+      var countPounds5 = (parseInt(calQty5) * parseFloat(calSize5));
+      var countPounds6 = (parseInt(calQty6) * parseFloat(calSize6));
+      var countPounds7 = (parseInt(calQty7) * parseFloat(calSize7));
+      var countPounds8 = (parseInt(calQty8) * parseFloat(calSize8));
+      var countPounds9 = (parseInt(calQty9) * parseFloat(calSize9));
+      var countPounds10 = (parseInt(calQty10) * parseFloat(calSize10));
+      var countPounds11 = (parseInt(calQty11) * parseFloat(calSize11));
+      var countPounds12 = (parseInt(calQty12) * parseFloat(calSize12));
+      var countPounds13 = (parseInt(calQty13) * parseFloat(calSize13));
+      var countPounds14 = (parseInt(calQty14) * parseFloat(calSize14));
+      var countPounds15 = (parseInt(calQty15) * parseFloat(calSize15));
+      var countPounds16 = (parseInt(calQty16) * parseFloat(calSize16));
+
+      // console.log("total pounds 1: "+countPounds1);
+      // console.log("total pounds 2: "+countPounds2);
+      // console.log("total pounds 3: "+countPounds3);
+      // console.log("total pounds 4: "+countPounds4);
+      // console.log("total pounds 5: "+countPounds5);
+
+      document.getElementById("countPounds1").value = countPounds1;
+      document.getElementById("countPounds2").value = countPounds2;
+      document.getElementById("countPounds3").value = countPounds3;
+      document.getElementById("countPounds4").value = countPounds4;
+      document.getElementById("countPounds5").value = countPounds5;
+      document.getElementById("countPounds6").value = countPounds6;
+      document.getElementById("countPounds7").value = countPounds7;
+      document.getElementById("countPounds8").value = countPounds8;
+      document.getElementById("countPounds9").value = countPounds9;
+      document.getElementById("countPounds10").value = countPounds10;
+      document.getElementById("countPounds11").value = countPounds11;
+      document.getElementById("countPounds12").value = countPounds12;
+      document.getElementById("countPounds13").value = countPounds13;
+      document.getElementById("countPounds14").value = countPounds14;
+      document.getElementById("countPounds15").value = countPounds15;
+      document.getElementById("countPounds16").value = countPounds16;
+
+      var calPounds = parseFloat(countPounds1) + parseFloat(countPounds2) + parseFloat(countPounds3) +
+                      parseFloat(countPounds4) + parseFloat(countPounds5) + parseFloat(countPounds6) +
+                      parseFloat(countPounds7) + parseFloat(countPounds8) + parseFloat(countPounds9) +
+                      parseFloat(countPounds10) + parseFloat(countPounds11) + parseFloat(countPounds12) +
+                      parseFloat(countPounds13) + parseFloat(countPounds14) + parseFloat(countPounds15) +
+                      parseFloat(countPounds16);
+    console.log("Pounds all total: " + calPounds);
+                  }
+  </script>
+
+  <script >
+  function warn() {
+    var myName = "Third Friday of every month!";
+     document.getElementById('demo').innerHTML= myName;
+  }
+  </script>
+
+  <script>
+  function GetNextMonthsThirdFriday(){
+      // console.log("into the function: ");
+      // var date = new Date();
+      // console.log("Here is the date: " + date);
+      // var month = date.getMonth() + 1;
+      // if (month < 10) {
+      //   month = '0' + month
+      // }
+      // console.log("Here is the month: " + month);
+      // var year = date.getFullYear();
+      // console.log("Here is the year: " + year);
+      // var newDate = month + '/' + '01' + '/' + year;
+      // console.log("New Date: " + newDate);
+      // var date = new Date();
+      // var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+      // console.log("First Day of month: " + firstDay);
+
+      // var fridayCount = 0;
+      //
+      // if (date.getDay() === 5){
+      //   console.log("Its friday");
+      // }
+
+      // while (fridayCount < 2){
+      //     if (date.getDay() === 5){
+      //         break;
+      //     }
+      //
+      //     date = new Date(date.getYear() + 1900, date.getMonth(), (date.getDate() + 1));
+      // }
+      // var day = date.getDay();
+      // console.log("here is the day: " + day)
+      // var newDate = new Date(date.getYear() + 1900, date.getMonth(), (date.getDate() + 14));
+      // console.log("New Date at the end: " + newDate);
+
+//// TODO: Set Default date to sale date automaticaly.
+//Kind of works
+      // var date = new Date();
+      // console.log("Date is: " + date);
+      // date.setDate(1);
+      //
+      // console.log("New Date: " + date);
+      // var test = date.getDay();
+      // console.log("Test day is: " + test);
+
+      var date = new Date();
+      console.log("Today's date: " + date);
+      var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+      console.log("Date: " + firstDay);
+      //date.setDate(01);
+      var date = date.getDay();
+      console.log(date);
+
+      // var fridayCount = 0;
+      // //
+      // // if (date = 5){
+      // //   console.log("Its friday");
+      // // }
+      //
+      // while (fridayCount < 3){
+      //     if (date = 5){
+      //         console.log("hello");
+      //         break;
+      //     }
+  //}
+}
+  </script>

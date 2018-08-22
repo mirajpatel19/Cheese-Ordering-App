@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Pick List</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="/../app.js"></script>
+  <script src="pickListCtrl.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+  <link rel="stylesheet" href="/styles.css">
+
+</head>
+
+<body ng-app="myApp">
+  <img src="/../images/joseph-farms-cheese-header.jpg" alt="Joseph Gallo Farms Image">
+  <h1 id='title'>Pick List</h1>
+
+  <div ng-controller="pickListCtrl">
+    <div id="pickListForm">
+      <form name="searchDate">
+        <lable>
+          <strong>Cheese Sale Date</strong>
+          <span class="required">*</span>
+          </label>
+          <input type="date" name="date" ng-model="data.date">
+          <button ng-click="send()">
+            <strong>Search</strong>
+          </button>
+      </form>
+    </div>
+    <br />
+    <br />
+    <b>Filter:</b>
+    <input ng-model="query" type="search" placeholder="Search">
+    <a id="navigateLink" href="/orders.html">Go to Orders</a>
+    <table id="sortTable">
+
+      <th>
+        <a id="heading" href="" ng-click="sortField = 'saledate'; reverse = !reverse">Sale Date</th>
+      <th>
+        <a id="heading" href="" ng-click="sortField = 'variety'; reverse = !reverse">Variety</th>
+      <th>
+        <a id="heading" href="" ng-click="sortField = 'style'; reverse = !reverse">Style</th>
+      <th>
+        <a id="heading" href="" ng-click="sortField = 'size'; reverse = !reverse">Size</th>
+      <th>
+        <a id="heading" href="" ng-click="sortField = 'qty'; reverse = !reverse">Total Qty</th>
+      <th>
+        <a id="heading" href="" ng-click="sortField = 'count'; reverse = !reverse">Orders</th>
+
+
+      </tr>
+      <tr id="sortData" ng-repeat="order in orders | filter:query | orderBy:sortField:!reverse">
+        <td>{{order.saledate}}</td>
+        <td>{{order.variety}}</td>
+        <td>{{order.style}}</td>
+        <td>{{order.size}}</td>
+        <td>{{order.qty}}</td>
+
+        <td>
+          <a href="/orders.html" target="_blank" ng-click="getOrder($index)"> {{order.count}}</a>
+        </td>
+      </tr>
+    </table>
+
+    <p>255 time 16 is:</p>
+
+    <p>{{num}}</p>
+  </div>
+
+  <!-- <script>
+    var app = angular.module('myApp', []);
+
+    //Created service
+    app.service('myService', function() {
+      this.myFunc = function (x) {
+        return x;
+      }
+    })
+    app.controller('pickListCtrl', function($scope, $http, myService) {
+      //calling the service
+      //$scope.num = myService.myFunc(255);
+
+      $scope.date = ' ';
+
+      $scope.send = function () {
+          console.log("inside send function");
+          console.log($scope.data.date);
+
+          var posting = $http({
+              method: 'POST',
+              url: '/picklist',
+              data: {'date' : $scope.data.date }
+          }).then(function(response) {
+            $scope.orders = response.data;
+            console.log($scope.orders);
+
+            $scope.getOrder = function(index) {
+              $scope.fullOrder = $scope.orders[index];
+              console.log($scope.fullOrder);
+              $scope.num = myService.myFunc($scope.fullOrder);
+              //// TODO: send the data to orderlist for filter.
+            };
+
+
+            $scope.sortField = 'userid';
+            $scope.reverse = true;
+          })
+        }
+    });
+     </script> -->
+</body>
+
+</html>
